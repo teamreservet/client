@@ -1,0 +1,36 @@
+.sign-up-and-log-in-page {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+
+  .container {
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+    margin-top: 70px;
+
+    .reservet-logo-container {
+      width: 50%;
+      border-right: 1px solid grey;
+
+      .reservet-logo {
+        width: 70%;
+        position: relative;
+        top: 50%;
+        left: 35%;
+        transform: translate(-50%, -50%);
+      }
+    }
+    .authentication {
+      width: 50%;
+      text-align: center;
+      margin: auto;
+    }
+  }
+}
+
+@media (max-width: 850px) {
+  .reservet-logo-container {
+    display: none;
+  }
+}

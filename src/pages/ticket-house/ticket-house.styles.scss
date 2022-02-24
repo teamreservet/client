@@ -1,0 +1,46 @@
+.ticket-house {
+  display: flex;
+  flex-direction: column;
+
+  .heading {
+    text-align: center;
+  }
+
+  .filter-monuments {
+    display: flex;
+    justify-content: flex-end;
+    margin: 20px;
+
+    .search-field {
+      width: 300px;
+      outline: none;
+      border: none;
+      border-bottom: 1px solid black;
+      font-size: 18px;
+      padding: 10px 15px;
+    }
+  }
+  .monuments {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    justify-items: center;
+  }
+}
+
+@media (max-width: 700px) {
+  .ticket-house .monuments {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 1000px) and (min-width: 700px) {
+  .ticket-house .monuments {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 1200px) and (min-width: 1000px) {
+  .ticket-house .monuments {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}

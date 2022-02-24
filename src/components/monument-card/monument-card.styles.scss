@@ -1,0 +1,31 @@
+.monument-card {
+  border: 1px solid black;
+  width: 330px;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  margin: 10px auto;
+  transition: transform 300ms;
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.02);
+  }
+
+  .monument-container {
+    padding: 15px;
+
+    .image-container {
+      width: 100%;
+      overflow: hidden;
+    }
+    .title {
+      font-size: 20px;
+      margin-bottom: 5px;
+    }
+    .loc {
+      font-weight: 500;
+      color: grey;
+    }
+  }
+}
