@@ -12,6 +12,11 @@
   position: relative;
   margin: 20px 0;
 
+  input:-webkit-autofill {
+    box-shadow: 0 0 0 30px white inset !important;
+    -webkit-text-fill-color: gray;
+  }
+
   .form-input {
     color: gray;
     font-size: 18px;

@@ -1,10 +1,9 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { connect } from 'react-redux';
 
 import FormInput from '../form-input/form-input.component';
 import CustomButtom from '../custom-button/custom-button.component';
-import { setCurrentUser } from '../../redux/user/user.action';
+import Loader from '../loader/loader.component';
 
 import {
   auth,
@@ -13,8 +12,9 @@ import {
 
 import './signin.styles.scss';
 
-const SignIn = ({ setCurrentUser }) => {
+const SignIn = () => {
   const navigate = useNavigate();
+  const [showLoader, setShowLoader] = useState(false);
   const [formData, setFormData] = useState({
     email: '',
     password: ''
@@ -27,9 +27,11 @@ const SignIn = ({ setCurrentUser }) => {
 
   const handleSubmit = async e => {
     e.preventDefault();
+    setShowLoader(true);
     const { email, password } = formData;
     await signInWithEmailAndPassword(auth, email, password);
 
+    setShowLoader(false);
     setFormData({
       email: '',
       password: ''
@@ -38,6 +40,7 @@ const SignIn = ({ setCurrentUser }) => {
 
   return (
     <div className='log-in-form'>
+      {showLoader ? <Loader /> : null}
       <h1>Sign in form</h1>
       <div className='form-container'>
         <form onSubmit={handleSubmit}>
@@ -71,8 +74,4 @@ const SignIn = ({ setCurrentUser }) => {
   );
 };
 
-const mapDispatchToProps = dispatch => ({
-  setCurrentUser: user => dispatch(setCurrentUser(user))
-});
-
-export default connect(null, mapDispatchToProps)(SignIn);
+export default SignIn;

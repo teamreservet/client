@@ -6,13 +6,13 @@ import axios from 'axios';
 import HomePage from './pages/homepage/homepage.component';
 import SignUpAndLogInPage from './pages/sign-up-log-in-page/sign-up-log-in-page.component';
 import TicketHouse from './pages/ticket-house/ticket-house.component';
+import Admin from './pages/admin/admin.component';
+import NewMonument from './pages/admin/new-monument/new-monument.component';
 
 import Header from './components/header/header.component';
-import NewMonument from './components/admin/new-monument/new-monument.component';
 import NotFound from './components/not-found/not-found.component';
 import SignUp from './components/signup/signup.component';
 import SignIn from './components/signin/signin.component';
-import Admin from './components/admin/admin.component';
 
 import {
   onAuthStateChanged,
@@ -22,12 +22,13 @@ import {
 
 import { setCurrentUser } from './redux/user/user.action';
 import { loadMonuments } from './redux/monument/monuments.action';
+import { loadStates } from './redux/state/state.action';
 
 import { serverBaseUrlContext } from './contexts';
 
 import './App.css';
 
-function App({ setCurrentUser, loadMonuments }) {
+function App({ setCurrentUser, loadMonuments, loadStates }) {
   // base url of our server
   const baseUrl =
     process.env.NODE_ENV !== 'production'
@@ -49,10 +50,16 @@ function App({ setCurrentUser, loadMonuments }) {
   // Load monuments
   useEffect(() => {
     (async () => {
-      const { data } = await axios.get(
-        'https://teamreservet.herokuapp.com/api/monuments'
-      );
+      const { data } = await axios.get(`${baseUrl}/api/monuments`);
       loadMonuments(data);
+    })();
+  });
+
+  // Get States data
+  useEffect(() => {
+    (async () => {
+      const { data } = await axios.get(`${baseUrl}/api/states`);
+      loadStates(data);
     })();
   });
 
@@ -79,7 +86,8 @@ function App({ setCurrentUser, loadMonuments }) {
 
 const mapDispatchToProps = dispatch => ({
   setCurrentUser: user => dispatch(setCurrentUser(user)),
-  loadMonuments: monuments => dispatch(loadMonuments(monuments))
+  loadMonuments: monuments => dispatch(loadMonuments(monuments)),
+  loadStates: statesData => dispatch(loadStates(statesData))
 });
 
 export default connect(null, mapDispatchToProps)(App);

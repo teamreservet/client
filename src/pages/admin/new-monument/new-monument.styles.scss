@@ -21,11 +21,6 @@
       width: 100%;
       margin-top: 50px;
 
-      input:-webkit-autofill {
-        box-shadow: 0 0 0 30px white inset !important;
-        -webkit-text-fill-color: gray;
-      }
-
       input[type='file'] {
         border-bottom: 1px solid black;
         width: 100%;

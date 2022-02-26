@@ -8,16 +8,35 @@
 
   .filter-monuments {
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     margin: 20px;
 
-    .search-field {
-      width: 300px;
+    .options {
+      margin-left: 50px;
       outline: none;
-      border: none;
-      border-bottom: 1px solid black;
-      font-size: 18px;
+      width: 300px;
       padding: 10px 15px;
+
+      &.dropdown {
+        cursor: pointer;
+        border-radius: 15px;
+        appearance: none;
+        background-color: transparent;
+      }
+
+      &.search-field {
+        border: none;
+        font-size: 18px;
+        border-bottom: 1px solid black;
+      }
+    }
+    .down-arrow {
+      transform: rotate(180deg);
+      position: relative;
+      height: 14px;
+      right: 30px;
+      top: 13px;
+      z-index: -1;
     }
   }
   .monuments {

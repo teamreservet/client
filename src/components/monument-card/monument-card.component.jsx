@@ -1,11 +1,13 @@
 import { Cloudinary } from '@cloudinary/url-gen';
 import { fill } from '@cloudinary/url-gen/actions/resize';
+import { useState } from 'react';
 
 import ImageCarousel from '../image-carousel/image-carousel.component';
 
 import './monument-card.styles.scss';
 
 const MounmentCard = ({ name, images, location, about }) => {
+  const [autoPlay, setAutoPlay] = useState(false);
   const cld = new Cloudinary({
     cloud: {
       cloudName: 'reservet'
@@ -18,11 +20,22 @@ const MounmentCard = ({ name, images, location, about }) => {
     return img;
   });
 
+  const handleOnMouseLeave = () => {
+    setAutoPlay(false);
+  };
+  const handleOnMouseEnter = () => {
+    setAutoPlay(true);
+  };
+
   return (
-    <div className='monument-card'>
+    <div
+      className='monument-card'
+      onMouseEnter={handleOnMouseEnter}
+      onMouseLeave={handleOnMouseLeave}
+    >
       <div className='monument-container'>
         <div className='image-container'>
-          <ImageCarousel images={cldimages} />
+          <ImageCarousel images={cldimages} autoPlay={autoPlay} />
         </div>
         <h1 className='title'>{name.toUpperCase()}</h1>
         <span className='loc'>{location.toUpperCase()}</span>

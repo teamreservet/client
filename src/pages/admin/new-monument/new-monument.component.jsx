@@ -2,7 +2,8 @@ import { useState, useContext } from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
 
-import FormInput from '../../form-input/form-input.component';
+import FormInput from '../../../components/form-input/form-input.component';
+import Loader from '../../../components/loader/loader.component';
 
 import { serverBaseUrlContext } from '../../../contexts';
 
@@ -11,6 +12,7 @@ import './new-monument.styles.scss';
 const NewMonument = ({ currentUser }) => {
   const serverBaseUrl = useContext(serverBaseUrlContext);
   const [disabled, setDisabled] = useState(false);
+  const [showLoader, setShowLoader] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     about: '',
@@ -34,6 +36,7 @@ const NewMonument = ({ currentUser }) => {
   const handleSubmit = async e => {
     e.preventDefault();
     setDisabled(true);
+    setShowLoader(true);
     console.log(formData);
     const fd = new FormData();
     Object.values(formData.images).map(file => fd.append('image', file));
@@ -51,6 +54,7 @@ const NewMonument = ({ currentUser }) => {
           }
         }
       );
+      setShowLoader(false);
       alert(resp.data);
       setDisabled(false);
     } catch (err) {
@@ -71,6 +75,7 @@ const NewMonument = ({ currentUser }) => {
 
   return (
     <div className='new-monument-container'>
+      {showLoader ? <Loader /> : null}
       <h1 className='heading'>ADD NEW MONUMENTS</h1>
       <form
         onSubmit={handleSubmit}

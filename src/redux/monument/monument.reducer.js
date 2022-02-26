@@ -1,7 +1,7 @@
 import { monumentActionTypes } from './monument.types';
 
 const INITIAL_STATE = {
-  monuments: []
+  monuments: null
 };
 
 const monumentReducer = (state = INITIAL_STATE, action) => {

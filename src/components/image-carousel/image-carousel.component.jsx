@@ -5,13 +5,15 @@ import { Carousel } from 'react-responsive-carousel';
 
 import './image-carousel.styles.scss';
 
-const ImageCarousel = ({ images }) => {
+const ImageCarousel = ({ images, autoPlay = true }) => {
   return (
     <Carousel
       infiniteLoop={true}
       showThumbs={false}
       showStatus={false}
-      autoPlay={true}
+      autoPlay={autoPlay}
+      interval={1500}
+      stopOnHover={false}
       className='image-carousel'
     >
       {images.map((image, idx) => (
