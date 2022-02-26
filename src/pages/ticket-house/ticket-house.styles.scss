@@ -9,7 +9,7 @@
   .filter-monuments {
     display: flex;
     justify-content: center;
-    margin: 20px;
+    margin: 20px auto 10px;
 
     .options {
       margin-left: 50px;
@@ -43,6 +43,9 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     justify-items: center;
+    height: calc(100vh - 243px);
+    overflow-y: scroll;
+    padding-top: 20px;
   }
 }
 
