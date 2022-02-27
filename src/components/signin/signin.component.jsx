@@ -41,7 +41,7 @@ const SignIn = () => {
   return (
     <div className='log-in-form'>
       {showLoader ? <Loader /> : null}
-      <h1>Sign in form</h1>
+      <h1>Sign in</h1>
       <div className='form-container'>
         <form onSubmit={handleSubmit}>
           <FormInput

@@ -1,0 +1,40 @@
+.carousel-container {
+  width: 360px;
+  height: 530px;
+  overflow-y: hidden;
+  border: 1px solid black;
+  border-radius: 15px;
+  background-color: white;
+
+  .carousel {
+    display: flex;
+    flex-direction: column;
+    margin-top: 260px;
+    justify-content: flex-start;
+
+    .slide {
+      opacity: 1;
+      transition: all 2s linear;
+
+      &.current {
+        opacity: 1;
+      }
+
+      &.prev {
+        opacity: 1;
+        position: absolute;
+        transform: translateY(-260px);
+      }
+      &.next {
+        opacity: 1;
+        position: absolute;
+        transform: translateY(+260px);
+      }
+      &.secPrev {
+        position: absolute;
+        top: -260px;
+        transform: translateY(-260px);
+      }
+    }
+  }
+}
