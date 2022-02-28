@@ -10,7 +10,7 @@
 
   .mobile-layout-container {
     width: 90%;
-    height: 95%;
+    height: 80%;
     margin: auto;
     display: flex;
     flex-direction: column;
@@ -32,20 +32,12 @@
       width: 80px;
     }
 
-    button {
-      padding: 8px 50px;
-      background: transparent;
-    }
-
     .mobile-layout-signin {
+      width: 100%;
+
       h1 {
         margin-bottom: 0px;
         font-size: 22px;
-      }
-
-      button {
-        background: transparent;
-        padding: 8px 20px;
       }
 
       .to-registration {

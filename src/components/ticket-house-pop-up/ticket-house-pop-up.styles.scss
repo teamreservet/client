@@ -1,0 +1,38 @@
+.ticket-house-pop-up {
+  width: 500px;
+  background-color: white;
+  border-radius: 10px;
+  transform-origin: top;
+
+  &.hide {
+    transform: rotateX(-30deg) scale(0.98);
+    opacity: 0;
+    transition: all 300ms ease-out;
+  }
+
+  &.show {
+    transform: rotateX(0deg);
+    opacity: 1;
+    transition: all 200ms ease-out;
+  }
+
+  .title {
+    text-align: center;
+  }
+
+  .pop-up-images {
+    display: grid;
+    margin: 10px 0 20px;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: end;
+    justify-items: center;
+
+    .pop-up-image-wrapper {
+      text-align: center;
+
+      .pop-up-image {
+        width: 100px;
+      }
+    }
+  }
+}

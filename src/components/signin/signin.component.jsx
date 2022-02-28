@@ -42,6 +42,7 @@ const SignIn = () => {
     <div className='log-in-form'>
       {showLoader ? <Loader /> : null}
       <h1>Sign in</h1>
+      <p>Use your Reservet Account</p>
       <div className='form-container'>
         <form onSubmit={handleSubmit}>
           <FormInput

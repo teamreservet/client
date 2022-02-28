@@ -22,7 +22,9 @@ const HomePage = () => {
           Monuments are the hooking irons that binds one generation to the next
         </h1>
         <div className='booking-button'>
-          <CustomButtom>BOOK NOW</CustomButtom>
+          <CustomButtom big bookNow>
+            BOOK NOW
+          </CustomButtom>
         </div>
       </div>
       <div className='right-bottom-components'>

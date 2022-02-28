@@ -1,5 +1,8 @@
+import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { connect } from 'react-redux';
+
+import TicketHousePopUp from '../ticket-house-pop-up/ticket-house-pop-up.component';
 
 import Logo3 from '../../assets/reservet-logo3.png';
 
@@ -8,22 +11,35 @@ import { auth, signOut } from '../../firebase/firebase.utils';
 import './header.styles.scss';
 
 const Header = ({ currentUser }) => {
+  const [showTicketHousePopUp, setShowTicketHousePopUp] = useState(true);
   const navigate = useNavigate();
+
   return (
     <div className='header'>
       <div className='header-elements'>
         <div className='logo-container' onClick={() => navigate('/')}>
           <img src={Logo3} alt='logo' className='logo' />
         </div>
-        <div className='options'>
+        <div
+          className='options'
+          onMouseLeave={() => setShowTicketHousePopUp(false)}
+        >
           {currentUser && currentUser.isAdmin ? (
             <Link className='option' to='/admin/upload-monuments'>
               Upload Monuments
             </Link>
           ) : null}
-          <Link className='option' to='/ticket-house'>
+          <Link
+            className='option'
+            to='/ticket-house'
+            onMouseEnter={() => setShowTicketHousePopUp(true)}
+          >
             Ticket House
           </Link>
+          <TicketHousePopUp
+            showTicketHousePopUp={showTicketHousePopUp}
+            setShowTicketHousePopUp={setShowTicketHousePopUp}
+          />
           <Link className='option' to='/'>
             FAQs
           </Link>

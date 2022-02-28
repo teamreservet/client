@@ -3,10 +3,14 @@
   flex-direction: column;
 
   .form-container {
-    width: 60%;
+    width: 90%;
     margin: auto;
     display: flex;
     justify-content: center;
+
+    form {
+      width: 100%;
+    }
 
     .submit-button {
       padding: 10px;

@@ -39,7 +39,15 @@
         font-weight: 500;
         color: white;
       }
+
+      .ticket-house-pop-up {
+        position: absolute;
+        top: 70px;
+        left: 300px;
+        z-index: 5;
+      }
     }
+
     .authenticate {
       text-decoration: none;
       color: black;
@@ -48,6 +56,7 @@
       padding: 8px 15px;
       border-radius: 20px;
       transition: all 300ms;
+      cursor: pointer;
 
       &:hover {
         color: white;

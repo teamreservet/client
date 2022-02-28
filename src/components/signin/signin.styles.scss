@@ -2,16 +2,25 @@
   display: flex;
   flex-direction: column;
   width: 100%;
+  font-family: arial;
+
+  h1 {
+    font-weight: 500;
+  }
+
+  p {
+    margin-bottom: 0;
+    margin-top: 10px;
+  }
 
   .form-container {
-    width: 60%;
+    width: 90%;
     margin: auto;
     display: flex;
     justify-content: center;
 
-    .submit-button {
-      padding: 10px;
-      width: 200px;
+    form {
+      width: 100%;
     }
   }
   .to-registration {

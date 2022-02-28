@@ -1,10 +1,14 @@
 import './custom-button.styles.scss';
 
-const CustomButtom = ({ children }) => {
+const CustomButtom = ({ children, bookNow, big }) => {
   return (
-    <div>
-      <button className='custom-button'>{children}</button>
-    </div>
+    <button
+      className={`custom-button ${bookNow ? 'book-now' : ''} ${
+        big ? 'big' : ''
+      }`}
+    >
+      {children}
+    </button>
   );
 };
 
