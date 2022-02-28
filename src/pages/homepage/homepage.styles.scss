@@ -1,5 +1,8 @@
 .homepage {
   display: flex;
+  flex-direction: column;
+  justify-items: center;
+  height: calc(100vh - 90px);
 
   .homepage-background {
     width: 100vw;
@@ -9,22 +12,38 @@
     z-index: -1;
   }
 
+  .left-component {
+    width: 52.5vw;
+    text-align: center;
+    margin: auto 0px;
+
+    .tag-line {
+      margin: auto;
+      margin-bottom: 40px;
+      width: 60%;
+      font-family: 'Architects Daughter', cursive;
+
+      p {
+        margin: 0;
+      }
+    }
+  }
+
   .right-bottom-components {
     border: 1px solid #8ec0ff;
     position: fixed;
     bottom: 0px;
     right: 0px;
+    width: 47.5vw;
     border-right: none;
     border-bottom: none;
     border-top-left-radius: 25px;
-    // background-color: #519eff;
     background: linear-gradient(#2291ff, #ededed, #2291ff);
     box-shadow: -7px -7px 12px rgb(7, 2, 85);
 
     .side-view {
       display: flex;
       flex-direction: column;
-
       padding-left: 20px;
       padding-top: 20px;
 
@@ -48,9 +67,10 @@
           margin-top: 5px;
         }
 
-        span {
+        a {
           color: rgb(0, 0, 0);
           position: relative;
+          text-decoration: none;
           bottom: 5px;
           left: 12px;
         }

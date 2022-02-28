@@ -2,9 +2,8 @@
   width: 360px;
   height: 530px;
   overflow-y: hidden;
-  border: 1px solid black;
   border-radius: 15px;
-  background-color: white;
+  // background-color: white;
 
   .carousel {
     display: flex;
@@ -15,6 +14,11 @@
     .slide {
       opacity: 1;
       transition: all 2s linear;
+
+      img {
+        height: 250px;
+        border-radius: 15px;
+      }
 
       &.current {
         opacity: 1;

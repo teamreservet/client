@@ -6,12 +6,6 @@
   display: flex;
   justify-content: center;
   box-shadow: -8px -6px 10px #001a41bf;
-  // background: center / cover no-repeat
-  //   url('https://media.idownloadblog.com/wp-content/uploads/2021/09/iPhone-13-Pro-sierra-blue-inspired-iOS-14-wallpaper-AR72014-idownloadblog.jpg');
-
-  // background: center / cover no-repeat
-  //   url('https://www.itl.cat/pngfile/big/48-481550_iphone-5-wallpapers-hd-iphone-plain-wallpaper-hd.jpg');
-
   background: linear-gradient(45deg, #bfd3ff 30%, #0351f8);
 
   .mobile-layout-container {
@@ -38,10 +32,20 @@
       width: 80px;
     }
 
+    button {
+      padding: 8px 50px;
+      background: transparent;
+    }
+
     .mobile-layout-signin {
       h1 {
         margin-bottom: 0px;
         font-size: 22px;
+      }
+
+      button {
+        background: transparent;
+        padding: 8px 20px;
       }
 
       .to-registration {

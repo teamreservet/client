@@ -24,16 +24,25 @@ const Header = ({ currentUser }) => {
           <Link className='option' to='/ticket-house'>
             Ticket House
           </Link>
-          {currentUser ? (
-            <div className='option' onClick={async () => await signOut(auth)}>
-              Sign out
-            </div>
-          ) : (
-            <Link className='option' to='/authenticate/login'>
-              Sign in
-            </Link>
-          )}
+          <Link className='option' to='/'>
+            FAQs
+          </Link>
+          <Link className='option' to='/'>
+            Contact us
+          </Link>
         </div>
+        {currentUser ? (
+          <div
+            className='authenticate'
+            onClick={async () => await signOut(auth)}
+          >
+            Sign out
+          </div>
+        ) : (
+          <Link className='authenticate' to='/authenticate/register'>
+            Register
+          </Link>
+        )}
       </div>
     </div>
   );
