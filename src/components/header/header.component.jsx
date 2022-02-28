@@ -11,7 +11,7 @@ import { auth, signOut } from '../../firebase/firebase.utils';
 import './header.styles.scss';
 
 const Header = ({ currentUser }) => {
-  const [showTicketHousePopUp, setShowTicketHousePopUp] = useState(true);
+  const [showTicketHousePopUp, setShowTicketHousePopUp] = useState(false);
   const navigate = useNavigate();
 
   return (

@@ -1,3 +1,4 @@
+import { useCallback } from 'react';
 import { useEffect, useState, useRef } from 'react';
 
 import './homepage-carousel.styles.scss';
@@ -9,12 +10,12 @@ const HomePageCarousel = ({ images }) => {
   const [secPrev, setSecPrev] = useState(length - 2);
   const [next, setNext] = useState(1);
 
-  const handleNext = () => {
+  const handleNext = useCallback(() => {
     setSecPrev(prev);
     setPrev(current);
     setCurrent(current === length - 1 ? 0 : current + 1);
     setNext(next === length - 1 ? 0 : next + 1);
-  };
+  }, [current, prev, next, length]);
 
   const timeoutRef = useRef(null);
 
@@ -31,7 +32,7 @@ const HomePageCarousel = ({ images }) => {
     return () => {
       resetTimeout();
     };
-  }, [current, prev, secPrev, next, handleNext]);
+  }, [handleNext]);
 
   return (
     <div className='carousel-container'>
@@ -41,12 +42,12 @@ const HomePageCarousel = ({ images }) => {
             key={idx}
             className={`slide ${secPrev === idx ? 'secPrev' : ''}`}
           >
-            {secPrev === idx && <img src={image} />}
+            {secPrev === idx && <img src={image} alt='monuments' />}
           </div>
         ))}
         {images.map((image, idx) => (
           <div key={idx} className={`slide ${prev === idx ? 'prev' : ''}`}>
-            {prev === idx && <img src={image} />}
+            {prev === idx && <img src={image} alt='monuments' />}
           </div>
         ))}
         {images.map((image, idx) => (
@@ -56,7 +57,7 @@ const HomePageCarousel = ({ images }) => {
               current === idx ? 'current' : next === idx ? 'next' : ''
             }`}
           >
-            {current === idx && <img src={image} />}
+            {current === idx && <img src={image} alt='monuments' />}
           </div>
         ))}
       </div>
