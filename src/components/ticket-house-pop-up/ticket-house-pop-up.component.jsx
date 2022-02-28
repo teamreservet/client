@@ -37,7 +37,7 @@ const TicketHousePopUp = ({
       <div className='pop-up-images'>
         {images.map((image, idx) => (
           <div key={idx} className='pop-up-image-wrapper'>
-            <img src={image} alt={`${image} image`} className='pop-up-image' />
+            <img src={image} alt={`${image}`} className='pop-up-image' />
             <p>{names[idx]}</p>
           </div>
         ))}

@@ -31,7 +31,7 @@ const HomePageCarousel = ({ images }) => {
     return () => {
       resetTimeout();
     };
-  }, [current, prev, secPrev, next]);
+  }, [current, prev, secPrev, next, handleNext]);
 
   return (
     <div className='carousel-container'>
