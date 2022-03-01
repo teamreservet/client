@@ -17,7 +17,8 @@ const HomePage = () => {
   const navigate = useNavigate();
   return (
     <div className='homepage'>
-      <img src={background} alt='' className='homepage-background' />
+      {/* <img src={background} alt='' className='homepage-background' /> */}
+      <div className='homepage-background' />
       <div className='left-component'>
         <h1 className='tag-line'>
           Monuments are the hooking irons that binds one generation to the next

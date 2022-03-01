@@ -10,6 +10,7 @@
     position: fixed;
     top: 0px;
     z-index: -1;
+    background: radial-gradient(#062a4e 30%, #2291ff);
   }
 
   .left-component {
@@ -20,8 +21,11 @@
     .tag-line {
       margin: auto;
       margin-bottom: 40px;
-      width: 60%;
-      font-family: 'Architects Daughter', cursive;
+      width: 85%;
+      color: white;
+      font-size: 60px;
+      // font-family: 'Architects Daughter', cursive;
+      font-family: 'Balsamiq Sans', cursive;
 
       p {
         margin: 0;
