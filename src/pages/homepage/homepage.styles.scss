@@ -10,7 +10,8 @@
     position: fixed;
     top: 0px;
     z-index: -1;
-    background: radial-gradient(#062a4e 30%, #2291ff);
+    background: radial-gradient(#062a4e 20%, #2291ff);
+    animation: background 3s ease-in-out infinite alternate;
   }
 
   .left-component {
@@ -39,7 +40,7 @@
     bottom: 0px;
     right: 0px;
     width: 47.5vw;
-    height: 600px;
+    height: 75vh;
     border-right: none;
     border-bottom: none;
     border-top-left-radius: 25px;
@@ -85,5 +86,17 @@
         margin-left: 10px;
       }
     }
+  }
+}
+
+@keyframes background {
+  25% {
+    background: radial-gradient(#062a4e 20%, #2291ff);
+  }
+  50% {
+    background: radial-gradient(#062a4e 30%, #2291ff);
+  }
+  75% {
+    background: radial-gradient(#062a4e 40%, #2291ff);
   }
 }

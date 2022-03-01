@@ -10,7 +10,7 @@
 
   .mobile-layout-container {
     width: 90%;
-    height: 80%;
+    padding: 50px 10px;
     margin: auto;
     display: flex;
     flex-direction: column;
@@ -34,6 +34,7 @@
 
     .mobile-layout-signin {
       width: 100%;
+      height: 100%;
 
       h1 {
         margin-bottom: 0px;
