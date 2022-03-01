@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 import MobileLayout from '../../components/mobile-layout/mobile-layout.component';
 import HomepageCarousel from '../../components/homepage-carousel/homepage-carousel.component';
@@ -8,12 +8,13 @@ import img1 from '../../assets/grid.jpeg';
 import img2 from '../../assets/grid-1.jpeg';
 import img3 from '../../assets/grid-2.jpeg';
 import img4 from '../../assets/grid-3.jpeg';
-import background from '../../assets/background.jpg';
+import background from '../../assets/background.jpeg';
 import searchIcon from '../../assets/search-icon.png';
 
 import './homepage.styles.scss';
 
 const HomePage = () => {
+  const navigate = useNavigate();
   return (
     <div className='homepage'>
       <img src={background} alt='' className='homepage-background' />
@@ -22,7 +23,7 @@ const HomePage = () => {
           Monuments are the hooking irons that binds one generation to the next
         </h1>
         <div className='booking-button'>
-          <CustomButtom big bookNow>
+          <CustomButtom big bookNow onClick={() => navigate('/ticket-house')}>
             BOOK NOW
           </CustomButtom>
         </div>
