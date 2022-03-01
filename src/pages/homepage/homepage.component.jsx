@@ -8,7 +8,6 @@ import img1 from '../../assets/grid.jpeg';
 import img2 from '../../assets/grid-1.jpeg';
 import img3 from '../../assets/grid-2.jpeg';
 import img4 from '../../assets/grid-3.jpeg';
-import background from '../../assets/background.jpeg';
 import searchIcon from '../../assets/search-icon.png';
 
 import './homepage.styles.scss';
@@ -17,7 +16,6 @@ const HomePage = () => {
   const navigate = useNavigate();
   return (
     <div className='homepage'>
-      {/* <img src={background} alt='' className='homepage-background' /> */}
       <div className='homepage-background' />
       <div className='left-component'>
         <h1 className='tag-line'>
