@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 
 import TicketHousePopUp from '../ticket-house-pop-up/ticket-house-pop-up.component';
 
-import Logo3 from '../../assets/reservet-logo3.png';
 import ReservetLogo from '../../assets/reservet.svg';
 
 import { auth, signOut } from '../../firebase/firebase.utils';
