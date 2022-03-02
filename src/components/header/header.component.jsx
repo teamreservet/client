@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import TicketHousePopUp from '../ticket-house-pop-up/ticket-house-pop-up.component';
 
 import Logo3 from '../../assets/reservet-logo3.png';
+import ReservetLogo from '../../assets/reservet.svg';
 
 import { auth, signOut } from '../../firebase/firebase.utils';
 
@@ -18,7 +19,7 @@ const Header = ({ currentUser }) => {
     <div className='header'>
       <div className='header-elements'>
         <div className='logo-container' onClick={() => navigate('/')}>
-          <img src={Logo3} alt='logo' className='logo' />
+          <img src={ReservetLogo} alt='logo' className='logo' />
         </div>
         <div
           className='options'
@@ -33,6 +34,7 @@ const Header = ({ currentUser }) => {
             className='option'
             to='/ticket-house'
             onMouseEnter={() => setShowTicketHousePopUp(true)}
+            onClick={() => setShowTicketHousePopUp(false)}
           >
             Ticket House
           </Link>

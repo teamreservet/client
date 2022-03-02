@@ -5,12 +5,13 @@
   height: calc(100vh - 90px);
 
   .homepage-background {
-    width: 100vw;
-    height: 100vh;
+    width: 200vw;
+    height: 200vh;
     position: fixed;
-    top: 0px;
+    top: -50vh;
+    transform: rotate(-25deg) translateX(-80vw) translateY(-133vh);
     z-index: -1;
-    background: radial-gradient(#062a4e 20%, #2291ff);
+    // background: radial-gradient(#062a4e 20%, #2291ff);
     animation: background 3s ease-in-out infinite alternate;
   }
 
@@ -45,19 +46,23 @@
     border-bottom: none;
     border-top-left-radius: 25px;
     background: linear-gradient(#2291ff, #ededed, #2291ff);
-    box-shadow: -7px -7px 12px rgb(7, 2, 85);
+    // box-shadow: -7px -7px 12px rgb(7, 2, 85);
+    box-shadow: -7px -7px 12px rgb(26, 45, 87);
 
     .side-view {
       display: flex;
       flex-direction: column;
       padding-left: 20px;
       padding-top: 20px;
+      // position: relative;
 
       .components {
         display: flex;
         align-items: flex-end;
-        position: relative;
-        bottom: 0px;
+        width: 100%;
+        justify-content: space-evenly;
+        position: absolute;
+        bottom: 20px;
         right: 0px;
       }
       .search-bar {
@@ -82,21 +87,30 @@
         }
       }
 
-      .carousel-container {
-        margin-left: 10px;
-      }
+      // .carousel-container {
+      //   margin-left: 15px;
+      // }
     }
   }
 }
 
 @keyframes background {
-  25% {
-    background: radial-gradient(#062a4e 20%, #2291ff);
+  // 25% {
+  //   background: radial-gradient(#062a4e 25%, #2291ff);
+  // }
+  // 50% {
+  //   background: radial-gradient(#062a4e 30%, #2291ff);
+  // }
+  // 75% {
+  //   background: radial-gradient(#062a4e 40%, #2291ff);
+  // }
+  // 100% {
+  //   background: radial-gradient(#062a4e 50%, #2291ff);
+  // }
+  from {
+    background: rgb(30, 1, 100);
   }
-  50% {
-    background: radial-gradient(#062a4e 30%, #2291ff);
-  }
-  75% {
-    background: radial-gradient(#062a4e 40%, #2291ff);
+  to {
+    background: rgb(62, 107, 255);
   }
 }

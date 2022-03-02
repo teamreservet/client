@@ -9,11 +9,11 @@
     justify-content: space-between;
     align-items: center;
     height: 100%;
-    width: 95%;
+    width: 98%;
     margin: auto;
 
     .logo-container {
-      width: 60px;
+      width: 100px;
       cursor: pointer;
 
       .logo {
@@ -50,7 +50,7 @@
     .authenticate {
       text-decoration: none;
       color: black;
-      background-color: rgba(245, 245, 245, 0.5);
+      background-color: rgb(255, 255, 255);
       font-weight: 600;
       padding: 8px 15px;
       border-radius: 20px;

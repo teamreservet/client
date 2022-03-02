@@ -5,13 +5,15 @@
   display: flex;
   flex-direction: column;
   margin: 10px auto;
+  background-color: white;
   transition: transform 300ms;
   cursor: pointer;
   border-radius: 15px;
 
   &:hover {
     transform: scale(1.08);
-    background-color: #ffd57f8c;
+    // background-color: #677eff;
+    background: linear-gradient(90deg, #bfc9ff 20%, #677eff);
   }
 
   .monument-container {

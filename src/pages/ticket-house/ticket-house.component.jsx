@@ -29,6 +29,7 @@ const TicketHouse = ({ monuments, statesData }) => {
   return (
     <div className='ticket-house'>
       <h1 className='heading'>Ticket House</h1>
+      <div className='background' />
       <div className='filter-monuments'>
         <select
           name='states'

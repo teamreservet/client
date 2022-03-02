@@ -7,7 +7,7 @@
   &.hide {
     transform: rotateX(-30deg) scale(0.5);
     opacity: 0;
-    z-index: 0;
+    z-index: -5;
     transition: all 200ms ease-out;
   }
 
