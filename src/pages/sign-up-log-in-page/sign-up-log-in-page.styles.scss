@@ -3,6 +3,16 @@
   flex-direction: column;
   text-align: center;
 
+  .background {
+    width: 200vw;
+    height: 200vh;
+    position: fixed;
+    top: -50vh;
+    transform: rotate(-25deg) translateX(-80vw) translateY(-133vh);
+    z-index: -1;
+    background-color: rgb(14, 14, 145);
+  }
+
   .container {
     display: flex;
     flex-direction: row;

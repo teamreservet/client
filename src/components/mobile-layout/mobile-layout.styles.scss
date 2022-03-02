@@ -1,7 +1,7 @@
 .mobile-layout {
   border: 7px solid black;
   border-radius: 30px;
-  width: 38%;
+  width: 240px;
   height: 95%;
   display: flex;
   justify-content: center;
@@ -9,30 +9,32 @@
   background: linear-gradient(45deg, #bfd3ff 30%, #0351f8);
   position: relative;
 
+  .notch {
+    width: 110px;
+    height: 25px;
+    background-color: black;
+    position: absolute;
+    top: 0px;
+    border-bottom-left-radius: 13px;
+    border-bottom-right-radius: 13px;
+  }
+
   .mobile-layout-container {
-    width: 90%;
-    padding: 50px 10px;
+    width: 85%;
+    min-height: calc(100% - 25px);
+    margin: auto 0;
     max-height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
     justify-content: space-evenly;
-    position: relative;
+    position: absolute;
+    bottom: 0px;
     overflow-y: scroll;
 
     &::-webkit-scrollbar {
       display: none;
-    }
-
-    .notch {
-      width: 110px;
-      height: 25px;
-      background-color: black;
-      position: absolute;
-      top: 0px;
-      border-bottom-left-radius: 13px;
-      border-bottom-right-radius: 13px;
     }
 
     .logo {

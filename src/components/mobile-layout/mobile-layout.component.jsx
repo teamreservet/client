@@ -12,8 +12,8 @@ const MobileLayout = ({ currentUser }) => {
   const navigate = useNavigate();
   return (
     <div className='mobile-layout'>
+      <span className='notch' />
       <div className='mobile-layout-container'>
-        <span className='notch' />
         <div>
           <img src={logo3} alt='logo' className='logo' />
         </div>

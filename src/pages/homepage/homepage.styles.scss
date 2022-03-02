@@ -25,7 +25,7 @@
       margin-bottom: 40px;
       width: 85%;
       color: white;
-      font-size: 60px;
+      font-size: 44px;
       // font-family: 'Architects Daughter', cursive;
       font-family: 'Balsamiq Sans', cursive;
 
@@ -60,12 +60,13 @@
         display: flex;
         align-items: flex-end;
         width: 100%;
-        height: 85%;
+        height: calc(100% - 65px);
         justify-content: space-evenly;
         position: absolute;
-        bottom: 20px;
+        bottom: 0px;
         right: 0px;
       }
+
       .search-bar {
         width: 650px;
         height: 30px;
@@ -89,25 +90,13 @@
       }
 
       // .carousel-container {
-      //   margin-left: 15px;
+
       // }
     }
   }
 }
 
 @keyframes background {
-  // 25% {
-  //   background: radial-gradient(#062a4e 25%, #2291ff);
-  // }
-  // 50% {
-  //   background: radial-gradient(#062a4e 30%, #2291ff);
-  // }
-  // 75% {
-  //   background: radial-gradient(#062a4e 40%, #2291ff);
-  // }
-  // 100% {
-  //   background: radial-gradient(#062a4e 50%, #2291ff);
-  // }
   from {
     background: rgb(30, 1, 100);
   }

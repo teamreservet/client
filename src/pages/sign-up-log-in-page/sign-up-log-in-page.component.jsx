@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { Outlet, useNavigate } from 'react-router-dom';
 
-import Logo from '../../assets/reservet.png';
+import ReservetLogo from '../../assets/reservet.svg';
 
 import './sign-up-log-in-page.styles.scss';
 
@@ -16,9 +16,10 @@ const SignUpAndLogInPage = ({ currentUser }) => {
   return (
     <div className='sign-up-and-log-in-page'>
       <h1>Sign up and log in page</h1>
+      <div className='background' />
       <div className='container'>
         <div className='reservet-logo-container'>
-          <img src={Logo} alt='logo' className='reservet-logo' />
+          <img src={ReservetLogo} alt='logo' className='reservet-logo' />
         </div>
         <div className='authentication'>
           <Outlet />
