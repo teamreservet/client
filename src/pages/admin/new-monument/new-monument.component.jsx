@@ -22,12 +22,23 @@ const NewMonument = ({ currentUser }) => {
     indian_tourinst_pricing: '',
     children_below_15_years_pricing: '',
     location: '',
+    tags: [],
     images: null
   });
 
   const handleChange = e => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
+  };
+  const handleCheckboxChange = e => {
+    const { name } = e.target;
+    let arr = formData.tags;
+    if (arr.find(e => e == name)) {
+      arr = arr.filter(e => e != name);
+    } else {
+      arr.push(name);
+    }
+    setFormData({ ...formData, tags: arr });
   };
   const handleImageChange = e => {
     setFormData({ ...formData, images: e.target.files });
@@ -69,6 +80,7 @@ const NewMonument = ({ currentUser }) => {
       indian_tourinst_pricing: '',
       children_below_15_years_pricing: '',
       location: '',
+      tags: [],
       images: null
     });
   };
@@ -113,6 +125,33 @@ const NewMonument = ({ currentUser }) => {
               onChange={handleChange}
               required
             />
+            <div>
+              <input
+                type='checkbox'
+                name='monument'
+                value='monument'
+                onChange={handleCheckboxChange}
+              />
+              <label>Monument</label>
+            </div>
+            <div>
+              <input
+                type='checkbox'
+                name='heritage'
+                value='heritage'
+                onChange={handleCheckboxChange}
+              />
+              <label>Heritage</label>
+            </div>
+            <div>
+              <input
+                type='checkbox'
+                name='museum'
+                value='museum'
+                onChange={handleCheckboxChange}
+              />
+              <label>Museum</label>
+            </div>
           </div>
           <div>
             <div className='ticket-pricing'>
