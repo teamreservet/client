@@ -50,29 +50,11 @@
     }
   }
   .monuments {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    display: flex;
+    flex-direction: column;
     justify-items: center;
     height: calc(100vh - 243px);
     overflow-y: scroll;
     padding-top: 20px;
-  }
-}
-
-@media (max-width: 700px) {
-  .ticket-house .monuments {
-    grid-template-columns: 1fr;
-  }
-}
-
-@media (max-width: 1000px) and (min-width: 700px) {
-  .ticket-house .monuments {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
-@media (max-width: 1200px) and (min-width: 1000px) {
-  .ticket-house .monuments {
-    grid-template-columns: 1fr 1fr 1fr;
   }
 }

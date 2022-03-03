@@ -1,9 +1,8 @@
 .monument-card {
   border: 1px solid black;
-  width: 330px;
+  width: 80%;
   height: 400px;
   display: flex;
-  flex-direction: column;
   margin: 10px auto;
   background-color: white;
   transition: transform 300ms;
@@ -20,7 +19,7 @@
     padding: 15px;
 
     .image-container {
-      width: 100%;
+      width: 300px;
       overflow: hidden;
       border-top-left-radius: 15px;
       border-top-right-radius: 15px;

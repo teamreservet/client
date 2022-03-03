@@ -46,7 +46,6 @@
     border-bottom: none;
     border-top-left-radius: 25px;
     background: linear-gradient(#2291ff, #ededed, #2291ff);
-    // box-shadow: -7px -7px 12px rgb(7, 2, 85);
     box-shadow: -7px -7px 12px rgb(26, 45, 87);
 
     .side-view {
@@ -54,7 +53,6 @@
       flex-direction: column;
       padding-left: 20px;
       padding-top: 20px;
-      // position: relative;
 
       .components {
         display: flex;

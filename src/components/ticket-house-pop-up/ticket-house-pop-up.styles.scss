@@ -3,6 +3,7 @@
   background-color: white;
   border-radius: 10px;
   transform-origin: top;
+  border: 1px solid black;
 
   &.hide {
     transform: rotateX(-30deg) scale(0.5);
