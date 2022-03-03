@@ -33,8 +33,8 @@ const NewMonument = ({ currentUser }) => {
   const handleCheckboxChange = e => {
     const { name } = e.target;
     let arr = formData.tags;
-    if (arr.find(e => e == name)) {
-      arr = arr.filter(e => e != name);
+    if (arr.find(e => e === name)) {
+      arr = arr.filter(e => e !== name);
     } else {
       arr.push(name);
     }
