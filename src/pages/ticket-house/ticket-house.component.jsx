@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 import Loader from '../../components/loader/loader.component';
 import MounmentCard from '../../components/monument-card/monument-card.component';
+import FilterCard from '../../components/filter-card/filter-card.component';
 
 import arrow from '../../assets/arrow.png';
 
@@ -67,6 +68,11 @@ const TicketHouse = ({ monuments, statesData }) => {
           value={searchQuery}
           onChange={handleChangeInput}
         />
+      </div>
+      <div className='filter-card-wrapper'>
+        <FilterCard name='heritage' />
+        <FilterCard name='monuments' />
+        <FilterCard name='museums' />
       </div>
       <div className='monuments'>
         {monuments ? (
