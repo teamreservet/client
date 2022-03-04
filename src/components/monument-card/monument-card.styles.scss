@@ -15,7 +15,10 @@
   }
 
   .monument-container {
+    width:100%;
     padding: 15px;
+    display: flex;
+    justify-content: space-between;
 
     .image-container {
       width: 300px;
@@ -23,13 +26,50 @@
       border-top-left-radius: 15px;
       border-top-right-radius: 15px;
     }
-    .title {
-      font-size: 20px;
-      margin-bottom: 5px;
-    }
-    .loc {
-      font-weight: 500;
-      color: grey;
+    .description {
+      width: 80%;
+      margin: 0 20px;
+
+      .title {
+        font-size: 20px;
+        margin-bottom: 5px;
+        left: 0px;
+      }
+      .loc {
+        font-weight: 500;
+        color: grey;
+      }
+      .wrapper {
+        display: flex;
+        width: 90%;
+        justify-content: space-between;
+        .timings {
+          margin: 0;
+          width: 200px;
+          display: flex;
+          justify-content: space-between;
+          font-weight: 500;
+
+          .timing {
+            color: red;
+          }
+        }
+        .booknow-button {
+          background-color: #041947;
+          width: 25%;
+          border: 0px;
+          color: white;
+          border-radius: 10px;
+          &:hover {
+            // transform: scale(1.08);
+            // background-color: #677eff;
+            background: linear-gradient(90deg, #26293a 20%, #0328f5);
+          }
+        
+        }
+      }
+      
+      
     }
   }
 }
