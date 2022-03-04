@@ -10,10 +10,7 @@ import mumbai from '../../assets/mumbai.png';
 import ncr from '../../assets/ncr.png';
 import pune from '../../assets/pune.png';
 
-const TicketHousePopUp = ({
-  showTicketHousePopUp,
-  setShowTicketHousePopUp
-}) => {
+const TicketHousePopUp = ({ PopUp, setPopUp, hoverOn }) => {
   const images = [ahd, bang, chd, hyd, koch, kolk, mumbai, ncr, pune];
   const names = [
     'Ahmedabad',
@@ -28,20 +25,26 @@ const TicketHousePopUp = ({
   ];
   return (
     <div
-      className={`ticket-house-pop-up ${
-        showTicketHousePopUp ? 'show' : 'hide'
-      }`}
-      onMouseLeave={() => setShowTicketHousePopUp(false)}
+      className={`header-pop-up ${PopUp ? 'show' : 'hide'}`}
+      onMouseLeave={() => setPopUp(false)}
     >
-      <p className='title'>Popular Cities</p>
-      <div className='pop-up-images'>
-        {images.map((image, idx) => (
-          <div key={idx} className='pop-up-image-wrapper'>
-            <img src={image} alt={`${image}`} className='pop-up-image' />
-            <p>{names[idx]}</p>
+      {hoverOn === 'Ticket House' ? (
+        <div>
+          <p className='title'>Popular Cities</p>
+          <div className='pop-up-images'>
+            {images.map((image, idx) => (
+              <div key={idx} className='pop-up-image-wrapper'>
+                <img src={image} alt={`${image}`} className='pop-up-image' />
+                <p>{names[idx]}</p>
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
+        </div>
+      ) : (
+        <div>
+          <h1>FAQs</h1>
+        </div>
+      )}
     </div>
   );
 };

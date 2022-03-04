@@ -1,15 +1,16 @@
-.ticket-house-pop-up {
-  width: 500px;
+.header-pop-up {
+  margin: auto;
   background-color: white;
   border-radius: 10px;
   transform-origin: top;
   border: 1px solid black;
+  width: 80%;
 
   &.hide {
     transform: rotateX(-30deg) scale(0.5);
     opacity: 0;
     z-index: -5;
-    transition: all 200ms ease-out;
+    transition: all 200ms ease-in;
   }
 
   &.show {
@@ -24,10 +25,10 @@
   }
 
   .pop-up-images {
-    display: grid;
+    display: flex;
     margin: 10px 0 20px;
-    grid-template-columns: repeat(3, 1fr);
-    align-items: end;
+    justify-content: space-evenly;
+    align-items: flex-end;
     justify-items: center;
 
     .pop-up-image-wrapper {

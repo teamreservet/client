@@ -11,7 +11,8 @@ import { auth, signOut } from '../../firebase/firebase.utils';
 import './header.styles.scss';
 
 const Header = ({ currentUser }) => {
-  const [showTicketHousePopUp, setShowTicketHousePopUp] = useState(false);
+  const [PopUp, setPopUp] = useState(false);
+  const [hoverOn, setHoverOn] = useState('');
   const navigate = useNavigate();
 
   return (
@@ -20,10 +21,7 @@ const Header = ({ currentUser }) => {
         <div className='logo-container' onClick={() => navigate('/')}>
           <img src={ReservetLogo} alt='logo' className='logo' />
         </div>
-        <div
-          className='options'
-          onMouseLeave={() => setShowTicketHousePopUp(false)}
-        >
+        <div className='options' onMouseLeave={() => setPopUp(false)}>
           {currentUser && currentUser.isAdmin ? (
             <Link className='option' to='/admin/upload-monuments'>
               Upload Monuments
@@ -32,16 +30,27 @@ const Header = ({ currentUser }) => {
           <Link
             className='option'
             to='/ticket-house'
-            onMouseEnter={() => setShowTicketHousePopUp(true)}
-            onClick={() => setShowTicketHousePopUp(false)}
+            onMouseEnter={e => {
+              setHoverOn(e.target.innerHTML);
+              setPopUp(true);
+            }}
+            onClick={() => setPopUp(false)}
           >
             Ticket House
           </Link>
           <TicketHousePopUp
-            showTicketHousePopUp={showTicketHousePopUp}
-            setShowTicketHousePopUp={setShowTicketHousePopUp}
+            PopUp={PopUp}
+            setPopUp={setPopUp}
+            hoverOn={hoverOn}
           />
-          <Link className='option' to='/'>
+          <Link
+            className='option'
+            to='/'
+            onMouseEnter={e => {
+              setHoverOn(e.target.innerHTML);
+              setPopUp(true);
+            }}
+          >
             FAQs
           </Link>
           <Link className='option' to='/'>
