@@ -1,13 +1,17 @@
 import { Cloudinary } from '@cloudinary/url-gen';
 import { fill } from '@cloudinary/url-gen/actions/resize';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import ImageCarousel from '../image-carousel/image-carousel.component';
 
 import './monument-card.styles.scss';
 
-const MounmentCard = ({ name, images, location, about, opening_time, closing_time }) => {
+const MounmentCard = ({ monument, ind }) => {
+  const { name, images, location, about, opening_time, closing_time } =
+    monument;
   const [autoPlay, setAutoPlay] = useState(false);
+  const navigate = useNavigate();
   const cld = new Cloudinary({
     cloud: {
       cloudName: 'reservet'
@@ -33,7 +37,7 @@ const MounmentCard = ({ name, images, location, about, opening_time, closing_tim
       onMouseEnter={handleOnMouseEnter}
       onMouseLeave={handleOnMouseLeave}
     >
-      <div className='monument-container'>
+      <div className={`${ind % 2 === 1 ? 'reverse' : ''} monument-container`}>
         <div className='image-container'>
           <ImageCarousel images={cldimages} autoPlay={autoPlay} />
         </div>
@@ -43,12 +47,20 @@ const MounmentCard = ({ name, images, location, about, opening_time, closing_tim
           <p className='about'>{about.slice(0, 200) + '...'}</p>
           <div className='wrapper'>
             <div>
-              <p className='timings'>Opening time: <span className='timing'>{opening_time}</span></p>
-              <p className='timings'>Closing time: <span className='timing'>{closing_time}</span></p>
-            </div> 
-            <button className='booknow-button'>Book Now</button>
+              <p className='timings'>
+                Opening time: <span className='timing'>{opening_time}</span>
+              </p>
+              <p className='timings'>
+                Closing time: <span className='timing'>{closing_time}</span>
+              </p>
+            </div>
+            <button
+              className='booknow-button'
+              onClick={() => navigate('/checkout', { state: monument })}
+            >
+              Book Now
+            </button>
           </div>
-
         </div>
       </div>
     </div>

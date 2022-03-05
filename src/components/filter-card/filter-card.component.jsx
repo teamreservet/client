@@ -1,8 +1,6 @@
 import './filter-card.styles.scss';
 
-import image from '../../assets/grid-1.jpeg';
-
-const FilterCard = ({ name }) => {
+const FilterCard = ({ name, image }) => {
   return (
     <div className='filter-card'>
       <img className='filter-img' src={image} alt='' />

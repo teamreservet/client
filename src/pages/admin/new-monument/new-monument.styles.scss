@@ -3,9 +3,20 @@
   flex-direction: column;
   width: 80vw;
   margin: 0 auto 50px;
+  color: white;
 
   .heading {
     text-align: center;
+  }
+
+  .background {
+    width: 2000px;
+    height: 1500px;
+    position: fixed;
+    // top: -50vh;
+    transform: rotate(-25deg) translateY(-1300px) translateX(0px);
+    z-index: -1;
+    background-color: rgb(14, 14, 145);
   }
 
   .new-monument-form {
@@ -24,6 +35,8 @@
       input[type='file'] {
         border-bottom: 1px solid black;
         width: 100%;
+        color: black;
+
         &::-webkit-file-upload-button {
           padding: 10px;
           border: 1px solid black;

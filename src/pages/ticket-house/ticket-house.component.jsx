@@ -6,6 +6,9 @@ import MounmentCard from '../../components/monument-card/monument-card.component
 import FilterCard from '../../components/filter-card/filter-card.component';
 
 import arrow from '../../assets/arrow.png';
+import monument from '../../assets/monument.png';
+import museum from '../../assets/museum.jpg';
+import heritage from '../../assets/heritage.jpg';
 
 import './ticket-house.styles.scss';
 
@@ -29,7 +32,7 @@ const TicketHouse = ({ monuments, statesData }) => {
 
   return (
     <div className='ticket-house'>
-      <h1 className='heading'>Ticket House</h1>
+      <h1 className='heading'>Ticket Counter</h1>
       <div className='background' />
       <div className='filter-monuments'>
         <select
@@ -70,9 +73,9 @@ const TicketHouse = ({ monuments, statesData }) => {
         />
       </div>
       <div className='filter-card-wrapper'>
-        <FilterCard name='heritage' />
-        <FilterCard name='monuments' />
-        <FilterCard name='museums' />
+        <FilterCard name='monuments' image={monument} />
+        <FilterCard name='heritages' image={heritage} />
+        <FilterCard name='museums' image={museum} />
       </div>
       <div className='monuments'>
         {monuments ? (
@@ -100,7 +103,9 @@ const TicketHouse = ({ monuments, statesData }) => {
               //   return opt;
               // }
             )
-            .map(monument => <MounmentCard key={monument._id} {...monument} />)
+            .map((monument, ind) => (
+              <MounmentCard key={monument._id} ind={ind} monument={monument} />
+            ))
         ) : (
           <Loader />
         )}

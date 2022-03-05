@@ -1,7 +1,5 @@
 .monument-card {
   border: 1px solid black;
-  width: 80%;
-  height: 400px;
   display: flex;
   margin: 10px auto;
   background-color: white;
@@ -15,16 +13,23 @@
   }
 
   .monument-container {
-    width:100%;
+    width: 100%;
     padding: 15px;
     display: flex;
     justify-content: space-between;
 
+    &.reverse {
+      flex-direction: row-reverse;
+
+      .description .wrapper {
+        flex-direction: row-reverse;
+      }
+    }
+
     .image-container {
       width: 300px;
       overflow: hidden;
-      border-top-left-radius: 15px;
-      border-top-right-radius: 15px;
+      border-radius: 15px;
     }
     .description {
       width: 80%;
@@ -43,6 +48,7 @@
         display: flex;
         width: 90%;
         justify-content: space-between;
+
         .timings {
           margin: 0;
           width: 200px;
@@ -60,16 +66,15 @@
           border: 0px;
           color: white;
           border-radius: 10px;
+          cursor: pointer;
+
           &:hover {
             // transform: scale(1.08);
             // background-color: #677eff;
             background: linear-gradient(90deg, #26293a 20%, #0328f5);
           }
-        
         }
       }
-      
-      
     }
   }
 }

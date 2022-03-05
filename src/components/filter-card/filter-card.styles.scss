@@ -1,12 +1,13 @@
 .filter-card {
   border: 2px solid rgb(31, 41, 66);
-  width: 25%;
+  width: 30%;
   height: 240px;
   z-index: 3;
   position: relative;
   border-radius: 10px;
   margin: 10px 0px;
   overflow: hidden;
+  cursor: pointer;
 
   &:hover {
     .text-wrapper {

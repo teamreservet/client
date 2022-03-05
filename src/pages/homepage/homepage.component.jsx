@@ -4,10 +4,14 @@ import MobileLayout from '../../components/mobile-layout/mobile-layout.component
 import HomepageCarousel from '../../components/homepage-carousel/homepage-carousel.component';
 import CustomButtom from '../../components/custom-button/custom-button.component';
 
-import img1 from '../../assets/grid.jpeg';
-import img2 from '../../assets/grid-1.jpeg';
-import img3 from '../../assets/grid-2.jpeg';
-import img4 from '../../assets/grid-3.jpeg';
+import homepage_crosl_1 from '../../assets/homepage-crosl-1.jpg';
+import homepage_crosl_2 from '../../assets/homepage-crosl-2.jpg';
+import homepage_crosl_3 from '../../assets/homepage-crosl-3.jpg';
+import homepage_crosl_4 from '../../assets/homepage-crosl-4.jpg';
+import homepage_crosl_5 from '../../assets/homepage-crosl-5.jpg';
+import homepage_crosl_6 from '../../assets/homepage-crosl-6.jpg';
+import homepage_crosl_7 from '../../assets/homepage-crosl-7.jpg';
+import homepage_crosl_8 from '../../assets/homepage-crosl-8.jpg';
 import searchIcon from '../../assets/search-icon.png';
 
 import './homepage.styles.scss';
@@ -35,7 +39,18 @@ const HomePage = () => {
           </div>
           <div className='components'>
             <MobileLayout />
-            <HomepageCarousel images={[img1, img2, img3, img4]} />
+            <HomepageCarousel
+              images={[
+                homepage_crosl_1,
+                homepage_crosl_2,
+                homepage_crosl_7,
+                homepage_crosl_3,
+                homepage_crosl_5,
+                homepage_crosl_8,
+                homepage_crosl_4,
+                homepage_crosl_6
+              ]}
+            />
           </div>
         </div>
       </div>

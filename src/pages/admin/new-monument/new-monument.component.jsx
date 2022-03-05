@@ -89,6 +89,7 @@ const NewMonument = ({ currentUser }) => {
     <div className='new-monument-container'>
       {showLoader ? <Loader /> : null}
       <h1 className='heading'>ADD NEW MONUMENTS</h1>
+      <div className='background' />
       <form
         onSubmit={handleSubmit}
         encType='multipart/form-data'

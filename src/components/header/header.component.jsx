@@ -36,7 +36,7 @@ const Header = ({ currentUser }) => {
             }}
             onClick={() => setPopUp(false)}
           >
-            Ticket House
+            Ticket Counter
           </Link>
           <TicketHousePopUp
             PopUp={PopUp}
