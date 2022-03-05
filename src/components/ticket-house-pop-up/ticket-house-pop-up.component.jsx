@@ -30,7 +30,7 @@ const TicketHousePopUp = ({ PopUp, setPopUp, hoverOn }) => {
       className={`header-pop-up ${PopUp ? 'show' : 'hide'}`}
       onMouseLeave={() => setPopUp(false)}
     >
-      {hoverOn === 'Ticket House' ? (
+      {hoverOn === 'Ticket Counter' ? (
         <div>
           <p className='title'>Popular Cities</p>
           <div className='pop-up-images'>
