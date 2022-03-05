@@ -5,14 +5,14 @@
   transform-origin: top;
   border: 1px solid black;
   width: 80%;
-  
+
   &.hide {
     transform: rotateX(-30deg) scale(0.5);
     opacity: 0;
     z-index: -5;
     transition: all 200ms ease-in;
   }
-  
+
   &.show {
     transform: rotateX(0deg);
     opacity: 1;
@@ -39,46 +39,4 @@
       }
     }
   }
-
-  .faq-pop-up {
-    height: 300px;
-    overflow-y: scroll;
-
-    &::-webkit-scrollbar {
-      display: none;
-    }
-
-    .item{
-      background:white;
-      margin-bottom: 8px;
-      padding: 10px 20px;
-      border-style: solid;
-      border-radius: 10px;
-    }
-    .Heading{
-      color: black;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      cursor: pointer;
-    }
-    .description{
-      color: black;
-      max-height: 0px;
-      overflow: hidden;
-      transition-timing-function: linear;
-    }
-    .description_all{
-      height: auto;
-      max-height: 9999;
-      transition-timing-function: linear;
-    }
-    .item:hover{
-      background-color: orange;
-    }
-    .checkup{
-      font-size: 17px;
-    }
-  }
-  
 }
