@@ -1,4 +1,4 @@
-import './ticket-house-pop-up.styles.scss';
+import FAQs from '../faqs-pop-up/faqs-pop-up.component';
 
 import ahd from '../../assets/ahd.png';
 import bang from '../../assets/bang.png';
@@ -9,6 +9,8 @@ import kolk from '../../assets/kolk.png';
 import mumbai from '../../assets/mumbai.png';
 import ncr from '../../assets/ncr.png';
 import pune from '../../assets/pune.png';
+
+import './ticket-house-pop-up.styles.scss';
 
 const TicketHousePopUp = ({ PopUp, setPopUp, hoverOn }) => {
   const images = [ahd, bang, chd, hyd, koch, kolk, mumbai, ncr, pune];
@@ -41,9 +43,7 @@ const TicketHousePopUp = ({ PopUp, setPopUp, hoverOn }) => {
           </div>
         </div>
       ) : (
-        <div>
-          <h1>FAQs</h1>
-        </div>
+        <FAQs />
       )}
     </div>
   );

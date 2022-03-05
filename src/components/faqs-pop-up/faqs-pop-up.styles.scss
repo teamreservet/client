@@ -1,0 +1,39 @@
+.faq-pop-up {
+  // height: 500px;
+  overflow-y: scroll;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  .item {
+    width: 85%;
+    margin: auto;
+    background: white;
+    padding: 10px 20px;
+    border-top: 1px solid black;
+
+    .Heading {
+      color: black;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+    }
+    .description {
+      color: black;
+      max-height: 0px;
+      overflow: hidden;
+      transition-timing-function: linear;
+    }
+    .description_all {
+      height: auto;
+      max-height: 9999;
+      transition-timing-function: linear;
+    }
+    .checkup {
+      font-size: 17px;
+      cursor: pointer;
+    }
+  }
+}
