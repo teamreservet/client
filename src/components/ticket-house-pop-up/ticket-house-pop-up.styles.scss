@@ -16,7 +16,7 @@
   &.show {
     transform: rotateX(0deg);
     opacity: 1;
-    z-index: 2;
+    z-index: 10;
     transition: all 200ms ease-out;
   }
 

@@ -1,47 +1,45 @@
-.filter-card{
-    border: 2px solid rgb(31, 41, 66);
-    width: 25%;
-    height: 240px;
-    z-index: 3;
-    position: relative;
-    border-radius: 10px;
-    margin: 10px 0px;
+.filter-card {
+  border: 2px solid rgb(31, 41, 66);
+  width: 25%;
+  height: 240px;
+  z-index: 3;
+  position: relative;
+  border-radius: 10px;
+  margin: 10px 0px;
+  overflow: hidden;
 
-    &:hover {
-        .text-wrapper {
-            z-index: 2;
-            background-color: rgba(0, 0, 0, 0.502);
-        }
-        .filter-img {
-            z-index: -1;
-        }
-        transform: scale(1.08);
-        transition: all 300ms;
-}
-
-    .filter-img 
-    {
-        justify-items: center;
-        width: 100%;
-        height: 100%;
-        position: absolute;
-        border-radius: 6px;
-    }
-
+  &:hover {
     .text-wrapper {
-        width: 100%;
-        height: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        z-index: -1;
-
-        .filter-img-text {
-            width: 100%;
-            z-index: inherit;
-            text-align: center;
-            color: white;
-        }
+      z-index: 2;
+      background-color: rgba(0, 0, 0, 0.502);
     }
+    .filter-img {
+      z-index: -1;
+    }
+    transform: scale(1.08);
+    transition: all 300ms;
+  }
 
+  .filter-img {
+    justify-items: center;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+  }
+
+  .text-wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: -1;
+
+    .filter-img-text {
+      width: 100%;
+      z-index: inherit;
+      text-align: center;
+      color: white;
+    }
+  }
 }
