@@ -12,7 +12,8 @@
     transform: rotate(-25deg) translateX(-80vw) translateY(-133vh);
     z-index: -1;
     // background: radial-gradient(#062a4e 20%, #2291ff);
-    animation: background 3s ease-in-out infinite alternate;
+    // animation: background 3s ease-in-out infinite alternate;
+    background: linear-gradient(45deg, blue, rgb(55, 3, 71) 50%);
   }
 
   .left-component {
