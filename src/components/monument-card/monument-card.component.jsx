@@ -1,17 +1,15 @@
 import { Cloudinary } from '@cloudinary/url-gen';
 import { fill } from '@cloudinary/url-gen/actions/resize';
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 
 import ImageCarousel from '../image-carousel/image-carousel.component';
 
 import './monument-card.styles.scss';
 
-const MounmentCard = ({ monument, ind }) => {
+const MounmentCard = ({ monument, ind, setCheckoutMonumentDetails }) => {
   const { name, images, location, about, opening_time, closing_time } =
     monument;
   const [autoPlay, setAutoPlay] = useState(false);
-  const navigate = useNavigate();
   const cld = new Cloudinary({
     cloud: {
       cloudName: 'reservet'
@@ -56,7 +54,7 @@ const MounmentCard = ({ monument, ind }) => {
             </div>
             <button
               className='booknow-button'
-              onClick={() => navigate('/checkout', { state: monument })}
+              onClick={() => setCheckoutMonumentDetails(monument)}
             >
               Book Now
             </button>

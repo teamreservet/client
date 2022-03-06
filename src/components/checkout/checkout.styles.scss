@@ -1,0 +1,78 @@
+.checkout-box {
+  width: 80vw;
+  height: 80vh;
+  background-color: white;
+  display: flex;
+
+  .checkout-box-child {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    &.checkout-box-left {
+      height: 80%;
+      margin: auto;
+      border-right: 1px solid rgb(138, 138, 138);
+
+      .user-details {
+        width: 50%;
+        .label-input {
+          display: flex;
+          justify-content: space-between;
+          margin: 20px 0;
+
+          label {
+            margin: auto 0;
+          }
+          .input-group {
+            display: inline-flex;
+            margin: 0;
+
+            .form-input {
+              color: black;
+            }
+
+            input[type='date'] {
+              color: grey;
+            }
+          }
+        }
+      }
+      .categories {
+        width: 100%;
+        display: flex;
+        justify-content: space-evenly;
+        margin-top: 30px;
+
+        .category-group {
+          text-align: center;
+          input[type='radio'] {
+            display: none;
+          }
+          label {
+            width: 130px;
+            height: 30px;
+            border: 1px solid black;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 5px;
+
+            span {
+              cursor: pointer;
+              width: 20px;
+            }
+          }
+          input[type='radio']:checked + label {
+            background-color: antiquewhite;
+          }
+          p {
+            margin-top: 2px;
+          }
+        }
+      }
+    }
+  }
+}
