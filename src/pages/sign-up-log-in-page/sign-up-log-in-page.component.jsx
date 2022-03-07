@@ -16,12 +16,9 @@ const SignUpAndLogInPage = ({ currentUser }) => {
   }, [currentUser, redirectUrl, navigate]);
   return (
     <div className='sign-up-and-log-in-page'>
-      <h1 className='authenticate-heading'>Sign up and log in page</h1>
+      {/* <h1 className='authenticate-heading'>Sign up and log in page</h1> */}
       <div className='background' />
       <div className='container'>
-        <div className='reservet-logo-container'>
-          <img src={ReservetLogo} alt='logo' className='reservet-logo' />
-        </div>
         <div className='authentication'>
           <Outlet context={setRedirectUrl} />
         </div>

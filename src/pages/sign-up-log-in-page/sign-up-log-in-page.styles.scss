@@ -15,28 +15,26 @@
 
   .authenticate-heading {
     color: white;
+    margin-bottom: 0px;
   }
 
   .container {
     display: flex;
     flex-direction: row;
     width: 100vw;
-    margin-top: 70px;
+    margin-top: 20px;
 
-    .reservet-logo-container {
+    .left-quote {
       width: 50%;
-      border-right: 1px solid grey;
+      display: flex;
+      justify-content: center;
 
-      .reservet-logo {
+      h1 {
         width: 70%;
-        position: relative;
-        top: 50%;
-        left: 35%;
-        transform: translate(-50%, -50%);
       }
     }
     .authentication {
-      width: 50%;
+      width: 100%;
       text-align: center;
       margin: auto;
     }

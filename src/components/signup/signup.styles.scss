@@ -1,27 +1,79 @@
 .registration-form {
   display: flex;
   flex-direction: column;
-
-  .form-container {
-    width: 90%;
+  width: 100%;
+  .signup-box 
+  {
+   
+    border: 2px;
+    border-style: solid;
+    width: 800px;
+    height: 500px;
     margin: auto;
-    display: flex;
-    justify-content: center;
-
-    form {
-      width: 100%;
-    }
-
-    .submit-button {
-      padding: 10px;
-      width: 200px;
-    }
-  }
-  .to-log-in {
-    margin-top: 20px;
-    & span {
-      cursor: pointer;
-      color: blue;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0px;
+    .signup-box-left {
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      .signup-title {
+     
+        border-style: hidden;
+        bottom: 10px;
+        border-radius: 10px;
+        height: 50px;
+        width: 350px;
+        margin-top: 10px;
+       //  background-color: #36096d;
+       //  background-image: linear-gradient(315deg, #36096d 0%, #37d5d6 74%);
+        h1 {
+           margin: 0px;
+           font-size: 23px;
+           align-items: center;
+        }
+        
+      }
+   
+   
+       .form-container {
+         width: 100%;
+         // margin: auto;
+         display: flex;
+         justify-content: center;
+         border-radius: 20px;
+     
+         form {
+           width: 100%;
+           .custom-button {
+             background-color: #36096d;
+             background-image: linear-gradient(315deg, #36096d 0%, #37d5d6 74%);
+           }
+           .user-name {
+             display: flex;
+             justify-content: space-between;
+             margin: 0px;
+             .input-group {
+               width: 40%;
+               margin-bottom: 0px;
+             }
+           }
+         }
+     
+         .submit-button {
+           padding: 10px;
+           width: 200px;
+           // border-radius: 10px;
+         }
+       }
+       .to-log-in {
+         margin-top: 20px;
+         & span {
+           cursor: pointer;
+           color: blue;
+         }
+       }
     }
   }
 }
