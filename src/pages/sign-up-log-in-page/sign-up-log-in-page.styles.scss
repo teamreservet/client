@@ -1,5 +1,6 @@
 .sign-up-and-log-in-page {
   display: flex;
+  height: calc(100vh - 90px);
   flex-direction: column;
   text-align: center;
 
@@ -21,8 +22,15 @@
   .container {
     display: flex;
     flex-direction: row;
-    width: 100vw;
-    margin-top: 20px;
+    flex-direction: column;
+    border: 2px;
+    border-style: solid;
+    width: 800px;
+    height: 500px;
+    margin: auto;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0px;
 
     .left-quote {
       width: 50%;
@@ -34,9 +42,11 @@
       }
     }
     .authentication {
-      width: 100%;
-      text-align: center;
-      margin: auto;
+      width: 50%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
   }
 }
