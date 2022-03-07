@@ -23,7 +23,7 @@ const SignIn = () => {
   });
   useEffect(() => {
     setRedirectUrl(location.state ? location.state.redirectUrl : '/');
-  }, [location.state]);
+  }, [location.state, setRedirectUrl]);
   const handleChange = e => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });

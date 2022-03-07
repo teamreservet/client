@@ -13,7 +13,7 @@ const SignUpAndLogInPage = ({ currentUser }) => {
     if (currentUser) {
       navigate(redirectUrl);
     }
-  }, [currentUser, navigate]);
+  }, [currentUser, redirectUrl, navigate]);
   return (
     <div className='sign-up-and-log-in-page'>
       <h1 className='authenticate-heading'>Sign up and log in page</h1>
