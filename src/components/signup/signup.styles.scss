@@ -1,15 +1,40 @@
 .registration-form {
+  width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+
+  .signup-title {
+    border-style: hidden;
+    height: 50px;
+    width: 350px;
+    margin-top: 10px;
+    h1 {
+      margin: 0px;
+      font-size: 24px;
+    }
+  }
 
   .form-container {
-    width: 90%;
-    margin: auto;
+    width: 100%;
     display: flex;
     justify-content: center;
+    border-radius: 20px;
 
     form {
       width: 100%;
+      .user-name {
+        display: flex;
+        justify-content: space-between;
+        max-width: 350px;
+        margin: auto;
+        .input-group {
+          width: 45%;
+          margin: 0px;
+        }
+      }
     }
 
     .submit-button {
@@ -18,7 +43,6 @@
     }
   }
   .to-log-in {
-    margin-top: 20px;
     & span {
       cursor: pointer;
       color: blue;
