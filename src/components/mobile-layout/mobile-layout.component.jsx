@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import CustomButtom from '../custom-button/custom-button.component';
 import SignIn from '../signin/signin.component';
 
-import logo3 from '../../assets/reservet-logo3.png';
+import logo from '../../assets/reservet-logo.png';
 
 import './mobile-layout.styles.scss';
 
@@ -15,7 +15,7 @@ const MobileLayout = ({ currentUser }) => {
       <span className='notch' />
       <div className='mobile-layout-container'>
         <div>
-          <img src={logo3} alt='logo' className='logo' />
+          <img src={logo} alt='logo' className='logo' />
         </div>
         <CustomButtom bookNow onClick={() => navigate('/ticket-house')}>
           BOOK NOW

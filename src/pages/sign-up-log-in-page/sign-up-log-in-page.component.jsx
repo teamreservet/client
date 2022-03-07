@@ -15,7 +15,7 @@ const SignUpAndLogInPage = ({ currentUser }) => {
   }, [currentUser, navigate]);
   return (
     <div className='sign-up-and-log-in-page'>
-      <h1>Sign up and log in page</h1>
+      <h1 className='authenticate-heading'>Sign up and log in page</h1>
       <div className='background' />
       <div className='container'>
         <div className='reservet-logo-container'>

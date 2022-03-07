@@ -39,7 +39,7 @@ const FAQs = () => {
   return (
     <div className='faq-pop-up'>
       {data.map((item, i) => (
-        <div className='item'>
+        <div className='item' key={i}>
           <div className='Heading' onClick={() => toggle(i)}>
             <h3>{item.question}</h3>
 
