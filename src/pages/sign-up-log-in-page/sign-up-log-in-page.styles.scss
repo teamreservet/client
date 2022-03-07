@@ -22,7 +22,6 @@
   .container {
     display: flex;
     flex-direction: row;
-    flex-direction: column;
     border: 2px;
     border-style: solid;
     width: 800px;
@@ -47,6 +46,23 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+    }
+
+    .auth-page-img-wrapper {
+      width: 50%;
+      position: relative;
+
+      .auth-page-img-1 {
+        width: 45%;
+        position: absolute;
+        top: 70px;
+        left: 40px;
+      }
+      .auth-page-img-2 {
+        width: 90%;
+        position: relative;
+        top: 120px;
+      }
     }
   }
 }

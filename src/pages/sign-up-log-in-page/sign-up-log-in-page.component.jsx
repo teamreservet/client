@@ -2,7 +2,8 @@ import { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { Outlet, useNavigate } from 'react-router-dom';
 
-import ReservetLogo from '../../assets/reservet.svg';
+import authPageImg from '../../assets/auth-page-img.svg';
+import reservetLogo from '../../assets/reservet-logo.png';
 
 import './sign-up-log-in-page.styles.scss';
 
@@ -21,6 +22,10 @@ const SignUpAndLogInPage = ({ currentUser }) => {
       <div className='container'>
         <div className='authentication'>
           <Outlet context={setRedirectUrl} />
+        </div>
+        <div className='auth-page-img-wrapper'>
+          <img src={reservetLogo} alt='' className='auth-page-img-1' />
+          <img src={authPageImg} alt='' className='auth-page-img-2' />
         </div>
       </div>
     </div>

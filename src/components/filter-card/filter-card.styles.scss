@@ -39,6 +39,10 @@
     height: 110%;
     position: absolute;
     left: -50%;
+
+    &.museums-img {
+      height: 100%;
+    }
   }
 
   .text-wrapper {
