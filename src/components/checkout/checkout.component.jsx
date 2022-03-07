@@ -122,7 +122,7 @@ const CheckoutBox = ({
         className='cross-sign'
         onClick={() => setCheckoutMonumentDetails(null)}
       >
-        {/* &#10008; */}x
+        x
       </span>
       <div className='checkout-box-child checkout-box-left'>
         <h1>Payment Details</h1>
