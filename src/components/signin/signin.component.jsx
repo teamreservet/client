@@ -22,7 +22,9 @@ const SignIn = () => {
     password: ''
   });
   useEffect(() => {
-    setRedirectUrl(location.state ? location.state.redirectUrl : '/');
+    if (setRedirectUrl) {
+      setRedirectUrl(location.state ? location.state.redirectUrl : '/');
+    }
   }, [location.state, setRedirectUrl]);
   const handleChange = e => {
     const { name, value } = e.target;

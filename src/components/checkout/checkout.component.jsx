@@ -5,7 +5,7 @@ import { Cloudinary } from '@cloudinary/url-gen';
 import { fill } from '@cloudinary/url-gen/actions/resize';
 
 import FormInput from '../form-input/form-input.component';
-import CustomButton from '../custom-button/custom-button.component';
+import PaymentButton from '../payment-button/payment-button.component';
 
 import './checkout.styles.scss';
 
@@ -84,7 +84,12 @@ const CheckoutBox = ({ checkoutMonumentDetails, currentUser }) => {
       indianCount * parseInt(ticket_pricing.indian_tourist.slice(4)) +
         foreignerCount * parseInt(ticket_pricing.foreign_tourist.slice(4))
     );
-  }, [indianCount, foreignerCount]);
+  }, [
+    indianCount,
+    foreignerCount,
+    ticket_pricing.indian_tourist,
+    ticket_pricing.foreign_tourist
+  ]);
 
   const cld = new Cloudinary({
     cloud: {
@@ -185,8 +190,17 @@ const CheckoutBox = ({ checkoutMonumentDetails, currentUser }) => {
       <div className='checkout-box-child checkout-box-right'>
         <AdvancedImage cldImg={img} />
         <h1>{monumentName.toUpperCase()}</h1>
-        <h2>Grand Total: Rs. {totalPrice}</h2>
-        <CustomButton>Purchase Now</CustomButton>
+        <h2>SUBTOTAL: Rs. {totalPrice}</h2>
+        <PaymentButton
+          amount={totalPrice}
+          indianCount={indianCount}
+          foreignerCount={foreignerCount}
+          childrenCount={childrenCount}
+          phone={userDetails.phone}
+          monumentName={monumentName}
+        >
+          Purchase Now
+        </PaymentButton>
       </div>
     </div>
   );
