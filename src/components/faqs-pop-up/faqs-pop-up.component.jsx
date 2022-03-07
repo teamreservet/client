@@ -1,5 +1,5 @@
 import { useState } from 'react';
-
+import FaqsCards from '../faqs-cards-pop-up/faqs-cards-pop-up.component';
 import './faqs-pop-up.styles.scss';
 
 const data = [
@@ -38,8 +38,28 @@ const FAQs = () => {
   };
   return (
     <div className='faq-pop-up'>
+      <div className='faqcards'>
+      <FaqsCards
+      
+       image_background='https://www.w3schools.com/html/pic_trulli.jpg'
+       Heading_cards='Step 1'
+       detailing='HELLO UNCLE NAMASTE CHALO KAAM KI BAAT PR AATE HAI HELLO UNCLE NAMASTE CHALO KAAM KI BAAT PR AATE HAI HELLO'
+     />
+      <FaqsCards
+      
+       image_background='https://www.w3schools.com/html/pic_trulli.jpg'
+       Heading_cards='Step 2'
+       detailing='HELLO UNCLE NAMASTE CHALO KAAM KI BAAT PR AATE HAI HELLO UNCLE NAMASTE CHALO KAAM KI BAAT PR AATE HAI HELLO'
+     />
+      <FaqsCards
+    
+       image_background='https://www.w3schools.com/html/pic_trulli.jpg'
+       Heading_cards='Step 3'
+       detailing='HELLO UNCLE NAMASTE CHALO KAAM KI BAAT PR AATE HAI HELLO UNCLE NAMASTE CHALO KAAM KI BAAT PR AATE HAI HELLO'
+     />
+      </div>
       {data.map((item, i) => (
-        <div className='item'>
+        <div className='item' key={i}>
           <div className='Heading' onClick={() => toggle(i)}>
             <h3>{item.question}</h3>
 

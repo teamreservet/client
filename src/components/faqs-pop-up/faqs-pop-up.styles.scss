@@ -5,7 +5,10 @@
   &::-webkit-scrollbar {
     display: none;
   }
-
+  .faqcards{
+    display: flex;
+    justify-content: space-evenly;
+  }
   .item {
     width: 85%;
     margin: auto;
