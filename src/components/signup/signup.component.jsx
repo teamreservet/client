@@ -63,7 +63,8 @@ const SignUp = () => {
     <div className='registration-form'>
       {showLoader ? <Loader /> : null}
       <div className='signup-title'>
-        <h1>Create your Reservet Account</h1>
+        <h1>Sign up</h1>
+        <p>Create your Reservet Account</p>
       </div>
       <div className='form-container'>
         <form onSubmit={handleSubmit}>

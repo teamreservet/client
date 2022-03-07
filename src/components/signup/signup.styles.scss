@@ -8,17 +8,12 @@
 
   .signup-title {
     border-style: hidden;
-    bottom: 10px;
-    border-radius: 10px;
     height: 50px;
     width: 350px;
     margin-top: 10px;
-    //  background-color: #36096d;
-    //  background-image: linear-gradient(315deg, #36096d 0%, #37d5d6 74%);
     h1 {
       margin: 0px;
-      font-size: 23px;
-      align-items: center;
+      font-size: 24px;
     }
   }
 
@@ -30,10 +25,6 @@
 
     form {
       width: 100%;
-      .custom-button {
-        background-color: #36096d;
-        background-image: linear-gradient(315deg, #36096d 0%, #37d5d6 74%);
-      }
       .user-name {
         display: flex;
         justify-content: space-between;
@@ -49,7 +40,6 @@
     .submit-button {
       padding: 10px;
       width: 200px;
-      // border-radius: 10px;
     }
   }
   .to-log-in {
