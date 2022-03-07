@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { useNavigate, useLocation, useOutletContext } from 'react-router-dom';
 
 import FormInput from '../form-input/form-input.component';
 import CustomButtom from '../custom-button/custom-button.component';
@@ -14,12 +14,16 @@ import './signin.styles.scss';
 
 const SignIn = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+  const setRedirectUrl = useOutletContext();
   const [showLoader, setShowLoader] = useState(false);
   const [formData, setFormData] = useState({
     email: '',
     password: ''
   });
-
+  useEffect(() => {
+    setRedirectUrl(location.state ? location.state.redirectUrl : '/');
+  }, [location.state, setRedirectUrl]);
   const handleChange = e => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });

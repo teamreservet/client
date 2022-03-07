@@ -1,12 +1,20 @@
 import { Cloudinary } from '@cloudinary/url-gen';
 import { fill } from '@cloudinary/url-gen/actions/resize';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 import ImageCarousel from '../image-carousel/image-carousel.component';
 
 import './monument-card.styles.scss';
 
-const MounmentCard = ({ monument, ind, setCheckoutMonumentDetails }) => {
+const MounmentCard = ({
+  monument,
+  ind,
+  setCheckoutMonumentDetails,
+  currentUser
+}) => {
+  const navigate = useNavigate();
   const { name, images, location, about, opening_time, closing_time } =
     monument;
   const [autoPlay, setAutoPlay] = useState(false);
@@ -54,7 +62,13 @@ const MounmentCard = ({ monument, ind, setCheckoutMonumentDetails }) => {
             </div>
             <button
               className='booknow-button'
-              onClick={() => setCheckoutMonumentDetails(monument)}
+              onClick={() => {
+                currentUser
+                  ? setCheckoutMonumentDetails(monument)
+                  : navigate('/authenticate/login', {
+                      state: { redirectUrl: '/ticket-house' }
+                    });
+              }}
             >
               Book Now
             </button>
@@ -65,4 +79,8 @@ const MounmentCard = ({ monument, ind, setCheckoutMonumentDetails }) => {
   );
 };
 
-export default MounmentCard;
+const mapStateToProps = state => ({
+  currentUser: state.user.currentUser
+});
+
+export default connect(mapStateToProps)(MounmentCard);

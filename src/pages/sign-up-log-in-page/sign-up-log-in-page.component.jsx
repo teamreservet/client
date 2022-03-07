@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { Outlet, useNavigate } from 'react-router-dom';
 
@@ -8,11 +8,12 @@ import './sign-up-log-in-page.styles.scss';
 
 const SignUpAndLogInPage = ({ currentUser }) => {
   const navigate = useNavigate();
+  const [redirectUrl, setRedirectUrl] = useState('/');
   useEffect(() => {
     if (currentUser) {
-      navigate('/');
+      navigate(redirectUrl);
     }
-  }, [currentUser, navigate]);
+  }, [currentUser, redirectUrl, navigate]);
   return (
     <div className='sign-up-and-log-in-page'>
       <h1 className='authenticate-heading'>Sign up and log in page</h1>
@@ -22,7 +23,7 @@ const SignUpAndLogInPage = ({ currentUser }) => {
           <img src={ReservetLogo} alt='logo' className='reservet-logo' />
         </div>
         <div className='authentication'>
-          <Outlet />
+          <Outlet context={setRedirectUrl} />
         </div>
       </div>
     </div>

@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { connect } from 'react-redux';
-import { Navigate } from 'react-router-dom';
 
 import Loader from '../../components/loader/loader.component';
 import MounmentCard from '../../components/monument-card/monument-card.component';
@@ -36,16 +35,14 @@ const TicketHouse = ({ monuments, statesData, currentUser }) => {
     <div className='ticket-house'>
       <h1 className='heading'>Ticket Counter</h1>
       <div className='background' />
-      {checkoutMonumentDetails && currentUser ? (
+      {checkoutMonumentDetails && (
         <div
           className='checkout-box-wrapper'
           onClick={() => setCheckoutMonumentDetails(null)}
         >
           <CheckoutBox checkoutMonumentDetails={checkoutMonumentDetails} />
         </div>
-      ) : checkoutMonumentDetails && !currentUser ? (
-        <Navigate to='/authenticate/login' />
-      ) : null}
+      )}
       <div className='filter-monuments'>
         <select
           name='states'

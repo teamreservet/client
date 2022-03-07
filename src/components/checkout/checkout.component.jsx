@@ -1,28 +1,33 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { AdvancedImage } from '@cloudinary/react';
 import { Cloudinary } from '@cloudinary/url-gen';
 import { fill } from '@cloudinary/url-gen/actions/resize';
 
 import FormInput from '../form-input/form-input.component';
+import CustomButton from '../custom-button/custom-button.component';
 
 import './checkout.styles.scss';
 
 const CheckoutBox = ({ checkoutMonumentDetails, currentUser }) => {
-  const { images, name: monumentName } = checkoutMonumentDetails;
+  const {
+    images,
+    name: monumentName,
+    ticket_pricing
+  } = checkoutMonumentDetails;
   const [userDetails, setUserDetails] = useState({
     username: currentUser.displayName,
     email: currentUser.email,
     phone: '',
     date: ''
   });
-  const [indianCount, setIndianCount] = useState(0);
+  const [indianCount, setIndianCount] = useState(1);
   const [foreignerCount, setForeignerCount] = useState(0);
   const [childrenCount, setChildrenCount] = useState(0);
+  const [totalPrice, setTotalPrice] = useState(ticket_pricing.indian_tourist);
 
   const handleChange = e => {
     const { name, value } = e.target;
-    console.log(name, value);
     setUserDetails({ ...userDetails, [name]: value });
   };
 
@@ -47,6 +52,12 @@ const CheckoutBox = ({ checkoutMonumentDetails, currentUser }) => {
   };
   const decrementCount = e => {
     const category = e.target.parentElement.htmlFor;
+    if (
+      (indianCount === 1 && foreignerCount === 0) ||
+      (indianCount === 0 && foreignerCount === 1)
+    ) {
+      return;
+    }
     switch (category) {
       case 'indian': {
         if (indianCount === 0) return;
@@ -67,6 +78,13 @@ const CheckoutBox = ({ checkoutMonumentDetails, currentUser }) => {
         return;
     }
   };
+
+  useEffect(() => {
+    setTotalPrice(
+      indianCount * parseInt(ticket_pricing.indian_tourist.slice(4)) +
+        foreignerCount * parseInt(ticket_pricing.foreign_tourist.slice(4))
+    );
+  }, [indianCount, foreignerCount]);
 
   const cld = new Cloudinary({
     cloud: {
@@ -127,6 +145,7 @@ const CheckoutBox = ({ checkoutMonumentDetails, currentUser }) => {
         <div className='categories'>
           <div className='category-group'>
             <input type='radio' name='category' value='indian' id='indian' />
+            <p>{ticket_pricing.indian_tourist}</p>
             <label htmlFor='indian'>
               <span onClick={decrementCount}>&#8722;</span>Indian
               <span onClick={incrementCount}>&#x2b;</span>
@@ -140,6 +159,7 @@ const CheckoutBox = ({ checkoutMonumentDetails, currentUser }) => {
               value='foreigner'
               id='foreigner'
             />
+            <p>{ticket_pricing.foreign_tourist}</p>
             <label htmlFor='foreigner'>
               <span onClick={decrementCount}>&#8722;</span>Foreigner
               <span onClick={incrementCount}>&#x2b;</span>
@@ -153,6 +173,7 @@ const CheckoutBox = ({ checkoutMonumentDetails, currentUser }) => {
               value='children'
               id='children'
             />
+            <p>{ticket_pricing.children_below_15_years}</p>
             <label htmlFor='children'>
               <span onClick={decrementCount}>&#8722;</span>Children
               <span onClick={incrementCount}>&#x2b;</span>
@@ -164,6 +185,8 @@ const CheckoutBox = ({ checkoutMonumentDetails, currentUser }) => {
       <div className='checkout-box-child checkout-box-right'>
         <AdvancedImage cldImg={img} />
         <h1>{monumentName.toUpperCase()}</h1>
+        <h2>Grand Total: Rs. {totalPrice}</h2>
+        <CustomButton>Purchase Now</CustomButton>
       </div>
     </div>
   );
