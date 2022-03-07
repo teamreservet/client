@@ -40,7 +40,10 @@ const TicketHouse = ({ monuments, statesData, currentUser }) => {
           className='checkout-box-wrapper'
           onClick={() => setCheckoutMonumentDetails(null)}
         >
-          <CheckoutBox checkoutMonumentDetails={checkoutMonumentDetails} />
+          <CheckoutBox
+            checkoutMonumentDetails={checkoutMonumentDetails}
+            setCheckoutMonumentDetails={setCheckoutMonumentDetails}
+          />
         </div>
       )}
       <div className='filter-monuments'>
@@ -81,11 +84,13 @@ const TicketHouse = ({ monuments, statesData, currentUser }) => {
           onChange={handleChangeInput}
         />
       </div>
-      <div className='filter-card-wrapper'>
-        <FilterCard name='monuments' image={monument} />
-        <FilterCard name='heritages' image={heritage} />
-        <FilterCard name='museums' image={museum} />
-      </div>
+      {searchQuery.length === 0 && (
+        <div className='filter-card-wrapper'>
+          <FilterCard name='monuments' image={monument} />
+          <FilterCard name='heritages' image={heritage} />
+          <FilterCard name='museums' image={museum} />
+        </div>
+      )}
       <div className='monuments'>
         {monuments ? (
           monuments

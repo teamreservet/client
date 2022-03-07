@@ -36,6 +36,11 @@ const PaymentButton = ({
         foreignerCount,
         monumentName,
         childrenCount
+      },
+      {
+        headers: {
+          'x-api-authentication': currentUser.token
+        }
       }
     );
     response = response.data;
@@ -52,6 +57,11 @@ const PaymentButton = ({
           {
             ...res,
             order_id: response.id
+          },
+          {
+            headers: {
+              'x-api-authentication': currentUser.token
+            }
           }
         );
         console.log(resp ? 'Payment is successful' : 'Payment is unsuccessful');
