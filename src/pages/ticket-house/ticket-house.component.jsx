@@ -16,10 +16,12 @@ import './ticket-house.styles.scss';
 
 const TicketHouse = ({ monuments, statesData }) => {
   const [searchQuery, setSearchQuery] = useContext(searchQueryContext);
+  const [tagFilter, setTagFilter] = useState('');
   const [state, setState] = useState('');
   const [checkoutMonumentDetails, setCheckoutMonumentDetails] = useState(null);
 
   const handleChangeInput = e => {
+    setTagFilter('');
     setSearchQuery(e.target.value);
   };
   const handleChangeState = e => {
@@ -88,22 +90,41 @@ const TicketHouse = ({ monuments, statesData }) => {
       </div>
       {searchQuery.length === 0 && (
         <div className='filter-card-wrapper'>
-          <FilterCard name='monuments' image={monument} />
-          <FilterCard name='heritages' image={heritage} />
-          <FilterCard name='museums' image={museum} />
+          <FilterCard
+            name='monuments'
+            image={monument}
+            onClick={() => setTagFilter('monument')}
+          />
+          <FilterCard
+            name='heritages'
+            image={heritage}
+            onClick={() => setTagFilter('heritage')}
+          />
+          <FilterCard
+            name='museums'
+            image={museum}
+            onClick={() => setTagFilter('museum')}
+          />
         </div>
       )}
       <div className='monuments'>
         {monuments ? (
           monuments
             .filter(
-              monument =>
-                monument.name
-                  .toLowerCase()
-                  .includes(searchQuery.toLowerCase()) ||
-                monument.location
-                  .toLowerCase()
-                  .includes(searchQuery.toLowerCase())
+              monument => {
+                if (tagFilter.length === 0) {
+                  return (
+                    monument.name
+                      .toLowerCase()
+                      .includes(searchQuery.toLowerCase()) ||
+                    monument.location
+                      .toLowerCase()
+                      .includes(searchQuery.toLowerCase())
+                  );
+                } else {
+                  return monument.tags.includes(tagFilter);
+                }
+              }
               // {
               //   let opt = false;
               //   const name = monument.name.toLowerCase().split(' ');

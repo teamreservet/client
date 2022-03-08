@@ -18,50 +18,77 @@
       }
     }
 
-    .options {
-      height: 100%;
-      width: 60%;
+    .all-options {
       display: flex;
-      justify-content: space-evenly;
+      justify-content: space-between;
       align-items: center;
+      height: 100%;
+      width: 80%;
+      margin: 0;
 
-      a {
-        text-decoration: none;
-      }
+      .options {
+        height: 100%;
+        width: 80%;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
 
-      .option {
-        cursor: pointer;
-        margin-left: 20px;
-        font-size: 20px;
-        font-weight: 500;
-        color: white;
+        .admin-options {
+          display: flex;
+        }
 
-        &.upload-monuments {
-          margin-left: 30px;
+        a {
+          text-decoration: none;
+        }
+
+        .option {
+          cursor: pointer;
+          margin-left: 20px;
+          font-size: 20px;
+          font-weight: 500;
+          color: white;
+
+          &.upload-monuments {
+            margin-left: 30px;
+          }
+        }
+
+        .header-pop-up {
+          position: absolute;
+          top: 70px;
         }
       }
 
-      .header-pop-up {
-        position: absolute;
-        top: 70px;
+      .authenticate {
+        text-decoration: none;
+        color: black;
+        background-color: rgb(255, 255, 255);
+        font-weight: 600;
+        padding: 8px 15px;
+        border-radius: 20px;
+        transition: all 300ms;
+        cursor: pointer;
+
+        &:hover {
+          color: white;
+          background-color: #113cfd;
+          font-weight: 700;
+        }
       }
     }
+  }
+}
 
+@media (max-width: 400px) {
+  .all-options {
+    display: none;
+
+    .option {
+      display: none;
+    }
     .authenticate {
-      text-decoration: none;
-      color: black;
-      background-color: rgb(255, 255, 255);
-      font-weight: 600;
-      padding: 8px 15px;
-      border-radius: 20px;
-      transition: all 300ms;
-      cursor: pointer;
-
-      &:hover {
-        color: white;
-        background-color: #113cfd;
-        font-weight: 700;
-      }
+      width: 110px;
+      height: 35px;
     }
   }
 }
