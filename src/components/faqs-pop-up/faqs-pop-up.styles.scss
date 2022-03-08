@@ -1,11 +1,11 @@
 .faq-pop-up {
-   height: 500px;
+  height: 80vh;
   overflow-y: scroll;
 
   &::-webkit-scrollbar {
     display: none;
   }
-  .faqcards{
+  .faqcards {
     display: flex;
     justify-content: space-evenly;
   }
