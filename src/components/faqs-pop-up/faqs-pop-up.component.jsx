@@ -10,23 +10,35 @@ const data = [
   
   {
     question:
-      'Can I visit the Taj Mahal or other Historical monuments during my travel to India during Covid 19?',
-    answer: 'Taj Mahal, along with all the centrally protected monuments, sites and Museums (under ASI), is open. Still, safety guidelines such as proper social distancing, regular hand sanitising will have to be strictly followed. The number of visitors have been restricted to 5000 tourists each day at the Taj Mahal to avoid overcrowding. Entry tickets must be purchased online. Ticket counters will not be open.'
+      'How can I pay on the website?',
+    answer: 'You can easily pay on our website via credit/debit cards of any bank. We also accept all kinds of e-payment such as UPI and digital wallet payments like PayPal, Paytm, google pay, etc.'
   },
   {
-    question: 'Do the customer Need Medical/travel Insurance ?',
-    answer: 'Yes. It is advisable that you buy a comprehensive medical / travel insurance in advance from your country before travelling to India.'
+    question: 'Which documents are needed at the time of booking and checking of tickets?',
+    answer: 'At the time of ticket booking, you just need any of your id proof such as an Aadhaar card, Passport, or Pan card and at the time of ticket checking at counters, you will only need the e-ticket'
   },
   {
-    question: 'What documents are required for authentication purpose while signup onto the website ?',
+    question: 'How many tickets can I buy at a time?',
     answer:
-      'The documents required for authentication purpose is either Adhaar Card, Driving License, Passport,Visa as per provide by the government body'
+      'Maximum 5 Adults and at most 3 Children can visit their favorite destination place from one account.'
   },
   {
-    question: 'Do You Have Experienced Guides in Different Cities of India ?',
+    question: 'My phone does not support NFC.Now what?',
     answer:
-      'We have English speaking guides all over INDIA. At the place of your destination you will also find french , German , Spanish ,Italian and Japenese and other language speaking guides'
+      ''
   },
+  
+  {
+    question: 'My transaction got canceled during the booking of the ticket now what?',
+    answer:
+      'If the amount has been deducted from your account and the transaction got canceled it will be refunded back within 2-3 days'
+  },
+  {
+    question: 'What is about the  refund policy?',
+    answer:
+      'If the user wants to cancel the ticket the 10% amount will be deducted and the rest of the amount will be returned back'
+  },
+
   {
     question: 'If user Come Across Any Problem During the Trip, How Would You we help them ?',
     answer:
