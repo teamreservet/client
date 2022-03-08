@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { useContext } from 'react';
 import { connect } from 'react-redux';
+import ShortUniqueId from 'short-unique-id';
 
 import CustomButton from '../custom-button/custom-button.component';
 
@@ -22,8 +23,12 @@ const PaymentButton = ({
   phone,
   monumentName,
   childrenCount,
-  date
+  date,
+  setTicketId,
+  setPaymentSuccess
 }) => {
+  const uid = new ShortUniqueId({ length: 10 });
+
   const serverBaseUrl = useContext(serverBaseUrlContext);
 
   const handlePayment = async () => {
@@ -45,6 +50,7 @@ const PaymentButton = ({
       }
     );
     response = response.data;
+    const ticket_id = uid();
     const options = {
       key: 'rzp_test_La3jvp1V30zIWs',
       amount: amount,
@@ -64,7 +70,8 @@ const PaymentButton = ({
             indianCount,
             foreignerCount,
             date,
-            issuer: currentUser.displayName
+            issuer: currentUser.displayName,
+            ticket_id
           },
           {
             headers: {
@@ -73,6 +80,8 @@ const PaymentButton = ({
           }
         );
         alert(resp ? 'Payment is successful' : 'Payment is unsuccessful');
+        setTicketId(ticket_id);
+        setPaymentSuccess(resp);
       },
       prefill: {
         name: currentUser.displayName,

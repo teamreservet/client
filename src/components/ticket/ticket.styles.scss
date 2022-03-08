@@ -1,7 +1,31 @@
 .ticket {
   width: 600px;
-  height: 300px;
+  height: 350px;
   margin: auto;
   border: 1px solid black;
   display: flex;
+  background: white;
+
+  .ticket-qr-wrapper {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    h3 {
+      margin: 10px 0;
+    }
+  }
+  .ticket-details {
+    display: flex;
+    flex-direction: column;
+    // justify-content: center;
+    margin-top: 10%;
+    height: 90%;
+
+    .subtotal {
+      align-self: flex-end;
+    }
+  }
 }

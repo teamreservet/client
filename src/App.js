@@ -27,7 +27,6 @@ import { loadStates } from './redux/state/state.action';
 import { serverBaseUrlContext, searchQueryContext } from './contexts';
 
 import './App.css';
-import Ticket from './components/ticket/ticket.component';
 
 function App({ setCurrentUser, loadMonuments, loadStates }) {
   // base url of our server
@@ -78,7 +77,6 @@ function App({ setCurrentUser, loadMonuments, loadStates }) {
               <Route path='register' element={<SignUp />} />
               <Route path='login' element={<SignIn />} />
             </Route>
-            <Route path='/ticket' element={<Ticket />} />
             <Route path='/*' element={<NotFound />} />
             <Route path='/admin' element={<Admin />}>
               <Route path='upload-monuments' element={<NewMonument />} />

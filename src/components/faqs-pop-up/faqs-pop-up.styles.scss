@@ -1,24 +1,29 @@
 .faq-pop-up {
-  // height: 500px;
+  height: 80vh;
   overflow-y: scroll;
 
   &::-webkit-scrollbar {
     display: none;
   }
-
+  .faqcards {
+    display: flex;
+    justify-content: space-evenly;
+    width: 90%;
+    margin: auto;
+  }
   .item {
     width: 85%;
-    margin: auto;
+    margin: 0 auto;
     background: white;
     padding: 10px 20px;
     border-top: 1px solid black;
+    cursor: pointer;
 
     .Heading {
       color: black;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      cursor: pointer;
     }
     .description {
       color: black;
@@ -34,6 +39,9 @@
     .checkup {
       font-size: 17px;
       cursor: pointer;
+      &::before {
+        content: '- ';
+      }
     }
   }
 }
