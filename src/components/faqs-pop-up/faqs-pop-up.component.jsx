@@ -3,29 +3,30 @@ import FaqsCards from '../faqs-cards-pop-up/faqs-cards-pop-up.component';
 import './faqs-pop-up.styles.scss';
 
 const data = [
-  {
-    question: 'What is your first question sjk ad biwq bdjw qnki nakdx adkn',
-    answer: 'Answer no.1 nhi pata'
-  },
+  
   {
     question:
-      'What is your second question sjk ad biwq bdjw qnki nakdx adkn sjk ad biwq bdjw qnki nakdx adkn',
-    answer: 'Answer no.2 nhi pata sjk ad biwq bdjw qnki nakdx adkn'
+      'Can I visit the Taj Mahal or other Historical monuments during my travel to India during Covid 19?',
+    answer: 'Taj Mahal, along with all the centrally protected monuments, sites and Museums (under ASI), is open. Still, safety guidelines such as proper social distancing, regular hand sanitising will have to be strictly followed. The number of visitors have been restricted to 5000 tourists each day at the Taj Mahal to avoid overcrowding. Entry tickets must be purchased online. Ticket counters will not be open.'
   },
   {
-    question: 'What is your third question sjk ad biwq bdjw qnki nakdx adkn',
-    answer:
-      'Answer no.3 nhi pata sjk ad biwq bdjw qnki nakdx adkn sjk ad biwq bdjw qnki nakdx pata sjk ad biwq bdjw qnki nakdx adkn sjk ad biwq bdjw qnki nakdx pata sjk ad biwq bdjw qnki nakdx adkn sjk ad biwq bdjw qnki nakdx adkn sjk ad biwq bdjw qnki nakdx adkn'
+    question: 'Do the customer Need Medical/travel Insurance ?',
+    answer: 'Yes. It is advisable that you buy a comprehensive medical / travel insurance in advance from your country before travelling to India.'
   },
   {
-    question: 'What is your third question sjk ad biwq bdjw qnki nakdx adkn',
+    question: 'What documents are required for authentication purpose while signup onto the website ?',
     answer:
-      'Answer no.3 nhi pata sjk ad biwq bdjw qnki nakdx adkn lauran dg di sakl dahkhddhdalk dahdh'
+      'The documents required for authentication purpose is either Adhaar Card, Driving License, Passport,Visa as per provide by the government body'
   },
   {
-    question: 'What is your third question sjk ad biwq bdjw qnki nakdx adkn',
+    question: 'Do You Have Experienced Guides in Different Cities of India ?',
     answer:
-      'Answer no.3 nhi pata sjk ad biwq bdjw qnki nakdx adkn sjk ad biwq bdjw qnki nakdx pata sjk ad biwq bdjw qnki nakdx adkn sjk ad biwq bdjw'
+      'We have English speaking guides all over INDIA. At the place of your destination you will also find french , German , Spanish ,Italian and Japenese and other language speaking guides'
+  },
+  {
+    question: 'If user Come Across Any Problem During the Trip, How Would You we help them ?',
+    answer:
+      'We provide truly 24 X 7 assistance. Our office is open 24 hours a day which means that you will always have someone to assist you even at any point of time. We shall also give you mobile nos. of executives who you may call in case of any need .'
   }
 ];
 const FAQs = () => {
@@ -43,7 +44,7 @@ const FAQs = () => {
       
        image_background='https://www.w3schools.com/html/pic_trulli.jpg'
        Heading_cards='Step 1'
-       detailing='HELLO UNCLE NAMASTE CHALO KAAM KI BAAT PR AATE HAI HELLO UNCLE NAMASTE CHALO KAAM KI BAAT PR AATE HAI HELLO'
+       detailing=''
      />
       <FaqsCards
       
