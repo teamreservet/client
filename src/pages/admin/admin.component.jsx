@@ -9,7 +9,7 @@ const Admin = ({ currentUser }) => {
       navigate('/');
       return;
     }
-  });
+  }, [currentUser, navigate]);
   return <Outlet />;
 };
 

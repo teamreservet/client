@@ -18,14 +18,15 @@ const CheckoutBox = ({
   const {
     images,
     name: monumentName,
-    ticket_pricing
+    ticket_pricing,
+    location: monumentPlace
   } = checkoutMonumentDetails;
   const [userDetails, setUserDetails] = useState({
     username: currentUser.displayName,
     email: currentUser.email,
     phone: ''
   });
-  const [paymentSuccess, setPaymentSuccess] = useState(false);
+  const [paymentSuccess, setPaymentSuccess] = useState(true);
   const [visitDate, setVisitDate] = useState('');
   const [indianCount, setIndianCount] = useState(1);
   const [foreignerCount, setForeignerCount] = useState(0);
@@ -130,6 +131,7 @@ const CheckoutBox = ({
           date={visitDate}
           issuer={userDetails.username}
           ticketId={ticketId}
+          monumentPlace={monumentPlace}
         />
       ) : (
         <div className='checkout-box'>
@@ -239,6 +241,7 @@ const CheckoutBox = ({
               date={visitDate}
               setPaymentSuccess={setPaymentSuccess}
               setTicketId={setTicketId}
+              monumentPlace={monumentPlace}
             >
               Purchase Now
             </PaymentButton>

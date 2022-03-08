@@ -1,0 +1,29 @@
+.verify-ticket {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .heading {
+    color: white;
+  }
+  .error {
+    color: white;
+  }
+  .background {
+    width: 2000px;
+    height: 1500px;
+    position: fixed;
+    transform: rotate(-25deg) translateY(-1150px) translateX(200px);
+    z-index: -1;
+    background-color: rgb(14, 14, 145);
+  }
+  .ticket-verification-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+    .form-input {
+      background-color: white;
+    }
+  }
+}

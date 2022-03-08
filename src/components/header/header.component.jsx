@@ -23,9 +23,14 @@ const Header = ({ currentUser }) => {
         </div>
         <div className='options' onMouseLeave={() => setPopUp(false)}>
           {currentUser && currentUser.isAdmin ? (
-            <Link className='option' to='/admin/upload-monuments'>
-              Upload Monuments
-            </Link>
+            <div>
+              <Link className='option' to='/admin/verify-ticket'>
+                Verify Ticket
+              </Link>
+              <Link className='option' to='/admin/upload-monuments'>
+                Upload Monuments
+              </Link>
+            </div>
           ) : null}
           <Link
             className='option'

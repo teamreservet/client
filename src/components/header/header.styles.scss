@@ -1,8 +1,5 @@
 .header {
   height: 90px;
-  // position: sticky;
-  // top: 0px;
-  // opacity: 1;
 
   .header-elements {
     display: flex;
@@ -23,10 +20,16 @@
 
     .options {
       height: 100%;
-      width: 50%;
+      width: 60%;
       display: flex;
       justify-content: space-evenly;
       align-items: center;
+
+      div {
+        width: 45%;
+        display: flex;
+        justify-content: flex-end;
+      }
 
       a {
         text-decoration: none;
