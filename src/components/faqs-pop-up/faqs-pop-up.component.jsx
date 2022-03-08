@@ -25,7 +25,7 @@ const data = [
   {
     question: 'My phone does not support NFC.Now what?',
     answer:
-      ''
+      'If your phone does not support NFC then there is alternative of QR based scanning'
   },
   
   {
