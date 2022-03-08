@@ -8,10 +8,12 @@
   .faqcards {
     display: flex;
     justify-content: space-evenly;
+    width: 90%;
+    margin: auto;
   }
   .item {
     width: 85%;
-    margin: auto;
+    margin: 20px auto 10px;
     background: white;
     padding: 10px 20px;
     border-top: 1px solid black;

@@ -7,15 +7,10 @@ function FaqsCards(props) {
     <div className='Title_Faq'>
       <h3>{props.Heading_cards}</h3>
     </div>
-    <div className='combine_title_body'>
-    <div className='FAQ_image'>
-        <img src={props.image_background} alt=''/>
-    </div>
     
-    <div className='body_element'>
-      <p>{props.detailing}</p>
-    </div>
-   
+    <div className='FAQ_image'>
+    
+    <img  src={props.image_background} alt='' />
     </div>
 
     </div>

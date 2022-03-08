@@ -47,17 +47,17 @@ const FAQs = () => {
         <FaqsCards
           image_background={faqsPopup1}
           Heading_cards='Step 1'
-          detailing='HELLO UNCLE NAMASTE CHALO KAAM KI BAAT PR AATE HAI HELLO UNCLE NAMASTE CHALO KAAM KI BAAT PR AATE HAI HELLO'
+          
         />
         <FaqsCards
           image_background={faqsPopup2}
           Heading_cards='Step 2'
-          detailing='HELLO UNCLE NAMASTE CHALO KAAM KI BAAT PR AATE HAI HELLO UNCLE NAMASTE CHALO KAAM KI BAAT PR AATE HAI HELLO'
+          
         />
         <FaqsCards
           image_background={faqsPopup3}
           Heading_cards='Step 3'
-          detailing='HELLO UNCLE NAMASTE CHALO KAAM KI BAAT PR AATE HAI HELLO UNCLE NAMASTE CHALO KAAM KI BAAT PR AATE HAI HELLO'
+         
         />
       </div>
       {data.map((item, i) => (
