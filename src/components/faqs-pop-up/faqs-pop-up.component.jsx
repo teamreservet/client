@@ -2,6 +2,10 @@ import { useState } from 'react';
 import FaqsCards from '../faqs-cards-pop-up/faqs-cards-pop-up.component';
 import './faqs-pop-up.styles.scss';
 
+import faqsPopup1 from '../../assets/faqs-popup-1.svg';
+import faqsPopup2 from '../../assets/faqs-popup-2.svg';
+import faqsPopup3 from '../../assets/faqs-popup-3.svg';
+
 const data = [
   {
     question: 'What is your first question sjk ad biwq bdjw qnki nakdx adkn',
@@ -39,24 +43,21 @@ const FAQs = () => {
   return (
     <div className='faq-pop-up'>
       <div className='faqcards'>
-      <FaqsCards
-      
-       image_background='https://www.w3schools.com/html/pic_trulli.jpg'
-       Heading_cards='Step 1'
-       detailing='HELLO UNCLE NAMASTE CHALO KAAM KI BAAT PR AATE HAI HELLO UNCLE NAMASTE CHALO KAAM KI BAAT PR AATE HAI HELLO'
-     />
-      <FaqsCards
-      
-       image_background='https://www.w3schools.com/html/pic_trulli.jpg'
-       Heading_cards='Step 2'
-       detailing='HELLO UNCLE NAMASTE CHALO KAAM KI BAAT PR AATE HAI HELLO UNCLE NAMASTE CHALO KAAM KI BAAT PR AATE HAI HELLO'
-     />
-      <FaqsCards
-    
-       image_background='https://www.w3schools.com/html/pic_trulli.jpg'
-       Heading_cards='Step 3'
-       detailing='HELLO UNCLE NAMASTE CHALO KAAM KI BAAT PR AATE HAI HELLO UNCLE NAMASTE CHALO KAAM KI BAAT PR AATE HAI HELLO'
-     />
+        <FaqsCards
+          image_background={faqsPopup1}
+          Heading_cards='Step 1'
+          detailing='HELLO UNCLE NAMASTE CHALO KAAM KI BAAT PR AATE HAI HELLO UNCLE NAMASTE CHALO KAAM KI BAAT PR AATE HAI HELLO'
+        />
+        <FaqsCards
+          image_background={faqsPopup2}
+          Heading_cards='Step 2'
+          detailing='HELLO UNCLE NAMASTE CHALO KAAM KI BAAT PR AATE HAI HELLO UNCLE NAMASTE CHALO KAAM KI BAAT PR AATE HAI HELLO'
+        />
+        <FaqsCards
+          image_background={faqsPopup3}
+          Heading_cards='Step 3'
+          detailing='HELLO UNCLE NAMASTE CHALO KAAM KI BAAT PR AATE HAI HELLO UNCLE NAMASTE CHALO KAAM KI BAAT PR AATE HAI HELLO'
+        />
       </div>
       {data.map((item, i) => (
         <div className='item' key={i}>
