@@ -25,7 +25,7 @@ const CheckoutBox = ({
     email: currentUser.email,
     phone: ''
   });
-  const [paymentSuccess, setPaymentSuccess] = useState(true);
+  const [paymentSuccess, setPaymentSuccess] = useState(false);
   const [visitDate, setVisitDate] = useState('');
   const [indianCount, setIndianCount] = useState(1);
   const [foreignerCount, setForeignerCount] = useState(0);
