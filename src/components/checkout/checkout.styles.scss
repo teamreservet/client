@@ -3,6 +3,17 @@
   height: 80vh;
   background-color: white;
   display: flex;
+  outline: none;
+  position: relative;
+
+  .cross-sign {
+    height: 20px;
+    font-size: 20px;
+    position: absolute;
+    right: 10px;
+    top: 0px;
+    cursor: pointer;
+  }
 
   .checkout-box-child {
     width: 50%;

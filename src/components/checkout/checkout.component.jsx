@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { connect } from 'react-redux';
 import { AdvancedImage } from '@cloudinary/react';
 import { Cloudinary } from '@cloudinary/url-gen';
@@ -9,7 +9,11 @@ import PaymentButton from '../payment-button/payment-button.component';
 
 import './checkout.styles.scss';
 
-const CheckoutBox = ({ checkoutMonumentDetails, currentUser }) => {
+const CheckoutBox = ({
+  checkoutMonumentDetails,
+  currentUser,
+  setCheckoutMonumentDetails
+}) => {
   const {
     images,
     name: monumentName,
@@ -25,6 +29,12 @@ const CheckoutBox = ({ checkoutMonumentDetails, currentUser }) => {
   const [foreignerCount, setForeignerCount] = useState(0);
   const [childrenCount, setChildrenCount] = useState(0);
   const [totalPrice, setTotalPrice] = useState(ticket_pricing.indian_tourist);
+
+  const checkoutRef = useRef(null);
+
+  useEffect(() => {
+    checkoutRef.current.focus();
+  }, [checkoutRef]);
 
   const handleChange = e => {
     const { name, value } = e.target;
@@ -101,7 +111,19 @@ const CheckoutBox = ({ checkoutMonumentDetails, currentUser }) => {
   img.resize(fill().width(300).height(200)).quality(100);
 
   return (
-    <div className='checkout-box' onClick={e => e.stopPropagation()}>
+    <div
+      className='checkout-box'
+      onClick={e => e.stopPropagation()}
+      onKeyDown={e => e.key === 'Escape' && setCheckoutMonumentDetails(null)}
+      tabIndex='0'
+      ref={checkoutRef}
+    >
+      <span
+        className='cross-sign'
+        onClick={() => setCheckoutMonumentDetails(null)}
+      >
+        {/* &#10008; */}x
+      </span>
       <div className='checkout-box-child checkout-box-left'>
         <h1>Payment Details</h1>
         <div className='user-details'>
@@ -112,7 +134,6 @@ const CheckoutBox = ({ checkoutMonumentDetails, currentUser }) => {
               type='text'
               value={userDetails.username}
               onChange={handleChange}
-              required
             />
           </div>
           <div className='label-input'>
@@ -122,7 +143,6 @@ const CheckoutBox = ({ checkoutMonumentDetails, currentUser }) => {
               type='text'
               value={userDetails.email}
               onChange={handleChange}
-              required
             />
           </div>
           <div className='label-input'>
@@ -133,7 +153,6 @@ const CheckoutBox = ({ checkoutMonumentDetails, currentUser }) => {
               value={userDetails.phone}
               onChange={handleChange}
               placeholder='Phone Number'
-              required
             />
           </div>
           <div className='label-input'>
@@ -143,7 +162,6 @@ const CheckoutBox = ({ checkoutMonumentDetails, currentUser }) => {
               type='date'
               value={userDetails.date}
               onChange={handleChange}
-              required
             />
           </div>
         </div>
