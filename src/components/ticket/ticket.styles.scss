@@ -4,7 +4,10 @@
   margin: auto;
   border: 1px solid black;
   display: flex;
-  background: white;
+  border-radius: 38px;
+  font-family: 'Josefin Sans', sans-serif;
+
+  background: conic-gradient(from 180deg, #008cf1, white);
 
   .ticket-qr-wrapper {
     width: 50%;
@@ -12,20 +15,34 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-left: 20px;
     justify-content: center;
     h3 {
       margin: 10px 0;
     }
   }
   .ticket-details {
+
     display: flex;
     flex-direction: column;
-    // justify-content: center;
-    margin-top: 10%;
-    height: 90%;
-
+    align-items: center;
+    justify-content: space-evenly;
+    margin-left: 10px;
+    margin-top: 5%;
+    height: 80%;
+    font-size: 16px;
+    
+    .reservet-logo-test{
+      width: 30%;
+      margin-top: 60px;
+      margin-bottom: 20px;
+    }
+    p{
+      margin: 0;
+    }
     .subtotal {
-      align-self: flex-end;
+      align-items: center;
+      font-size: 30px;
     }
   }
 }
