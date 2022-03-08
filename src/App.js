@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import axios from 'axios';
@@ -24,9 +24,10 @@ import { setCurrentUser } from './redux/user/user.action';
 import { loadMonuments } from './redux/monument/monuments.action';
 import { loadStates } from './redux/state/state.action';
 
-import { serverBaseUrlContext } from './contexts';
+import { serverBaseUrlContext, searchQueryContext } from './contexts';
 
 import './App.css';
+import Ticket from './components/ticket/ticket.component';
 
 function App({ setCurrentUser, loadMonuments, loadStates }) {
   // base url of our server
@@ -63,23 +64,28 @@ function App({ setCurrentUser, loadMonuments, loadStates }) {
     })();
   });
 
+  const [searchQuery, setSearchQuery] = useState('');
+
   return (
     <serverBaseUrlContext.Provider value={baseUrl}>
-      <div className='App'>
-        <Header />
-        <Routes>
-          <Route path='/' element={<HomePage />} />
-          <Route path='/ticket-house' element={<TicketHouse />} />
-          <Route path='/authenticate' element={<SignUpAndLogInPage />}>
-            <Route path='register' element={<SignUp />} />
-            <Route path='login' element={<SignIn />} />
-          </Route>
-          <Route path='/*' element={<NotFound />} />
-          <Route path='/admin' element={<Admin />}>
-            <Route path='upload-monuments' element={<NewMonument />} />
-          </Route>
-        </Routes>
-      </div>
+      <searchQueryContext.Provider value={[searchQuery, setSearchQuery]}>
+        <div className='App'>
+          <Header />
+          <Routes>
+            <Route path='/' element={<HomePage />} />
+            <Route path='/ticket-house' element={<TicketHouse />} />
+            <Route path='/authenticate' element={<SignUpAndLogInPage />}>
+              <Route path='register' element={<SignUp />} />
+              <Route path='login' element={<SignIn />} />
+            </Route>
+            <Route path='/ticket' element={<Ticket />} />
+            <Route path='/*' element={<NotFound />} />
+            <Route path='/admin' element={<Admin />}>
+              <Route path='upload-monuments' element={<NewMonument />} />
+            </Route>
+          </Routes>
+        </div>
+      </searchQueryContext.Provider>
     </serverBaseUrlContext.Provider>
   );
 }

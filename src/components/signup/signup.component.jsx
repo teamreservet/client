@@ -19,6 +19,7 @@ const SignUp = () => {
   const serverBaseUrl = useContext(serverBaseUrlContext);
   const navigate = useNavigate();
   const [showLoader, setShowLoader] = useState(false);
+  const [passwordType, setPasswordType] = useState('password');
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -95,17 +96,28 @@ const SignUp = () => {
             onChange={handleChange}
             required
           />
-          <FormInput
-            name='password'
-            type='password'
-            label='Password'
-            value={formData.password}
-            onChange={handleChange}
-            required
-          />
+          <div className='password-input'>
+            <FormInput
+              name='password'
+              type={passwordType}
+              label='Password'
+              value={formData.password}
+              onChange={handleChange}
+              required
+            />
+            <span
+              onClick={() => {
+                passwordType === 'password'
+                  ? setPasswordType('text')
+                  : setPasswordType('password');
+              }}
+            >
+              &#128065;
+            </span>
+          </div>
           <FormInput
             name='confirmPassword'
-            type='password'
+            type={passwordType}
             label='Confirm Password'
             value={formData.confirmPassword}
             onChange={handleChange}

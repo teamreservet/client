@@ -20,6 +20,21 @@
 
     form {
       width: 100%;
+      .password-input {
+        display: flex;
+        position: relative;
+        .input-group {
+          width: 100%;
+        }
+        span {
+          position: absolute;
+          width: 20px;
+          right: 15px;
+          top: 40%;
+          cursor: pointer;
+          z-index: 2;
+        }
+      }
     }
   }
   .to-registration {

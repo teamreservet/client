@@ -35,6 +35,21 @@
           margin: 0px;
         }
       }
+      .password-input {
+        display: flex;
+        position: relative;
+        .input-group {
+          width: 100%;
+        }
+        span {
+          position: absolute;
+          width: 20px;
+          right: 35px;
+          top: 40%;
+          cursor: pointer;
+          z-index: 2;
+        }
+      }
     }
 
     .submit-button {
