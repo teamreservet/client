@@ -15,25 +15,25 @@ const Ticket = ({
   return (
     <div className='ticket'>
       <div className='ticket-qr-wrapper'>
-        <p>TID - {ticketId}</p>
+        <p>
+          TID - <span className='tid'>{ticketId}</span>
+        </p>
         <img
           src={`http://api.qrserver.com/v1/create-qr-code/?data=https://reservet.netlify.app/verify-ticket/${ticketId}`}
           alt='qr-code'
           className='ticket-qr-code'
         />
         <h3>
-          {monumentName},{monumentPlace}
+          {monumentName} ,{monumentPlace}
         </h3>
       </div>
       <div className='ticket-details'>
         <img src={reservetLogo} alt='' className='reservet-logo-test' />
         <p>Ticket Issued To : {issuer}</p>
-        <br />
         <p>Date: {date}</p>
-        <br />
-        {indianCount && <p>Indian count: {indianCount}</p>}
-        {foreignerCount && <p>Foreigner count: {foreignerCount}</p>}
-        {childrenCount && <p>Children count: {childrenCount}</p>}
+        {indianCount ? <p>Indian count: {indianCount}</p> : null}
+        {foreignerCount ? <p>Foreigner count: {foreignerCount}</p> : null}
+        {childrenCount ? <p>Children count: {childrenCount}</p> : null}
 
         <h3 className='subtotal'>Subtotal: {amount}</h3>
       </div>

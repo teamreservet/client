@@ -24,6 +24,7 @@ const VerifyTicket = ({ currentUser }) => {
   };
   const handleSubmit = async e => {
     e.preventDefault();
+    setTicketInfo(null);
     try {
       const resp = await axios.post(
         `${serverBaseUrl}/api/ticket/verify-ticket`,

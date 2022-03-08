@@ -18,11 +18,15 @@
     margin-left: 20px;
     justify-content: center;
     h3 {
+      font-size: 16px;
+      text-align: center;
       margin: 10px 0;
+    }
+    .tid {
+      color: red;
     }
   }
   .ticket-details {
-
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -31,14 +35,14 @@
     margin-top: 5%;
     height: 80%;
     font-size: 16px;
-    
-    .reservet-logo-test{
+
+    .reservet-logo-test {
       width: 30%;
       margin-top: 60px;
       margin-bottom: 20px;
     }
-    p{
-      margin: 0;
+    p {
+      margin: 10px 0 0;
     }
     .subtotal {
       align-items: center;
