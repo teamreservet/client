@@ -74,11 +74,11 @@ const NewMonument = ({ currentUser }) => {
     setFormData({
       name: '',
       about: '',
-      opening_time: '',
-      closing_time: '',
+      opening_time: '06:00 A.M.',
+      closing_time: '06:00 P.M.',
       foreign_tourist_pricing: '',
       indian_tourinst_pricing: '',
-      children_below_15_years_pricing: '',
+      children_below_15_years_pricing: '0',
       location: '',
       tags: [],
       images: null

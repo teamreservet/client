@@ -22,7 +22,9 @@ const PaymentButton = ({
   phone,
   monumentName,
   childrenCount,
-  date
+  date,
+  setTicketId,
+  setPaymentSuccess
 }) => {
   const serverBaseUrl = useContext(serverBaseUrlContext);
 
@@ -73,6 +75,8 @@ const PaymentButton = ({
           }
         );
         alert(resp ? 'Payment is successful' : 'Payment is unsuccessful');
+        setTicketId(response.id);
+        setPaymentSuccess(resp);
       },
       prefill: {
         name: currentUser.displayName,

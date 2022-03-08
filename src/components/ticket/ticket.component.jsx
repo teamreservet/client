@@ -13,6 +13,7 @@ const Ticket = ({
   return (
     <div className='ticket'>
       <div className='ticket-qr-wrapper'>
+        <p>id: {ticketId}</p>
         <img
           src={`http://api.qrserver.com/v1/create-qr-code/?data=https://reservet.netlify.app/ticket-verification/${ticketId}`}
           alt='qr-code'
