@@ -24,7 +24,7 @@ const MobileLayout = ({ currentUser }) => {
           {currentUser ? (
             <p>Welcome {currentUser.displayName}, we are glad to see you!</p>
           ) : (
-            <SignIn />
+            <SignIn placeholder={true} />
           )}
         </div>
       </div>

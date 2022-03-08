@@ -19,8 +19,10 @@ const SignUp = () => {
   const serverBaseUrl = useContext(serverBaseUrlContext);
   const navigate = useNavigate();
   const [showLoader, setShowLoader] = useState(false);
+  const [passwordType, setPasswordType] = useState('password');
   const [formData, setFormData] = useState({
-    name: '',
+    firstName: '',
+    lastName: '',
     email: '',
     password: '',
     confirmPassword: ''
@@ -37,18 +39,21 @@ const SignUp = () => {
       return;
     }
 
-    const { email, password, name } = formData;
+    const { email, password, firstName, lastName } = formData;
     const { user } = await createUserWithEmailAndPassword(
       auth,
       email,
       password
     );
 
-    await createUserProfile(serverBaseUrl, user, { displayName: name });
+    await createUserProfile(serverBaseUrl, user, {
+      displayName: `${firstName} ${lastName}`
+    });
     setShowLoader(false);
 
     setFormData({
-      name: '',
+      firstName: '',
+      lastName: '',
       email: '',
       password: '',
       confirmPassword: ''
@@ -58,17 +63,31 @@ const SignUp = () => {
   return (
     <div className='registration-form'>
       {showLoader ? <Loader /> : null}
-      <h1>Sign Up form</h1>
+      <div className='signup-title'>
+        <h1>Sign up</h1>
+        <p>Create your Reservet Account</p>
+      </div>
       <div className='form-container'>
         <form onSubmit={handleSubmit}>
-          <FormInput
-            name='name'
-            type='text'
-            label='Name'
-            value={formData.name}
-            onChange={handleChange}
-            required
-          />
+          <div className='user-name'>
+            <FormInput
+              name='firstName'
+              type='text'
+              label='First Name'
+              value={formData.firstName}
+              onChange={handleChange}
+              required
+            />
+            <FormInput
+              name='lastName'
+              type='text'
+              label='Last Name'
+              value={formData.lastName}
+              onChange={handleChange}
+              required
+            />
+          </div>
+
           <FormInput
             name='email'
             type='text'
@@ -77,17 +96,28 @@ const SignUp = () => {
             onChange={handleChange}
             required
           />
-          <FormInput
-            name='password'
-            type='password'
-            label='Password'
-            value={formData.password}
-            onChange={handleChange}
-            required
-          />
+          <div className='password-input'>
+            <FormInput
+              name='password'
+              type={passwordType}
+              label='Password'
+              value={formData.password}
+              onChange={handleChange}
+              required
+            />
+            <span
+              onClick={() => {
+                passwordType === 'password'
+                  ? setPasswordType('text')
+                  : setPasswordType('password');
+              }}
+            >
+              &#128065;
+            </span>
+          </div>
           <FormInput
             name='confirmPassword'
-            type='password'
+            type={passwordType}
             label='Confirm Password'
             value={formData.confirmPassword}
             onChange={handleChange}

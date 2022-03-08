@@ -45,9 +45,28 @@
       width: 100%;
       height: 100%;
 
+      .password-input {
+        span {
+          display: none;
+        }
+      }
+
+      .input-group {
+        margin: 15px 0;
+
+        .form-input {
+          background-color: white;
+        }
+      }
+
       h1 {
         margin-bottom: 0px;
         font-size: 22px;
+        font-weight: 500;
+        margin-top: 10px;
+      }
+      p {
+        margin-bottom: 0;
       }
 
       .to-registration {

@@ -21,7 +21,8 @@ const PaymentButton = ({
   currentUser,
   phone,
   monumentName,
-  childrenCount
+  childrenCount,
+  date
 }) => {
   const serverBaseUrl = useContext(serverBaseUrlContext);
 
@@ -56,7 +57,14 @@ const PaymentButton = ({
           `${serverBaseUrl}/api/payment/verify-payment`,
           {
             ...res,
-            order_id: response.id
+            order_id: response.id,
+            amount,
+            monumentName,
+            childrenCount,
+            indianCount,
+            foreignerCount,
+            date,
+            issuer: currentUser.displayName
           },
           {
             headers: {
@@ -64,7 +72,6 @@ const PaymentButton = ({
             }
           }
         );
-        console.log(resp ? 'Payment is successful' : 'Payment is unsuccessful');
         alert(resp ? 'Payment is successful' : 'Payment is unsuccessful');
       },
       prefill: {

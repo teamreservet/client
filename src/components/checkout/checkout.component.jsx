@@ -22,9 +22,9 @@ const CheckoutBox = ({
   const [userDetails, setUserDetails] = useState({
     username: currentUser.displayName,
     email: currentUser.email,
-    phone: '',
-    date: ''
+    phone: ''
   });
+  const [visitDate, setVisitDate] = useState('');
   const [indianCount, setIndianCount] = useState(1);
   const [foreignerCount, setForeignerCount] = useState(0);
   const [childrenCount, setChildrenCount] = useState(0);
@@ -122,7 +122,7 @@ const CheckoutBox = ({
         className='cross-sign'
         onClick={() => setCheckoutMonumentDetails(null)}
       >
-        {/* &#10008; */}x
+        x
       </span>
       <div className='checkout-box-child checkout-box-left'>
         <h1>Payment Details</h1>
@@ -160,8 +160,8 @@ const CheckoutBox = ({
             <FormInput
               name='date'
               type='date'
-              value={userDetails.date}
-              onChange={handleChange}
+              value={visitDate}
+              onChange={e => setVisitDate(e.target.value)}
             />
           </div>
         </div>
@@ -216,6 +216,7 @@ const CheckoutBox = ({
           childrenCount={childrenCount}
           phone={userDetails.phone}
           monumentName={monumentName}
+          date={visitDate}
         >
           Purchase Now
         </PaymentButton>

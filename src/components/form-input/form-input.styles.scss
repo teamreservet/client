@@ -18,14 +18,14 @@
   }
 
   .form-input {
-    color: gray;
+    color: black;
     font-size: 18px;
     padding: 10px;
     border: none;
     border-radius: 5px;
     outline: none;
     border: 1px solid grey;
-    background-color: white;
+    background-color: transparent;
     z-index: 2;
 
     &:focus ~ .form-input-label {
@@ -34,7 +34,7 @@
   }
 
   input[type='password'] {
-    letter-spacing: 0.3em;
+    letter-spacing: 0.1em;
   }
 
   .form-input-label {
@@ -44,7 +44,7 @@
     top: 11px;
     left: 10px;
     transition: all 300ms ease;
-    z-index: 3;
+    z-index: 1;
 
     &.shrink {
       @include shrinkLabel();

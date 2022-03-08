@@ -2,25 +2,39 @@
   display: flex;
   flex-direction: column;
   width: 100%;
+  height: 70%;
+  margin: auto;
+  align-items: center;
+  justify-content: space-evenly;
   font-family: arial;
 
   h1 {
-    font-weight: 500;
-  }
-
-  p {
-    margin-bottom: 0;
-    margin-top: 10px;
+    margin: 0px;
+    font-size: 24px;
   }
 
   .form-container {
     width: 90%;
-    margin: auto;
     display: flex;
     justify-content: center;
 
     form {
       width: 100%;
+      .password-input {
+        display: flex;
+        position: relative;
+        .input-group {
+          width: 100%;
+        }
+        span {
+          position: absolute;
+          width: 20px;
+          right: 15px;
+          top: 40%;
+          cursor: pointer;
+          z-index: 2;
+        }
+      }
     }
   }
   .to-registration {

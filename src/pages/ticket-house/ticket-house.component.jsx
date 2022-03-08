@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { connect } from 'react-redux';
 
 import Loader from '../../components/loader/loader.component';
@@ -6,14 +6,16 @@ import MounmentCard from '../../components/monument-card/monument-card.component
 import FilterCard from '../../components/filter-card/filter-card.component';
 import CheckoutBox from '../../components/checkout/checkout.component';
 
+import { searchQueryContext } from '../../contexts';
+
 import monument from '../../assets/monument.svg';
 import museum from '../../assets/museum.svg';
 import heritage from '../../assets/heritage.svg';
 
 import './ticket-house.styles.scss';
 
-const TicketHouse = ({ monuments, statesData, currentUser }) => {
-  const [searchQuery, setSearchQuery] = useState('');
+const TicketHouse = ({ monuments, statesData }) => {
+  const [searchQuery, setSearchQuery] = useContext(searchQueryContext);
   const [state, setState] = useState('');
   const [checkoutMonumentDetails, setCheckoutMonumentDetails] = useState(null);
 

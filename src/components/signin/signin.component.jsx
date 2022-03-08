@@ -12,11 +12,12 @@ import {
 
 import './signin.styles.scss';
 
-const SignIn = () => {
+const SignIn = ({ placeholder }) => {
   const navigate = useNavigate();
   const location = useLocation();
   const setRedirectUrl = useOutletContext();
   const [showLoader, setShowLoader] = useState(false);
+  const [passwordType, setPasswordType] = useState('password');
   const [formData, setFormData] = useState({
     email: '',
     password: ''
@@ -54,19 +55,32 @@ const SignIn = () => {
           <FormInput
             name='email'
             type='text'
-            label='Email'
+            label={placeholder ? '' : 'Email'}
             value={formData.email}
             onChange={handleChange}
+            placeholder={placeholder ? 'Email' : ''}
             required
           />
-          <FormInput
-            name='password'
-            type='password'
-            label='Password'
-            value={formData.password}
-            onChange={handleChange}
-            required
-          />
+          <div className='password-input'>
+            <FormInput
+              name='password'
+              type={passwordType}
+              label={placeholder ? '' : 'Password'}
+              value={formData.password}
+              onChange={handleChange}
+              placeholder={placeholder ? 'Password' : ''}
+              required
+            />
+            <span
+              onClick={() => {
+                passwordType === 'password'
+                  ? setPasswordType('text')
+                  : setPasswordType('password');
+              }}
+            >
+              &#128065;
+            </span>
+          </div>
 
           <CustomButtom>Log in</CustomButtom>
         </form>
