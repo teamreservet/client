@@ -5,14 +5,17 @@
   display: flex;
   outline: none;
   position: relative;
+  background: linear-gradient(-135deg, #0d50fd, rgb(229, 248, 255) 80%);
+  border-radius: 30px;
+  // font-family: 'Josefin sans';
 
   .cross-sign {
     height: 20px;
     font-size: 26px;
     font-weight: 600;
     position: absolute;
-    right: 10px;
-    top: 0px;
+    right: 25px;
+    top: 5px;
     cursor: pointer;
   }
 
@@ -26,7 +29,7 @@
     &.checkout-box-left {
       height: 80%;
       margin: auto;
-      border-right: 1px solid rgb(194, 194, 194);
+      // border-right: 1px solid rgb(194, 194, 194);
 
       .user-details {
         width: 50%;
@@ -44,10 +47,11 @@
 
             .form-input {
               color: black;
+              border: 1px solid black;
             }
 
             input[type='date'] {
-              color: grey;
+              width: 209px;
             }
           }
         }
@@ -56,8 +60,7 @@
         width: 100%;
         display: flex;
         justify-content: space-evenly;
-        margin-top: 30px;
-
+        margin-top: 10px;
         .category-group {
           text-align: center;
           input[type='radio'] {
@@ -71,6 +74,8 @@
             align-items: center;
             justify-content: space-between;
             padding: 0 5px;
+            border-radius: 10px;
+            font-weight: 600;
 
             span {
               cursor: pointer;
@@ -84,6 +89,44 @@
             margin: 2px 0;
           }
         }
+      }
+    }
+    &.checkout-box-right {
+      position: relative;
+      left: -50px;
+
+      h3 {
+        font-size: 20px;
+      }
+
+      h1 {
+        font-size: 34px;
+      }
+
+      .images {
+        display: flex;
+        height: 200px;
+        align-items: center;
+
+        & :nth-child(1) {
+          border-radius: 20px;
+          height: 150px;
+        }
+        & :nth-child(3) {
+          border-radius: 20px;
+          height: 150px;
+        }
+        & :nth-child(2) {
+          border-radius: 20px;
+          box-shadow: 8px 8px 10px rgb(44, 44, 44);
+        }
+      }
+      button {
+        background: rgb(37, 37, 255);
+        padding: 10px 20px;
+        font-weight: 700;
+        letter-spacing: 0.3px;
+        font-size: 16px;
       }
     }
   }

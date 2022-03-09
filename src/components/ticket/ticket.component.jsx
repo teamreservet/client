@@ -15,7 +15,7 @@ const Ticket = ({
   return (
     <div className='ticket'>
       <div className='ticket-qr-wrapper'>
-        <p>
+        <p className='tid-wrapper'>
           TID - <span className='tid'>{ticketId}</span>
         </p>
         <img

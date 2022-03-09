@@ -20,10 +20,19 @@
     h3 {
       font-size: 16px;
       text-align: center;
-      margin: 10px 0;
+      margin: 15px auto;
     }
-    .tid {
-      color: red;
+    .tid-wrapper {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
+        'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
+        'Helvetica Neue', sans-serif;
+      font-size: 24px;
+      margin: 10px;
+
+      .tid {
+        color: red;
+        font-weight: 600;
+      }
     }
   }
   .ticket-details {

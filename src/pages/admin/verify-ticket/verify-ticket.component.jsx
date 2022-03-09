@@ -15,6 +15,7 @@ const VerifyTicket = ({ currentUser }) => {
   const params = useParams();
   const [ticketId, setTicketId] = useState(params ? params.id : '');
   const [error, setError] = useState('');
+  const [success, setSuccess] = useState('');
   const [ticketInfo, setTicketInfo] = useState(null);
 
   const serverBaseUrl = useContext(serverBaseUrlContext);
@@ -25,6 +26,8 @@ const VerifyTicket = ({ currentUser }) => {
   const handleSubmit = async e => {
     e.preventDefault();
     setTicketInfo(null);
+    setError('');
+    setSuccess('');
     try {
       const resp = await axios.post(
         `${serverBaseUrl}/api/ticket/verify-ticket`,
@@ -35,6 +38,7 @@ const VerifyTicket = ({ currentUser }) => {
           }
         }
       );
+      setSuccess('Ticket Verified!');
       setTicketInfo(resp.data);
     } catch (err) {
       setError("Ticket doesn't exist or you are not the admin");
@@ -54,8 +58,15 @@ const VerifyTicket = ({ currentUser }) => {
         />
         <CustomButtom>Verify</CustomButtom>
       </form>
-      {error && <div className='error'>{error}</div>}
-      {ticketInfo && <Ticket {...ticketInfo} ticketId={ticketInfo.id} />}
+      {ticketInfo && (
+        <Ticket
+          {...ticketInfo}
+          amount={ticketInfo.totalPrice}
+          ticketId={ticketInfo.id}
+        />
+      )}
+      {error.length !== 0 && <div className='error'>{error}</div>}
+      {success.length !== 0 && <div className='success'>{success}</div>}
     </div>
   );
 };

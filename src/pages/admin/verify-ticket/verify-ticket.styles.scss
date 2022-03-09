@@ -5,9 +5,25 @@
 
   .heading {
     color: white;
+    margin: 0;
   }
   .error {
+    margin-top: 20px;
+    background-color: red;
     color: white;
+    font-weight: 600;
+    font-size: 36px;
+    padding: 10px 20px;
+    border-radius: 10px;
+  }
+  .success {
+    margin-top: 20px;
+    background-color: green;
+    color: white;
+    font-weight: 600;
+    font-size: 36px;
+    padding: 6px 20px;
+    border-radius: 10px;
   }
   .background {
     width: 2000px;

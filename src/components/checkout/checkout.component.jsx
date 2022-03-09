@@ -111,8 +111,15 @@ const CheckoutBox = ({
     }
   });
 
-  const img = cld.image(images[0]);
-  img.resize(fill().width(300).height(200)).quality(100);
+  const imgs = images.map((image, idx) => {
+    const img = cld.image(image);
+    if (idx === 1) {
+      img.resize(fill().width(250).height(200)).quality(100);
+    } else {
+      img.resize(fill().width(100).height(80)).quality(100);
+    }
+    return img;
+  });
 
   return (
     <div
@@ -190,12 +197,16 @@ const CheckoutBox = ({
                   value='indian'
                   id='indian'
                 />
-                <p>{ticket_pricing.indian_tourist}</p>
+                <p>
+                  <b>{ticket_pricing.indian_tourist}</b>
+                </p>
                 <label htmlFor='indian'>
                   <span onClick={decrementCount}>&#8722;</span>Indian
                   <span onClick={incrementCount}>&#x2b;</span>
                 </label>
-                <p> x {indianCount}</p>
+                <p>
+                  <b> x {indianCount}</b>
+                </p>
               </div>
               <div className='category-group'>
                 <input
@@ -204,12 +215,16 @@ const CheckoutBox = ({
                   value='foreigner'
                   id='foreigner'
                 />
-                <p>{ticket_pricing.foreign_tourist}</p>
+                <p>
+                  <b>{ticket_pricing.foreign_tourist}</b>
+                </p>
                 <label htmlFor='foreigner'>
                   <span onClick={decrementCount}>&#8722;</span>Foreigner
                   <span onClick={incrementCount}>&#x2b;</span>
                 </label>
-                <p> x {foreignerCount}</p>
+                <p>
+                  <b> x {foreignerCount}</b>
+                </p>
               </div>
               <div className='category-group'>
                 <input
@@ -218,19 +233,27 @@ const CheckoutBox = ({
                   value='children'
                   id='children'
                 />
-                <p>{ticket_pricing.children_below_15_years}</p>
+                <p>
+                  <b>{ticket_pricing.children_below_15_years}</b>
+                </p>
                 <label htmlFor='children'>
                   <span onClick={decrementCount}>&#8722;</span>Children
                   <span onClick={incrementCount}>&#x2b;</span>
                 </label>
-                <p> x {childrenCount}</p>
+                <p>
+                  <b> x {childrenCount}</b>
+                </p>
               </div>
             </div>
           </div>
           <div className='checkout-box-child checkout-box-right'>
-            <AdvancedImage cldImg={img} />
-            <h1>{monumentName.toUpperCase()}</h1>
-            <h2>SUBTOTAL: Rs. {totalPrice}</h2>
+            <div className='images'>
+              {imgs.map((img, idx) => (
+                <AdvancedImage cldImg={img} key={idx} />
+              ))}
+            </div>
+            <h3>{monumentName.toUpperCase()}</h3>
+            <h1>Subtotal: Rs. {totalPrice}</h1>
             <PaymentButton
               amount={totalPrice}
               indianCount={indianCount}
@@ -238,10 +261,10 @@ const CheckoutBox = ({
               childrenCount={childrenCount}
               phone={userDetails.phone}
               monumentName={monumentName}
+              monumentPlace={monumentPlace}
               date={visitDate}
               setPaymentSuccess={setPaymentSuccess}
               setTicketId={setTicketId}
-              monumentPlace={monumentPlace}
             >
               Purchase Now
             </PaymentButton>
