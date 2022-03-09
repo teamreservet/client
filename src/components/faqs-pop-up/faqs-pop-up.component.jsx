@@ -43,7 +43,7 @@ const data = [
 
   {
     question:
-      'If user Come Across Any Problem During the Trip, How Would You we help them ?',
+      'If user Come Across Any Problem During the Trip, How Would You help them ?',
     answer:
       'We provide truly 24 X 7 assistance. Our office is open 24 hours a day which means that you will always have someone to assist you even at any point of time. We shall also give you mobile nos. of executives who you may call in case of any need .'
   }
