@@ -1,13 +1,5 @@
 .header {
   height: 90px;
-  opacity: 0;
-  transform: scale(0.9);
-  transition: all 1s ease-out;
-
-  &.animate {
-    transform: scale(1);
-    opacity: 1;
-  }
 
   .header-elements {
     display: flex;
@@ -62,7 +54,7 @@
         }
 
         .header-pop-up {
-          position: absolute;
+          position: fixed;
           top: 70px;
         }
       }

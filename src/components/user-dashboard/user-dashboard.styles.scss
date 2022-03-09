@@ -10,19 +10,19 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  h1{
+
+  h1 {
     text-align: center;
   }
 
   &.hide {
-    transform: translateX(600px);
+    transform: translateX(400px);
   }
   .logo {
     height: 150px;
     display: flex;
     margin: auto;
   }
-  
 
   .authenticate {
     text-decoration: none;
@@ -57,7 +57,7 @@
       background: white;
       padding: 0px 0px;
       border-top: 1px solid black;
-      
+
       cursor: pointer;
       display: flex;
       flex-direction: column;
@@ -85,7 +85,7 @@
         display: flex;
         cursor: pointer;
         &::before {
-          content: "- ";
+          content: '- ';
         }
       }
     }
