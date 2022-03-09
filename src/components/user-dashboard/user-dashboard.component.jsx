@@ -50,6 +50,7 @@ const UserDashboard = ({ showDashboard, currentUser }) => {
         <div className='user-ticket' onClick={() => setShowTicket(null)}>
           <Ticket
             {...showTicket}
+            ticketId={showTicket.id}
             amount={showTicket.totalPrice}
             onClick={e => e.stopPropagation()}
           />
