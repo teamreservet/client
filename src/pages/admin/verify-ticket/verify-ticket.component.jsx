@@ -13,7 +13,7 @@ import './verify-ticket.styles.scss';
 
 const VerifyTicket = ({ currentUser }) => {
   const params = useParams();
-  const [ticketId, setTicketId] = useState(params ? params.id : '');
+  const [ticketId, setTicketId] = useState(params.id ? params.id : '');
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
   const [ticketInfo, setTicketInfo] = useState(null);
@@ -55,6 +55,7 @@ const VerifyTicket = ({ currentUser }) => {
           placeholder='Ticket Id'
           value={ticketId}
           onChange={handleChange}
+          required
         />
         <CustomButtom>Verify</CustomButtom>
       </form>

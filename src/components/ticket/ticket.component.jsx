@@ -10,10 +10,11 @@ const Ticket = ({
   foreignerCount,
   amount,
   date,
-  issuer
+  issuer,
+  ...otherProps
 }) => {
   return (
-    <div className='ticket'>
+    <div className='ticket' {...otherProps}>
       <div className='ticket-qr-wrapper'>
         <p className='tid-wrapper'>
           TID - <span className='tid'>{ticketId}</span>
