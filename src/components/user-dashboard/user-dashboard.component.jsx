@@ -56,7 +56,7 @@ const UserDashboard = ({ showDashboard, currentUser }) => {
         </div>
       ) : null}
       <h1>User Dashboard</h1>
-      <img src={usericon} className='logo' />
+      <img src={usericon} className='logo' alt='' />
       <p className='greet'>
         <b>
           Welcome, {currentUser ? currentUser.displayName.split(' ')[0] : ''}
