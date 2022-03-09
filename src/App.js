@@ -25,7 +25,11 @@ import { setCurrentUser } from './redux/user/user.action';
 import { loadMonuments } from './redux/monument/monuments.action';
 import { loadStates } from './redux/state/state.action';
 
-import { serverBaseUrlContext, searchQueryContext } from './contexts';
+import {
+  serverBaseUrlContext,
+  searchQueryContext,
+  showDashboardContext
+} from './contexts';
 
 import './App.css';
 
@@ -65,27 +69,32 @@ function App({ setCurrentUser, loadMonuments, loadStates }) {
   });
 
   const [searchQuery, setSearchQuery] = useState('');
+  const [showDashboard, setShowDashboard] = useState(false);
 
   return (
     <serverBaseUrlContext.Provider value={baseUrl}>
       <searchQueryContext.Provider value={[searchQuery, setSearchQuery]}>
-        <div className='App'>
-          <Header />
-          <Routes>
-            <Route path='/' element={<HomePage />} />
-            <Route path='/ticket-house' element={<TicketHouse />} />
-            <Route path='/authenticate' element={<SignUpAndLogInPage />}>
-              <Route path='register' element={<SignUp />} />
-              <Route path='login' element={<SignIn />} />
-            </Route>
-            <Route path='/verify-ticket/:id' element={<VerifyTicket />} />
-            <Route path='/verify-ticket' element={<VerifyTicket />} />
-            <Route path='/*' element={<NotFound />} />
-            <Route path='/admin' element={<Admin />}>
-              <Route path='upload-monuments' element={<NewMonument />} />
-            </Route>
-          </Routes>
-        </div>
+        <showDashboardContext.Provider
+          value={[showDashboard, setShowDashboard]}
+        >
+          <div className='App' onClick={() => setShowDashboard(false)}>
+            <Header />
+            <Routes>
+              <Route path='/' element={<HomePage />} />
+              <Route path='/ticket-house' element={<TicketHouse />} />
+              <Route path='/authenticate' element={<SignUpAndLogInPage />}>
+                <Route path='register' element={<SignUp />} />
+                <Route path='login' element={<SignIn />} />
+              </Route>
+              <Route path='/verify-ticket/:id' element={<VerifyTicket />} />
+              <Route path='/verify-ticket' element={<VerifyTicket />} />
+              <Route path='/*' element={<NotFound />} />
+              <Route path='/admin' element={<Admin />}>
+                <Route path='upload-monuments' element={<NewMonument />} />
+              </Route>
+            </Routes>
+          </div>
+        </showDashboardContext.Provider>
       </searchQueryContext.Provider>
     </serverBaseUrlContext.Provider>
   );

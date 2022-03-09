@@ -93,17 +93,27 @@ const TicketHouse = ({ monuments, statesData }) => {
           <FilterCard
             name='monuments'
             image={monument}
-            onClick={() => setTagFilter('monument')}
+            onClick={() =>
+              tagFilter === 'monumemt'
+                ? setTagFilter('')
+                : setTagFilter('monument')
+            }
           />
           <FilterCard
             name='heritages'
             image={heritage}
-            onClick={() => setTagFilter('heritage')}
+            onClick={() =>
+              tagFilter === 'heritage'
+                ? setTagFilter('')
+                : setTagFilter('heritage')
+            }
           />
           <FilterCard
             name='museums'
             image={museum}
-            onClick={() => setTagFilter('museum')}
+            onClick={() =>
+              tagFilter === 'museum' ? setTagFilter('') : setTagFilter('museum')
+            }
           />
         </div>
       )}

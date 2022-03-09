@@ -75,6 +75,15 @@
           font-weight: 700;
         }
       }
+
+      .profile-icon {
+        height: 20px;
+        width: 20px;
+        border-radius: 50%;
+        cursor: pointer;
+        background-color: white;
+        text-align: center;
+      }
     }
   }
 }
