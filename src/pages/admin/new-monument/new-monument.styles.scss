@@ -32,6 +32,10 @@
       width: 100%;
       margin-top: 50px;
 
+      .form-input {
+        background: white;
+      }
+
       input[type='file'] {
         border-bottom: 1px solid black;
         width: 100%;

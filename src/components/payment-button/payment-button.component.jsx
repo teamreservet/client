@@ -26,7 +26,8 @@ const PaymentButton = ({
   childrenCount,
   date,
   setTicketId,
-  setPaymentSuccess
+  setPaymentSuccess,
+  validateDetails
 }) => {
   const uid = new ShortUniqueId({
     length: 10,
@@ -73,6 +74,11 @@ const PaymentButton = ({
   const serverBaseUrl = useContext(serverBaseUrlContext);
 
   const handlePayment = async () => {
+    if (!validateDetails()) {
+      alert('Validation error!');
+      return;
+    }
+
     addScript('https://checkout.razorpay.com/v1/checkout.js');
 
     let response = await axios.post(

@@ -121,6 +121,14 @@ const CheckoutBox = ({
     return img;
   });
 
+  const validateDetails = () => {
+    if (userDetails.phone.length === 0) return false;
+    if (visitDate.length === 0) return false;
+    if (userDetails.email.length === 0) return false;
+    if (userDetails.username.length === 0) return false;
+    return true;
+  };
+
   return (
     <div
       onClick={e => e.stopPropagation()}
@@ -265,6 +273,7 @@ const CheckoutBox = ({
               date={visitDate}
               setPaymentSuccess={setPaymentSuccess}
               setTicketId={setTicketId}
+              validateDetails={validateDetails}
             >
               Purchase Now
             </PaymentButton>

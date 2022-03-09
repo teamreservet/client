@@ -23,14 +23,31 @@
     .tag-line {
       margin: auto;
       margin-bottom: 40px;
-      width: 85%;
+      width: 90%;
       color: white;
-      font-size: 44px;
-      // font-family: 'Architects Daughter', cursive;
-      font-family: 'Balsamiq Sans', cursive;
+      font-size: 32px;
+      font-family: 'Corben', cursive;
+      opacity: 0;
+      transform: scale(0.8);
+      transition: all 1s ease-out;
+
+      &.animate {
+        transform: scale(1);
+        opacity: 1;
+      }
 
       p {
         margin: 0;
+      }
+    }
+    .booking-button {
+      opacity: 0;
+      transform: scale(0.8);
+      transition: all 1s ease-out;
+
+      &.animate {
+        transform: scale(1);
+        opacity: 1;
       }
     }
   }

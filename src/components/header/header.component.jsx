@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react';
+import { useContext, useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { connect } from 'react-redux';
 
@@ -8,6 +8,7 @@ import UserDashboard from '../user-dashboard/user-dashboard.component';
 import { showDashboardContext } from '../../contexts';
 
 import ReservetLogo from '../../assets/reservet.svg';
+import verticalLines from '../../assets/vertical-lines.svg';
 
 import './header.styles.scss';
 
@@ -15,11 +16,18 @@ const Header = ({ currentUser }) => {
   const [PopUp, setPopUp] = useState(false);
   const [hoverOn, setHoverOn] = useState('');
   const [showDashboard, setShowDashboard] = useContext(showDashboardContext);
+  const [animate, setAnimate] = useState(false);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setAnimate(true);
+    }, 300);
+  }, [setAnimate]);
 
   const navigate = useNavigate();
 
   return (
-    <div className='header'>
+    <div className={`header ${animate ? 'animate' : ''}`}>
       <div className='header-elements'>
         <div className='logo-container' onClick={() => navigate('/')}>
           <img src={ReservetLogo} alt='logo' className='logo' />
@@ -78,7 +86,7 @@ const Header = ({ currentUser }) => {
                 setShowDashboard(true);
               }}
             >
-              O
+              <img src={verticalLines} alt='' className='vertical-lines' />
             </div>
           ) : (
             <Link className='authenticate' to='/authenticate/register'>

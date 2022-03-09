@@ -99,7 +99,7 @@ const NewMonument = ({ currentUser }) => {
           <div>
             <FormInput
               name='name'
-              label='Name'
+              placeholder='Name'
               value={formData.name}
               onChange={handleChange}
               required
@@ -107,21 +107,21 @@ const NewMonument = ({ currentUser }) => {
 
             <FormInput
               name='opening_time'
-              label='Opening time'
+              placeholder='Opening time'
               value={formData.opening_time}
               onChange={handleChange}
               required
             />
             <FormInput
               name='closing_time'
-              label='Closing time'
+              placeholder='Closing time'
               value={formData.closing_time}
               onChange={handleChange}
               required
             />
             <FormInput
               name='location'
-              label='Location'
+              placeholder='Location'
               value={formData.location}
               onChange={handleChange}
               required
@@ -161,21 +161,21 @@ const NewMonument = ({ currentUser }) => {
               </span>
               <FormInput
                 name='foreign_tourist_pricing'
-                label='Foreign tourist'
+                placeholder='Foreign tourist'
                 value={formData.foreign_tourist_pricing}
                 onChange={handleChange}
                 required
               />
               <FormInput
                 name='indian_tourinst_pricing'
-                label='Indian tourist'
+                placeholder='Indian tourist'
                 value={formData.indian_tourinst_pricing}
                 onChange={handleChange}
                 required
               />
               <FormInput
                 name='children_below_15_years_pricing'
-                label='Children below 15 years'
+                placeholder='Children below 15 years'
                 value={formData.children_below_15_years_pricing}
                 onChange={handleChange}
                 required
@@ -185,7 +185,7 @@ const NewMonument = ({ currentUser }) => {
             <input
               type='file'
               name='images'
-              label='Images'
+              placeholder='Images'
               onChange={handleImageChange}
               multiple
               required
@@ -197,7 +197,7 @@ const NewMonument = ({ currentUser }) => {
           <textarea
             name='about'
             label='About'
-            value={formData.about}
+            placeholder={formData.about}
             onChange={handleChange}
             rows='10'
             className='textarea'

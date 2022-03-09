@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
 import MobileLayout from '../../components/mobile-layout/mobile-layout.component';
@@ -18,14 +19,23 @@ import './homepage.styles.scss';
 
 const HomePage = () => {
   const navigate = useNavigate();
+  const [animate, setAnimate] = useState(false);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setAnimate(true);
+    }, 300);
+  }, [setAnimate]);
+
   return (
     <div className='homepage'>
       <div className='homepage-background' />
       <div className='left-component'>
-        <h1 className='tag-line'>
-          Monuments are the hooking irons that binds one generation to the next
+        <h1 className={`tag-line ${animate ? 'animate' : ''}`}>
+          Monuments are the
+          <br /> hooking irons that binds one generation to the next
         </h1>
-        <div className='booking-button'>
+        <div className={`booking-button ${animate ? 'animate' : ''}`}>
           <CustomButtom big bookNow onClick={() => navigate('/ticket-house')}>
             BOOK NOW
           </CustomButtom>

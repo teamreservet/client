@@ -20,12 +20,12 @@ const TicketHousePopUp = ({ PopUp, setPopUp, hoverOn }) => {
   const navigate = useNavigate();
   const images = [ahd, bang, hyd, kolk, mumbai, ncr, pune];
   const names = [
-    'Ahmedabad',
+    'Pune',
     'Bengaluru',
     'Hyderabad',
     'Kolkata',
     'Mumbai',
-    'NCR',
+    'Delhi',
     'Agra'
   ];
   return (

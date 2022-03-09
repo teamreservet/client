@@ -1,5 +1,13 @@
 .header {
   height: 90px;
+  opacity: 0;
+  transform: scale(0.9);
+  transition: all 1s ease-out;
+
+  &.animate {
+    transform: scale(1);
+    opacity: 1;
+  }
 
   .header-elements {
     display: flex;
@@ -77,12 +85,12 @@
       }
 
       .profile-icon {
-        height: 20px;
-        width: 20px;
-        border-radius: 50%;
         cursor: pointer;
-        background-color: white;
         text-align: center;
+
+        .vertical-lines {
+          width: 30px;
+        }
       }
     }
   }
