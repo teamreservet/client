@@ -101,3 +101,50 @@
     }
   }
 }
+
+.contact-us-hover {
+  width: 300px;
+  height: 150px;
+  background-color: white;
+  position: absolute;
+  top: 70px;
+  right: 320px;
+  border-radius: 10px;
+  border: 1px solid black;
+  z-index: 6;
+  transition: all 200ms ease-in;
+  transform-origin: top;
+
+  &.hide {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  &.show {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  div {
+    display: flex;
+    flex-direction: column;
+    height: 80%;
+    width: 80%;
+    margin-left: 20px;
+    margin-top: 10px;
+    justify-content: center;
+
+    a {
+      text-decoration: none;
+      width: fit-content;
+      color: black;
+      margin-bottom: 10px;
+
+      &:hover {
+        border-bottom: 1px solid black;
+      }
+    }
+    p {
+      margin: 0;
+    }
+  }
+}

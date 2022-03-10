@@ -8,6 +8,8 @@ import FormInput from '../form-input/form-input.component';
 import PaymentButton from '../payment-button/payment-button.component';
 import Ticket from '../ticket/ticket.component';
 
+import graph from '../../assets/graph.svg';
+
 import './checkout.styles.scss';
 
 const CheckoutBox = ({
@@ -160,16 +162,12 @@ const CheckoutBox = ({
             <h1>Payment Details</h1>
             <div className='user-details'>
               <div className='label-input'>
-                <label>Name:</label>
                 <FormInput
                   name='username'
                   type='text'
                   value={userDetails.username}
                   onChange={handleChange}
                 />
-              </div>
-              <div className='label-input'>
-                <label>Email:</label>
                 <FormInput
                   name='email'
                   type='text'
@@ -178,7 +176,6 @@ const CheckoutBox = ({
                 />
               </div>
               <div className='label-input'>
-                <label>Phone:</label>
                 <FormInput
                   name='phone'
                   type='text'
@@ -186,9 +183,6 @@ const CheckoutBox = ({
                   onChange={handleChange}
                   placeholder='Phone Number'
                 />
-              </div>
-              <div className='label-input'>
-                <label>Date:</label>
                 <FormInput
                   name='date'
                   type='date'
@@ -253,6 +247,8 @@ const CheckoutBox = ({
                 </p>
               </div>
             </div>
+            <img src={graph} alt='graph' className='graph-img' />
+            <p className='graph-tag'>Real time crowd</p>
           </div>
           <div className='checkout-box-child checkout-box-right'>
             <div className='images'>

@@ -12,11 +12,29 @@ import verticalLines from '../../assets/vertical-lines.svg';
 
 import './header.styles.scss';
 
+const ContactUsHover = ({ setContactUsHover, contactUsHover }) => {
+  return (
+    <div
+      className={`contact-us-hover ${contactUsHover ? 'show' : 'hide'}`}
+      onMouseLeave={() => setContactUsHover(false)}
+    >
+      <div>
+        <a href='tel:+917999956584'>Contact number - 7999956584</a>
+        <a href='mailto:teamreservet@gmail.com'>
+          Email us - teamreservet@gmail.com
+        </a>
+        <p>Address - Gokalpur, Jabalpur, Madhya Pradesh, 482011</p>
+      </div>
+    </div>
+  );
+};
+
 const Header = ({ currentUser }) => {
   const [PopUp, setPopUp] = useState(false);
   const [hoverOn, setHoverOn] = useState('');
   const [showDashboard, setShowDashboard] = useContext(showDashboardContext);
   const [animate, setAnimate] = useState(false);
+  const [contactUsHover, setContactUsHover] = useState(false);
 
   useEffect(() => {
     setTimeout(() => {
@@ -33,7 +51,13 @@ const Header = ({ currentUser }) => {
           <img src={ReservetLogo} alt='logo' className='logo' />
         </div>
         <div className='all-options'>
-          <div className='options' onMouseLeave={() => setPopUp(false)}>
+          <div
+            className='options'
+            onMouseLeave={() => {
+              setPopUp(false);
+              setContactUsHover(false);
+            }}
+          >
             {currentUser && currentUser.isAdmin ? (
               <div className='admin-options'>
                 <div>
@@ -74,9 +98,17 @@ const Header = ({ currentUser }) => {
             >
               FAQs
             </Link>
-            <Link className='option' to='/'>
+            <Link
+              className='option'
+              to='/'
+              onMouseEnter={() => setContactUsHover(true)}
+            >
               Contact us
             </Link>
+            <ContactUsHover
+              contactUsHover={contactUsHover}
+              setContactUsHover={setContactUsHover}
+            />
           </div>
           {currentUser ? (
             <div
@@ -95,7 +127,10 @@ const Header = ({ currentUser }) => {
           )}
         </div>
       </div>
-      <UserDashboard showDashboard={showDashboard} />
+      <UserDashboard
+        showDashboard={showDashboard}
+        setShowDashboard={setShowDashboard}
+      />
     </div>
   );
 };

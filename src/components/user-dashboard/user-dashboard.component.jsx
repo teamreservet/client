@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { connect } from 'react-redux';
 
 import Ticket from '../ticket/ticket.component';
@@ -9,10 +9,11 @@ import usericon from '../../assets/user-icon.svg';
 
 import './user-dashboard.styles.scss';
 
-const UserDashboard = ({ showDashboard, currentUser }) => {
+const UserDashboard = ({ showDashboard, currentUser, setShowDashboard }) => {
   const [selected, setSelected] = useState(-2);
   const [upcomingTrips, setUpcomingTrips] = useState([]);
   const [showTicket, setShowTicket] = useState(null);
+
   useEffect(() => {
     if (currentUser) setUpcomingTrips(currentUser.upcomingTrips);
   }, [currentUser]);
@@ -94,7 +95,13 @@ const UserDashboard = ({ showDashboard, currentUser }) => {
           </div>
         ))}
       </div>
-      <div className='authenticate' onClick={async () => await signOut(auth)}>
+      <div
+        className='authenticate'
+        onClick={async () => {
+          setShowDashboard(false);
+          await signOut(auth);
+        }}
+      >
         Sign out
       </div>
     </div>
