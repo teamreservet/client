@@ -1,4 +1,4 @@
-import { useState, useEffect, useContext } from 'react';
+import { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 
 import Ticket from '../ticket/ticket.component';
