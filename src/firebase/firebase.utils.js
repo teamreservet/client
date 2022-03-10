@@ -21,16 +21,11 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
-const createUserProfile = async (baseUrl, user, otherDetails) => {
-  if (!user) {
-    return;
-  }
+const createUserProfile = async (baseUrl, email, displayName) => {
   try {
     const newUser = await axios.post(`${baseUrl}/api/user/create`, {
-      uid: user.uid,
-      email: user.email,
-      displayName: user.displayName,
-      ...otherDetails
+      email: email,
+      displayName: displayName.displayName
     });
     return newUser.data;
   } catch (err) {
@@ -43,7 +38,7 @@ const getUserProfile = async (baseUrl, user) => {
   if (!user) return;
   try {
     const foundUser = await axios.post(`${baseUrl}/api/user/get`, {
-      uid: user.uid
+      email: user.email
     });
     const token = foundUser.data.token;
     return { token, ...foundUser.data.user };
