@@ -40,15 +40,13 @@ const SignUp = () => {
     }
 
     const { email, password, firstName, lastName } = formData;
-    const { user } = await createUserWithEmailAndPassword(
-      auth,
-      email,
-      password
-    );
 
-    await createUserProfile(serverBaseUrl, user, {
+    await createUserProfile(serverBaseUrl, email, {
       displayName: `${firstName} ${lastName}`
     });
+
+    await createUserWithEmailAndPassword(auth, email, password);
+
     setShowLoader(false);
 
     setFormData({
