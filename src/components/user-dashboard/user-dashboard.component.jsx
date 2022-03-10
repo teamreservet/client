@@ -71,11 +71,13 @@ const UserDashboard = ({ showDashboard, currentUser }) => {
           </div>
           <div className={selected === -1 ? 'description_all' : 'description'}>
             <div className='ans upcoming-trips'>
-              {upcomingTrips.map((trip, idx) => (
-                <p key={idx} onClick={() => setShowTicket(trip)}>
-                  {trip.monumentName}, {trip.monumentPlace.split(',')[0]}
-                </p>
-              ))}
+              {upcomingTrips.length !== 0
+                ? upcomingTrips.map((trip, idx) => (
+                    <p key={idx} onClick={() => setShowTicket(trip)}>
+                      {trip.monumentName}, {trip.monumentPlace.split(',')[0]}
+                    </p>
+                  ))
+                : 'No upcoming trips'}
             </div>
           </div>
         </div>
