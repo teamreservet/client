@@ -9,6 +9,8 @@ import PaymentButton from '../payment-button/payment-button.component';
 import Ticket from '../ticket/ticket.component';
 
 import graph from '../../assets/graph.svg';
+import graphButton from '../../assets/graph-button.svg';
+import detailedGraph from '../../assets/detailed-graph.svg';
 
 import './checkout.styles.scss';
 
@@ -35,6 +37,7 @@ const CheckoutBox = ({
   const [childrenCount, setChildrenCount] = useState(0);
   const [totalPrice, setTotalPrice] = useState(ticket_pricing.indian_tourist);
   const [ticketId, setTicketId] = useState('');
+  const [showDetailedGraph, setShowDetailedGraph] = useState(false);
 
   const checkoutRef = useRef(null);
 
@@ -151,128 +154,143 @@ const CheckoutBox = ({
           monumentPlace={monumentPlace}
         />
       ) : (
-        <div className='checkout-box'>
-          <span
-            className='cross-sign'
-            onClick={() => setCheckoutMonumentDetails(null)}
+        <div className='detailed-graph-checkout-wrapper'>
+          {!showDetailedGraph ? (
+            <div className='checkout-box'>
+              <span
+                className='cross-sign'
+                onClick={() => setCheckoutMonumentDetails(null)}
+              >
+                x
+              </span>
+              <div className='checkout-box-child checkout-box-left'>
+                <h1>Payment Details</h1>
+                <div className='user-details'>
+                  <div className='label-input'>
+                    <FormInput
+                      name='username'
+                      type='text'
+                      value={userDetails.username}
+                      onChange={handleChange}
+                    />
+                    <FormInput
+                      name='email'
+                      type='text'
+                      value={userDetails.email}
+                      onChange={handleChange}
+                    />
+                  </div>
+                  <div className='label-input'>
+                    <FormInput
+                      name='phone'
+                      type='text'
+                      value={userDetails.phone}
+                      onChange={handleChange}
+                      placeholder='Phone Number'
+                    />
+                    <FormInput
+                      name='date'
+                      type='date'
+                      value={visitDate}
+                      onChange={e => setVisitDate(e.target.value)}
+                    />
+                  </div>
+                </div>
+                <div className='categories'>
+                  <div className='category-group'>
+                    <input
+                      type='radio'
+                      name='category'
+                      value='indian'
+                      id='indian'
+                    />
+                    <p>
+                      <b>{ticket_pricing.indian_tourist}</b>
+                    </p>
+                    <label htmlFor='indian'>
+                      <span onClick={decrementCount}>&#8722;</span>Indian
+                      <span onClick={incrementCount}>&#x2b;</span>
+                    </label>
+                    <p>
+                      <b> x {indianCount}</b>
+                    </p>
+                  </div>
+                  <div className='category-group'>
+                    <input
+                      type='radio'
+                      name='category'
+                      value='foreigner'
+                      id='foreigner'
+                    />
+                    <p>
+                      <b>{ticket_pricing.foreign_tourist}</b>
+                    </p>
+                    <label htmlFor='foreigner'>
+                      <span onClick={decrementCount}>&#8722;</span>Foreigner
+                      <span onClick={incrementCount}>&#x2b;</span>
+                    </label>
+                    <p>
+                      <b> x {foreignerCount}</b>
+                    </p>
+                  </div>
+                  <div className='category-group'>
+                    <input
+                      type='radio'
+                      name='category'
+                      value='children'
+                      id='children'
+                    />
+                    <p>
+                      <b>{ticket_pricing.children_below_15_years}</b>
+                    </p>
+                    <label htmlFor='children'>
+                      <span onClick={decrementCount}>&#8722;</span>Children
+                      <span onClick={incrementCount}>&#x2b;</span>
+                    </label>
+                    <p>
+                      <b> x {childrenCount}</b>
+                    </p>
+                  </div>
+                </div>
+                <img src={graph} alt='graph' className='graph-img' />
+                <p className='graph-tag'>Real time crowd</p>
+              </div>
+              <div className='checkout-box-child checkout-box-right'>
+                <div className='images'>
+                  {imgs.map((img, idx) => (
+                    <AdvancedImage cldImg={img} key={idx} />
+                  ))}
+                </div>
+                <h3>{monumentName.toUpperCase()}</h3>
+                <h1>Subtotal: Rs. {totalPrice}</h1>
+                <PaymentButton
+                  amount={totalPrice}
+                  indianCount={indianCount}
+                  foreignerCount={foreignerCount}
+                  childrenCount={childrenCount}
+                  phone={userDetails.phone}
+                  monumentName={monumentName}
+                  monumentPlace={monumentPlace}
+                  date={visitDate}
+                  setPaymentSuccess={setPaymentSuccess}
+                  setTicketId={setTicketId}
+                  validateDetails={validateDetails}
+                >
+                  Purchase Now
+                </PaymentButton>
+              </div>
+            </div>
+          ) : (
+            <div className='detailed-graph'>
+              <h1>Crowd Predictor</h1>
+              <img src={detailedGraph} alt='' />
+            </div>
+          )}
+          <div
+            className='graph-button'
+            onClick={() => setShowDetailedGraph(!showDetailedGraph)}
           >
-            x
-          </span>
-          <div className='checkout-box-child checkout-box-left'>
-            <h1>Payment Details</h1>
-            <div className='user-details'>
-              <div className='label-input'>
-                <FormInput
-                  name='username'
-                  type='text'
-                  value={userDetails.username}
-                  onChange={handleChange}
-                />
-                <FormInput
-                  name='email'
-                  type='text'
-                  value={userDetails.email}
-                  onChange={handleChange}
-                />
-              </div>
-              <div className='label-input'>
-                <FormInput
-                  name='phone'
-                  type='text'
-                  value={userDetails.phone}
-                  onChange={handleChange}
-                  placeholder='Phone Number'
-                />
-                <FormInput
-                  name='date'
-                  type='date'
-                  value={visitDate}
-                  onChange={e => setVisitDate(e.target.value)}
-                />
-              </div>
-            </div>
-            <div className='categories'>
-              <div className='category-group'>
-                <input
-                  type='radio'
-                  name='category'
-                  value='indian'
-                  id='indian'
-                />
-                <p>
-                  <b>{ticket_pricing.indian_tourist}</b>
-                </p>
-                <label htmlFor='indian'>
-                  <span onClick={decrementCount}>&#8722;</span>Indian
-                  <span onClick={incrementCount}>&#x2b;</span>
-                </label>
-                <p>
-                  <b> x {indianCount}</b>
-                </p>
-              </div>
-              <div className='category-group'>
-                <input
-                  type='radio'
-                  name='category'
-                  value='foreigner'
-                  id='foreigner'
-                />
-                <p>
-                  <b>{ticket_pricing.foreign_tourist}</b>
-                </p>
-                <label htmlFor='foreigner'>
-                  <span onClick={decrementCount}>&#8722;</span>Foreigner
-                  <span onClick={incrementCount}>&#x2b;</span>
-                </label>
-                <p>
-                  <b> x {foreignerCount}</b>
-                </p>
-              </div>
-              <div className='category-group'>
-                <input
-                  type='radio'
-                  name='category'
-                  value='children'
-                  id='children'
-                />
-                <p>
-                  <b>{ticket_pricing.children_below_15_years}</b>
-                </p>
-                <label htmlFor='children'>
-                  <span onClick={decrementCount}>&#8722;</span>Children
-                  <span onClick={incrementCount}>&#x2b;</span>
-                </label>
-                <p>
-                  <b> x {childrenCount}</b>
-                </p>
-              </div>
-            </div>
-            <img src={graph} alt='graph' className='graph-img' />
-            <p className='graph-tag'>Real time crowd</p>
-          </div>
-          <div className='checkout-box-child checkout-box-right'>
-            <div className='images'>
-              {imgs.map((img, idx) => (
-                <AdvancedImage cldImg={img} key={idx} />
-              ))}
-            </div>
-            <h3>{monumentName.toUpperCase()}</h3>
-            <h1>Subtotal: Rs. {totalPrice}</h1>
-            <PaymentButton
-              amount={totalPrice}
-              indianCount={indianCount}
-              foreignerCount={foreignerCount}
-              childrenCount={childrenCount}
-              phone={userDetails.phone}
-              monumentName={monumentName}
-              monumentPlace={monumentPlace}
-              date={visitDate}
-              setPaymentSuccess={setPaymentSuccess}
-              setTicketId={setTicketId}
-              validateDetails={validateDetails}
-            >
-              Purchase Now
-            </PaymentButton>
+            <img src={graphButton} alt='' />
           </div>
         </div>
       )}
