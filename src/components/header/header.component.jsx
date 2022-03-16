@@ -78,6 +78,7 @@ const Header = ({ currentUser }) => {
               onMouseEnter={e => {
                 setHoverOn(e.target.innerHTML);
                 setPopUp(true);
+                setContactUsHover(false);
               }}
               onClick={() => setPopUp(false)}
             >
@@ -94,6 +95,7 @@ const Header = ({ currentUser }) => {
               onMouseEnter={e => {
                 setHoverOn(e.target.innerHTML);
                 setPopUp(true);
+                setContactUsHover(false);
               }}
             >
               FAQs
@@ -101,7 +103,10 @@ const Header = ({ currentUser }) => {
             <Link
               className='option'
               to='/'
-              onMouseEnter={() => setContactUsHover(true)}
+              onMouseEnter={() => {
+                setContactUsHover(true);
+                setPopUp(false);
+              }}
             >
               Contact us
             </Link>

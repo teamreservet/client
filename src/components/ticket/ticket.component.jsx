@@ -31,7 +31,7 @@ const Ticket = ({
       <div className='ticket-details'>
         <img src={reservetLogo} alt='' className='reservet-logo-test' />
         <p>Ticket Issued To : {issuer}</p>
-        <p>Date: {date}</p>
+        <p>Date: {date.split('-').reverse().join('-')}</p>
         {indianCount ? <p>Indian count: {indianCount}</p> : null}
         {foreignerCount ? <p>Foreigner count: {foreignerCount}</p> : null}
         {childrenCount ? <p>Children count: {childrenCount}</p> : null}

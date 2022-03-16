@@ -54,14 +54,17 @@ const CheckoutBox = ({
     const category = e.target.parentElement.htmlFor;
     switch (category) {
       case 'indian': {
+        if (indianCount + foreignerCount === 5) return;
         setIndianCount(indianCount + 1);
         break;
       }
       case 'foreigner': {
+        if (indianCount + foreignerCount === 5) return;
         setForeignerCount(foreignerCount + 1);
         break;
       }
       case 'children': {
+        if (childrenCount === 3) return;
         setChildrenCount(childrenCount + 1);
         break;
       }
@@ -72,8 +75,9 @@ const CheckoutBox = ({
   const decrementCount = e => {
     const category = e.target.parentElement.htmlFor;
     if (
-      (indianCount === 1 && foreignerCount === 0) ||
-      (indianCount === 0 && foreignerCount === 1)
+      category !== 'children' &&
+      ((indianCount === 1 && foreignerCount === 0) ||
+        (indianCount === 0 && foreignerCount === 1))
     ) {
       return;
     }
@@ -131,6 +135,11 @@ const CheckoutBox = ({
     if (visitDate.length === 0) return false;
     if (userDetails.email.length === 0) return false;
     if (userDetails.username.length === 0) return false;
+    if (
+      new Date(visitDate) >
+      new Date(new Date().setDate(new Date().getDate() + 7))
+    )
+      return false;
     return true;
   };
 
@@ -244,7 +253,8 @@ const CheckoutBox = ({
                       <b>{ticket_pricing.children_below_15_years}</b>
                     </p>
                     <label htmlFor='children'>
-                      <span onClick={decrementCount}>&#8722;</span>Children
+                      <span onClick={decrementCount}>&#8722;</span>
+                      Children
                       <span onClick={incrementCount}>&#x2b;</span>
                     </label>
                     <p>
