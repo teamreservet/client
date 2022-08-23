@@ -15,7 +15,9 @@ const UserDashboard = ({ showDashboard, currentUser, setShowDashboard }) => {
   const [showTicket, setShowTicket] = useState(null);
 
   useEffect(() => {
-    if (currentUser) setUpcomingTrips(currentUser.upcomingTrips);
+    if (currentUser) {
+      setUpcomingTrips(currentUser.trips);
+    }
   }, [currentUser]);
   const data = [
     {

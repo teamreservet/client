@@ -36,7 +36,11 @@ const SignIn = ({ placeholder }) => {
     e.preventDefault();
     setShowLoader(true);
     const { email, password } = formData;
-    await signInWithEmailAndPassword(auth, email, password);
+    try {
+      await signInWithEmailAndPassword(auth, email, password);
+    } catch {
+      window.alert('Auth error please try again!');
+    }
 
     setShowLoader(false);
     setFormData({

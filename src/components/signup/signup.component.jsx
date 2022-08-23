@@ -44,9 +44,11 @@ const SignUp = () => {
     await createUserProfile(serverBaseUrl, email, {
       displayName: `${firstName} ${lastName}`
     });
-
-    await createUserWithEmailAndPassword(auth, email, password);
-
+    try {
+      await createUserWithEmailAndPassword(auth, email, password);
+    } catch {
+      window.alert('Auth error please try again!');
+    }
     setShowLoader(false);
 
     setFormData({
