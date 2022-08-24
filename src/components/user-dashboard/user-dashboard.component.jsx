@@ -12,18 +12,28 @@ import './user-dashboard.styles.scss';
 const UserDashboard = ({ showDashboard, currentUser, setShowDashboard }) => {
   const [selected, setSelected] = useState(-2);
   const [upcomingTrips, setUpcomingTrips] = useState([]);
+  const [prevTrips, setPrevTrips] = useState([]);
   const [showTicket, setShowTicket] = useState(null);
 
   useEffect(() => {
     if (currentUser) {
-      setUpcomingTrips(currentUser.trips);
+      // setUpcomingTrips(currentUser.trips);
+      const today = new Date();
+      setUpcomingTrips([]);
+      setPrevTrips([]);
+      today.setUTCHours(0, 0, 0, 0);
+      for (let trip of currentUser.trips) {
+        const ticketDate = new Date(trip.date);
+        ticketDate.setUTCHours(0, 0, 0, 0);
+        if (ticketDate >= today) {
+          setUpcomingTrips(upcomingTrips => [...upcomingTrips, trip]);
+        } else {
+          setPrevTrips(prevTrips => [...prevTrips, trip]);
+        }
+      }
     }
   }, [currentUser]);
   const data = [
-    {
-      ques: 'Previous Trips',
-      ans: 'No previous Trips'
-    },
     {
       ques: 'Email',
       ans: currentUser ? currentUser.email : ''
@@ -68,11 +78,11 @@ const UserDashboard = ({ showDashboard, currentUser, setShowDashboard }) => {
       </p>
       <div className='toggle'>
         <div className='item'>
-          <div className='questions' onClick={() => toggle(-1)}>
+          <div className='questions' onClick={() => toggle(-2)}>
             <h3>Upcoming Trips</h3>
-            <span>{selected === -1 ? '-' : '+'}</span>
+            <span>{selected === -2 ? '-' : '+'}</span>
           </div>
-          <div className={selected === -1 ? 'description_all' : 'description'}>
+          <div className={selected === -2 ? 'description_all' : 'description'}>
             <div className='ans upcoming-trips'>
               {upcomingTrips.length !== 0
                 ? upcomingTrips.map((trip, idx) => (
@@ -81,6 +91,24 @@ const UserDashboard = ({ showDashboard, currentUser, setShowDashboard }) => {
                     </p>
                   ))
                 : 'No upcoming trips'}
+            </div>
+          </div>
+        </div>
+
+        <div className='item'>
+          <div className='questions' onClick={() => toggle(-1)}>
+            <h3>Previous Trips</h3>
+            <span>{selected === -1 ? '-' : '+'}</span>
+          </div>
+          <div className={selected === -1 ? 'description_all' : 'description'}>
+            <div className='ans upcoming-trips'>
+              {prevTrips.length !== 0
+                ? prevTrips.map((trip, idx) => (
+                    <p key={idx} onClick={() => setShowTicket(trip)}>
+                      {trip.monumentName}, {trip.monumentPlace.split(',')[0]}
+                    </p>
+                  ))
+                : 'No previous trips'}
             </div>
           </div>
         </div>
