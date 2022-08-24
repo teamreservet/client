@@ -5,9 +5,9 @@ import rootReducer from './root-reducer';
 
 let middleware = [];
 
-if (process.env.NODE_ENV !== 'production') {
-  middleware = [logger];
-}
+// if (process.env.NODE_ENV !== 'production') {
+middleware = [logger];
+// }
 
 const store = createStore(rootReducer, applyMiddleware(...middleware));
 
