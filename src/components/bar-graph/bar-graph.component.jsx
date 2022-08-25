@@ -19,6 +19,7 @@ const BarGraph = ({ monument }) => {
   const [ticketCounts, setTicketCounts] = useState([0, 0, 0, 0, 0, 0, 0]);
   const [label, setLabel] = useState(['', '', '', '', '', '', '']);
   const [data, setData] = useState(null);
+  const predicted = [15, 18, 12, 14, 19, 11, 17];
   const today = new Date();
   useEffect(() => {
     for (let ticket of monument.tickets) {
@@ -53,19 +54,30 @@ const BarGraph = ({ monument }) => {
       datasets: [
         {
           // Label for bars
-          label: 'Total Crowd',
+          label: 'Total tickets sold',
           // Data or value of your each variable
           data: ticketCounts,
           // Color of each bar
-          backgroundColor: [
-            'rgb(126, 5, 240)',
-            'rgb(0, 255, 0)',
-            'rgb(255, 0, 0)',
-            'rgb(255, 255, 0)',
-            'rgb(0, 0, 255)',
-            'rgb(255, 72, 31)',
-            'rgb(0, 255, 255)'
+          backgroundColor: 'rgb(126, 5, 240)',
+          // Border color of each bar
+          borderColor: [
+            'black',
+            'black',
+            'black',
+            'black',
+            'black',
+            'black',
+            'black'
           ],
+          borderWidth: 1
+        },
+        {
+          // Label for bars
+          label: 'Expected Crowd',
+          // Data or value of your each variable
+          data: predicted,
+          // Color of each bar
+          backgroundColor: 'rgb(0, 255, 255)',
           // Border color of each bar
           borderColor: [
             'black',
@@ -97,12 +109,12 @@ const BarGraph = ({ monument }) => {
                 beginAtZero: true,
                 stepSize: 1
               }
-            },
-            plugins: {
-              legend: {
-                display: false
-              }
             }
+            // plugins: {
+            //   legend: {
+            //     display: false
+            //   }
+            // }
           }}
         />
       ) : null}
