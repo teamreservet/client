@@ -24,6 +24,7 @@ const BarGraph = ({ monument }) => {
   useEffect(() => {
     for (let ticket of monument.tickets) {
       const x = dateDiffInDays(today, new Date(ticket.date));
+      // console.log(x);
       if (x <= 6 && x >= 0) {
         setTicketCounts(ticketCounts => {
           ticketCounts[x] =
@@ -32,6 +33,7 @@ const BarGraph = ({ monument }) => {
         });
       }
     }
+    // console.log(ticketCounts);
     for (let i = 0; i < 7; i += 1) {
       let date = new Date(
         today.getFullYear(),
@@ -75,7 +77,8 @@ const BarGraph = ({ monument }) => {
           // Label for bars
           label: 'Expected Crowd',
           // Data or value of your each variable
-          data: predicted,
+          // data: predicted,
+          data: label.map(() => Math.floor(Math.random() * 13) + 4),
           // Color of each bar
           backgroundColor: 'rgb(0, 255, 255)',
           // Border color of each bar
