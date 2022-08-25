@@ -46,8 +46,8 @@ const SignUp = () => {
     });
     try {
       await createUserWithEmailAndPassword(auth, email, password);
-    } catch {
-      window.alert('Auth error please try again!');
+    } catch (err) {
+      window.alert(err.message);
     }
     setShowLoader(false);
 

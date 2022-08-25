@@ -38,8 +38,8 @@ const SignIn = ({ placeholder }) => {
     const { email, password } = formData;
     try {
       await signInWithEmailAndPassword(auth, email, password);
-    } catch {
-      window.alert('Auth error please try again!');
+    } catch (err) {
+      window.alert(err.message);
     }
 
     setShowLoader(false);
