@@ -7,12 +7,14 @@ import { fill } from '@cloudinary/url-gen/actions/resize';
 import FormInput from '../form-input/form-input.component';
 import PaymentButton from '../payment-button/payment-button.component';
 import Ticket from '../ticket/ticket.component';
+import BarGraph from '../bar-graph/bar-graph.component';
 
 import graph from '../../assets/graph.svg';
 import graphButton from '../../assets/graph-button.svg';
 import detailedGraph from '../../assets/detailed-graph.svg';
 
 import './checkout.styles.scss';
+import LineGraph from '../line-graph/line-graph.component';
 
 const CheckoutBox = ({
   checkoutMonumentDetails,
@@ -262,7 +264,8 @@ const CheckoutBox = ({
                     </p>
                   </div>
                 </div>
-                <img src={graph} alt='graph' className='graph-img' />
+                {/* <img src={graph} alt='graph' className='graph-img' /> */}
+                <LineGraph monument={checkoutMonumentDetails} />
                 <p className='graph-tag'>Real time crowd</p>
               </div>
               <div className='checkout-box-child checkout-box-right'>
@@ -293,7 +296,8 @@ const CheckoutBox = ({
           ) : (
             <div className='detailed-graph'>
               <h1>Crowd Predictor</h1>
-              <img src={detailedGraph} alt='' />
+              {/* <img src={detailedGraph} alt='' /> */}
+              <BarGraph monument={checkoutMonumentDetails} />
             </div>
           )}
           <div
