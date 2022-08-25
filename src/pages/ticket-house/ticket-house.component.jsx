@@ -5,6 +5,7 @@ import Loader from '../../components/loader/loader.component';
 import MounmentCard from '../../components/monument-card/monument-card.component';
 import FilterCard from '../../components/filter-card/filter-card.component';
 import CheckoutBox from '../../components/checkout/checkout.component';
+import Chatbot from '../../components/chat-bot/chat-bot.component';
 
 import { searchQueryContext } from '../../contexts';
 
@@ -39,6 +40,7 @@ const TicketHouse = ({ monuments, statesData }) => {
     <div className='ticket-house'>
       <h1 className='heading'>Ticket Counter</h1>
       <div className='background' />
+      <Chatbot />
       {checkoutMonumentDetails && (
         <div
           className='checkout-box-wrapper'
