@@ -148,11 +148,7 @@ const CheckoutBox = ({
     if (visitDate.length === 0) return false;
     if (userDetails.email.length === 0) return false;
     if (userDetails.username.length === 0) return false;
-    if (
-      new Date(visitDate) >
-      new Date(new Date().setDate(new Date().getDate() + 7))
-    )
-      return false;
+    if (new Date(visitDate) < new Date(new Date())) return false;
     return true;
   };
 
@@ -213,8 +209,18 @@ const CheckoutBox = ({
                     <FormInput
                       name='date'
                       type='date'
+                      min={(() => {
+                        const today = new Date();
+                        return `${today.getFullYear()}-${
+                          today.getMonth() + 1 >= 10
+                            ? today.getMonth() + 1
+                            : '0' + (today.getMonth() + 1)
+                        }-${today.getDate()}`;
+                      })()}
                       value={visitDate}
-                      onChange={e => setVisitDate(e.target.value)}
+                      onChange={e => {
+                        setVisitDate(e.target.value);
+                      }}
                     />
                   </div>
                 </div>

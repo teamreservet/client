@@ -72,6 +72,13 @@ const Header = ({ currentUser }) => {
                 </div>
               </div>
             ) : null}
+            {currentUser && currentUser.isGateKeeper ? (
+              <div>
+                <Link className='option' to='/verify-ticket'>
+                  Verify Ticket
+                </Link>
+              </div>
+            ) : null}
             <Link
               className='option'
               to='/ticket-house'
