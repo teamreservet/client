@@ -1,22 +1,27 @@
 .ticket {
-  width: 600px;
-  height: 350px;
+  width: 800px;
+  height: 440px;
   margin: auto;
   border: 1px solid black;
   display: flex;
   border-radius: 20px;
   font-family: 'Josefin Sans', sans-serif;
 
-  background: conic-gradient(from 180deg, #008cf1, white);
+  background: linear-gradient( #008cf1, white);
 
   .ticket-qr-wrapper {
     width: 50%;
     height: 100%;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    justify-content: center;
+   
+    
     margin-left: 20px;
     justify-content: center;
+    position: relative;
+    
+    top: auto;
     h3 {
       font-size: 16px;
       text-align: center;
@@ -28,12 +33,8 @@
         'Helvetica Neue', sans-serif;
       font-size: 24px;
       margin: 10px;
-
-      .tid {
-        color: red;
-        font-weight: 600;
-      }
     }
+    
   }
   .ticket-details {
     display: flex;
@@ -41,14 +42,23 @@
     align-items: center;
     justify-content: space-evenly;
     margin-left: 10px;
-    margin-top: 5%;
+    margin-top: 4%;
     height: 80%;
     font-size: 16px;
 
     .reservet-logo-test {
       width: 30%;
-      margin-top: 60px;
-      margin-bottom: 20px;
+      margin-top: 40px;
+      // margin-bottom: 5px;
+    }
+    .booking-status {
+      background: green;
+      color: white;
+      display: inline-block;
+      border-radius: 30px;
+      height: 100%;
+      width: 250px;
+      text-align: center;
     }
     p {
       margin: 10px 0 0;
@@ -56,6 +66,11 @@
     .subtotal {
       align-items: center;
       font-size: 30px;
+    }
+    .tid {
+      color: red;
+      font-weight: 300;
+
     }
   }
 }
