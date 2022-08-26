@@ -282,7 +282,7 @@ const CheckoutBox = ({
                   </div>
                 </div>
                 <BarGraph monument={checkoutMonumentDetails} height={300} />
-                <p className='graph-tag'>Real time crowd</p>
+                <p className='graph-tag'>Tickets booked vs Expected crowd</p>
               </div>
               <div className='checkout-box-child checkout-box-right'>
                 <div className='images'>
