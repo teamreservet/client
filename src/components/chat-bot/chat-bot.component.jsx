@@ -66,7 +66,7 @@ const theme = {
   headerFontSize: '20px',
   botBubbleColor: '#296dff',
   headerFontColor: 'black',
-  botFontColor: 'black',
+  botFontColor: 'white',
   userBubbleColor: '#29cdff',
   userFontColor: 'black'
 };
