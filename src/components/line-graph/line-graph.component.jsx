@@ -14,7 +14,7 @@ function dateDiffInDays(a, b) {
   return Math.floor((utc2 - utc1) / _MS_PER_DAY);
 }
 
-const LineGraph = ({ monument }) => {
+const LineGraph = ({ monument, height, width }) => {
   const [ticketCounts, setTicketCounts] = useState([0, 0, 0, 0, 0, 0, 0]);
   const [label, setLabel] = useState(['', '', '', '', '', '', '']);
   const [data, setData] = useState(null);
@@ -57,11 +57,11 @@ const LineGraph = ({ monument }) => {
           data: ticketCounts,
           // Color of each bar
           backgroundColor: [
-            'rgb(126, 5, 240)',
+            'rgb(0, 0, 255)',
             'rgb(0, 255, 0)',
             'rgb(255, 0, 0)',
             'rgb(255, 255, 0)',
-            'rgb(0, 0, 255)',
+            'rgb(126, 5, 240)',
             'rgb(255, 72, 31)',
             'rgb(0, 255, 255)'
           ],
@@ -73,12 +73,15 @@ const LineGraph = ({ monument }) => {
   }, [monument]);
 
   return (
-    <div style={{ width: '62%', marginTop: '20px' }}>
+    <div
+      style={{ width: width, margin: '20px', marginBottom: '0px' }}
+      className='line-graph'
+    >
       {data ? (
         <Line
           data={data}
           // Height of graph
-          height={230}
+          height={height}
           options={{
             maintainAspectRatio: false,
             scales: {
@@ -86,11 +89,6 @@ const LineGraph = ({ monument }) => {
                 // The y-axis value will start from zero
                 beginAtZero: true,
                 stepSize: 1
-              }
-            },
-            plugins: {
-              legend: {
-                display: false
               }
             }
           }}

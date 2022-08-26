@@ -4,13 +4,16 @@ import { connect } from 'react-redux';
 
 import FormInput from '../../../components/form-input/form-input.component';
 import Loader from '../../../components/loader/loader.component';
+import InputCSV from '../../../components/input-csv/input-csv.component';
 
 import { serverBaseUrlContext } from '../../../contexts';
 
 import './new-monument.styles.scss';
+import { useEffect } from 'react';
 
 const NewMonument = ({ currentUser }) => {
   const serverBaseUrl = useContext(serverBaseUrlContext);
+  const [jsonDataSet, setJsonDataSet] = useState(null);
   const [disabled, setDisabled] = useState(false);
   const [showLoader, setShowLoader] = useState(false);
   const [formData, setFormData] = useState({
@@ -85,9 +88,29 @@ const NewMonument = ({ currentUser }) => {
     });
   };
 
+  useEffect(async () => {
+    if (jsonDataSet != null) {
+      console.log(jsonDataSet);
+      setShowLoader(true);
+      const res = await axios.post(
+        `${serverBaseUrl}/api/monuments/upload_many`,
+        jsonDataSet,
+        {
+          headers: {
+            'x-api-authentication': currentUser.token
+          }
+        }
+      );
+      console.log(res);
+      setShowLoader(false);
+      setJsonDataSet(null);
+    }
+  }, [jsonDataSet]);
+
   return (
     <div className='new-monument-container'>
       {showLoader ? <Loader /> : null}
+      <InputCSV setJsonDataSet={setJsonDataSet} />
       <h1 className='heading'>ADD NEW MONUMENTS</h1>
       <div className='background' />
       <form

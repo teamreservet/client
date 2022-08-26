@@ -9,9 +9,8 @@ import PaymentButton from '../payment-button/payment-button.component';
 import Ticket from '../ticket/ticket.component';
 import BarGraph from '../bar-graph/bar-graph.component';
 
-import graph from '../../assets/graph.svg';
 import graphButton from '../../assets/graph-button.svg';
-import detailedGraph from '../../assets/detailed-graph.svg';
+import arrow from '../../assets/arrow.svg';
 
 import './checkout.styles.scss';
 import LineGraph from '../line-graph/line-graph.component';
@@ -125,9 +124,21 @@ const CheckoutBox = ({
   const imgs = images.map((image, idx) => {
     const img = cld.image(image);
     if (idx === 1) {
-      img.resize(fill().width(250).height(200)).quality(100);
+      img
+        .resize(
+          fill()
+            .width(250)
+            .height(200)
+        )
+        .quality(100);
     } else {
-      img.resize(fill().width(100).height(80)).quality(100);
+      img
+        .resize(
+          fill()
+            .width(100)
+            .height(80)
+        )
+        .quality(100);
     }
     return img;
   });
@@ -264,8 +275,7 @@ const CheckoutBox = ({
                     </p>
                   </div>
                 </div>
-                {/* <img src={graph} alt='graph' className='graph-img' /> */}
-                <LineGraph monument={checkoutMonumentDetails} />
+                <BarGraph monument={checkoutMonumentDetails} height={300} />
                 <p className='graph-tag'>Real time crowd</p>
               </div>
               <div className='checkout-box-child checkout-box-right'>
@@ -296,12 +306,33 @@ const CheckoutBox = ({
           ) : (
             <div className='detailed-graph'>
               <h1>Crowd Predictor</h1>
-              {/* <img src={detailedGraph} alt='' /> */}
-              <BarGraph monument={checkoutMonumentDetails} />
+              <div className='graphs'>
+                <LineGraph
+                  monument={checkoutMonumentDetails}
+                  height={400}
+                  width='400px'
+                />
+                <BarGraph
+                  monument={checkoutMonumentDetails}
+                  height={400}
+                  width='500px'
+                />
+              </div>
             </div>
           )}
           <div
-            className='graph-button'
+            className='graph-button-1'
+            onClick={() => setShowDetailedGraph(!showDetailedGraph)}
+          >
+            {!showDetailedGraph ? (
+              <p>Detailed Crowd Prediction</p>
+            ) : (
+              <p>Continue to payment</p>
+            )}
+            <img src={arrow} alt='' />
+          </div>
+          <div
+            className='graph-button-2'
             onClick={() => setShowDetailedGraph(!showDetailedGraph)}
           >
             <img src={graphButton} alt='' />

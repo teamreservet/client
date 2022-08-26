@@ -1,15 +1,18 @@
+import { useContext } from 'react';
 import { connect } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
 
 import CustomButtom from '../custom-button/custom-button.component';
 import SignIn from '../signin/signin.component';
+
+import { showDashboardContext } from '../../contexts';
+import { auth, signOut } from '../../firebase/firebase.utils';
 
 import logo from '../../assets/reservet-logo.png';
 
 import './mobile-layout.styles.scss';
 
 const MobileLayout = ({ currentUser }) => {
-  const navigate = useNavigate();
+  const [showDashboard, setShowDashboard] = useContext(showDashboardContext);
   return (
     <div className='mobile-layout'>
       <span className='notch' />
@@ -17,12 +20,21 @@ const MobileLayout = ({ currentUser }) => {
         <div>
           <img src={logo} alt='logo' className='logo' />
         </div>
-        <CustomButtom bookNow onClick={() => navigate('/ticket-house')}>
-          BOOK NOW
-        </CustomButtom>
+        {currentUser ? (
+          <CustomButtom
+            onClick={async () => {
+              setShowDashboard(false);
+              await signOut(auth);
+            }}
+          >
+            SIGN OUT
+          </CustomButtom>
+        ) : null}
         <div className='mobile-layout-signin'>
           {currentUser ? (
-            <p>Welcome {currentUser.displayName}, we are glad to see you!</p>
+            <p>
+              Welcome <b>{currentUser.displayName}</b>, we are glad to see you!
+            </p>
           ) : (
             <SignIn placeholder={true} />
           )}

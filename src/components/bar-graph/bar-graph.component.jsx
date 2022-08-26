@@ -15,11 +15,10 @@ function dateDiffInDays(a, b) {
   return Math.floor((utc2 - utc1) / _MS_PER_DAY);
 }
 
-const BarGraph = ({ monument }) => {
+const BarGraph = ({ monument, height, width }) => {
   const [ticketCounts, setTicketCounts] = useState([0, 0, 0, 0, 0, 0, 0]);
   const [label, setLabel] = useState(['', '', '', '', '', '', '']);
   const [data, setData] = useState(null);
-  const predicted = [15, 18, 12, 14, 19, 11, 17];
   const today = new Date();
   useEffect(() => {
     for (let ticket of monument.tickets) {
@@ -56,21 +55,13 @@ const BarGraph = ({ monument }) => {
       datasets: [
         {
           // Label for bars
-          label: 'Total tickets sold',
+          label: 'Tickets booked',
           // Data or value of your each variable
           data: ticketCounts,
           // Color of each bar
-          backgroundColor: 'rgb(126, 5, 240)',
+          backgroundColor: '#2525ff',
           // Border color of each bar
-          borderColor: [
-            'black',
-            'black',
-            'black',
-            'black',
-            'black',
-            'black',
-            'black'
-          ],
+          borderColor: 'black',
           borderWidth: 1
         },
         {
@@ -82,15 +73,7 @@ const BarGraph = ({ monument }) => {
           // Color of each bar
           backgroundColor: 'rgb(0, 255, 255)',
           // Border color of each bar
-          borderColor: [
-            'black',
-            'black',
-            'black',
-            'black',
-            'black',
-            'black',
-            'black'
-          ],
+          borderColor: 'black',
           borderWidth: 1
         }
       ]
@@ -98,12 +81,12 @@ const BarGraph = ({ monument }) => {
   }, [monument]);
 
   return (
-    <div style={{ width: '62%' }}>
+    <div style={{ width: width }}>
       {data ? (
         <Bar
           data={data}
           // Height of graph
-          height={400}
+          height={height}
           options={{
             maintainAspectRatio: false,
             scales: {

@@ -10,7 +10,7 @@ import usericon from '../../assets/user-icon.svg';
 import './user-dashboard.styles.scss';
 
 const UserDashboard = ({ showDashboard, currentUser, setShowDashboard }) => {
-  const [selected, setSelected] = useState(-2);
+  const [selected, setSelected] = useState(null);
   const [upcomingTrips, setUpcomingTrips] = useState([]);
   const [prevTrips, setPrevTrips] = useState([]);
   const [showTicket, setShowTicket] = useState(null);
@@ -40,7 +40,8 @@ const UserDashboard = ({ showDashboard, currentUser, setShowDashboard }) => {
     },
     {
       ques: 'About us',
-      ans: 'Reservet is an online portal that allows user to buy e-tickets from anywhere and at anytime. A completely contactless ticketing environment that solely focuses on eradicating the use of paper in this domain.'
+      ans:
+        'Reservet is an online portal that allows user to buy e-tickets from anywhere and at anytime. A completely contactless ticketing environment that solely focuses on eradicating the use of paper in this domain.'
     },
     {
       ques: 'Customer Support',
@@ -87,7 +88,12 @@ const UserDashboard = ({ showDashboard, currentUser, setShowDashboard }) => {
               {upcomingTrips.length !== 0
                 ? upcomingTrips.map((trip, idx) => (
                     <p key={idx} onClick={() => setShowTicket(trip)}>
-                      {trip.monumentName}, {trip.monumentPlace.split(',')[0]}, ({trip.date.split('-').reverse().join('-')})
+                      {trip.monumentName}, {trip.monumentPlace.split(',')[0]}, (
+                      {trip.date
+                        .split('-')
+                        .reverse()
+                        .join('-')}
+                      )
                     </p>
                   ))
                 : 'No upcoming trips'}
@@ -105,7 +111,12 @@ const UserDashboard = ({ showDashboard, currentUser, setShowDashboard }) => {
               {prevTrips.length !== 0
                 ? prevTrips.map((trip, idx) => (
                     <p key={idx} onClick={() => setShowTicket(trip)}>
-                      {trip.monumentName}, {trip.monumentPlace.split(',')[0]},  ({trip.date.split('-').reverse().join('-')})
+                      {trip.monumentName}, {trip.monumentPlace.split(',')[0]}, (
+                      {trip.date
+                        .split('-')
+                        .reverse()
+                        .join('-')}
+                      )
                     </p>
                   ))
                 : 'No previous trips'}

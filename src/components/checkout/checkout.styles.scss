@@ -161,7 +161,24 @@
       }
     }
   }
-  .graph-button {
+  .graph-button-1 {
+    width: 250px;
+    position: absolute;
+    bottom: 3px;
+    right: 100px;
+    cursor: pointer;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    img {
+      width: 30%;
+    }
+    p {
+      font-weight: 800;
+    }
+  }
+
+  .graph-button-2 {
     width: 50px;
     position: absolute;
     bottom: 15px;
@@ -181,21 +198,21 @@
     width: 100%;
     height: 100%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     position: relative;
 
     h1 {
-      position: absolute;
-      top: 20px;
-      left: 50px;
+      text-align: center;
       border: 2px solid black;
       padding: 5px 20px;
       border-radius: 10px;
     }
-
-    img {
-      width: 90%;
+    .graphs {
+      // width: 100%;
+      display: flex;
+      flex-direction: row;
     }
   }
 }
