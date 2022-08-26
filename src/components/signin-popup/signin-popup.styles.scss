@@ -1,0 +1,52 @@
+.signin-popup {
+  text-align: center;
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  background-color: rgba(215, 215, 215, 0.5);
+  z-index: 20;
+
+  .inner-div {
+    background: linear-gradient(rgb(48, 48, 231) 64%, white 32%);
+    width: 650px;
+    height: 400px;
+    margin: auto;
+    position: absolute;
+    top: 150px;
+    left: 450px;
+    border: 1px solid black;
+    border-radius: 10px;
+
+    .edit-pop {
+      margin-top: 40px;
+      width: 200px;
+      height: 100px;
+    }
+    h2 {
+      display: inline-block;
+      background-color: green;
+      width: 350px;
+      height: 50px;
+      border-radius: 30px;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      margin: auto;
+    }
+    h1 {
+      color: white;
+    }
+    .mode {
+      display: flex;
+      flex-direction: row-reverse;
+      position: relative;
+      top: 35px;
+      right: 10px;
+      color: red;
+    }
+  }
+}

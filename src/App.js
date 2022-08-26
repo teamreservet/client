@@ -14,6 +14,7 @@ import Header from './components/header/header.component';
 import NotFound from './components/not-found/not-found.component';
 import SignUp from './components/signup/signup.component';
 import SignIn from './components/signin/signin.component';
+import SignInPopup from './components/signin-popup/signin-popup.component';
 
 import {
   onAuthStateChanged,
@@ -33,7 +34,9 @@ import {
 
 import './App.css';
 
-function App({ setCurrentUser, loadMonuments, loadStates }) {
+function App({ currentUser, setCurrentUser, loadMonuments, loadStates }) {
+  const [shopSignInPopup, setShowSignInPopUp] = useState(false);
+
   // base url of our server
   const baseUrl =
     process.env.NODE_ENV !== 'production'
@@ -46,11 +49,12 @@ function App({ setCurrentUser, loadMonuments, loadStates }) {
       if (user) {
         const currentUser = await getUserProfile(baseUrl, user);
         setCurrentUser(currentUser);
+        setShowSignInPopUp(true);
       } else {
         setCurrentUser(user);
       }
     });
-  });
+  }, []);
 
   // Load monuments
   useEffect(() => {
@@ -58,7 +62,7 @@ function App({ setCurrentUser, loadMonuments, loadStates }) {
       const { data } = await axios.get(`${baseUrl}/api/monuments`);
       loadMonuments(data);
     })();
-  });
+  }, []);
 
   // Get States data
   useEffect(() => {
@@ -66,7 +70,7 @@ function App({ setCurrentUser, loadMonuments, loadStates }) {
       const { data } = await axios.get(`${baseUrl}/api/states`);
       loadStates(data);
     })();
-  });
+  }, []);
 
   const [searchQuery, setSearchQuery] = useState('');
   const [showDashboard, setShowDashboard] = useState(false);
@@ -78,6 +82,14 @@ function App({ setCurrentUser, loadMonuments, loadStates }) {
           value={[showDashboard, setShowDashboard]}
         >
           <div className='App' onClick={() => setShowDashboard(false)}>
+            {shopSignInPopup ? (
+              <div>
+                <SignInPopup
+                  setShowSignInPopUp={setShowSignInPopUp}
+                  currentUser={currentUser}
+                />
+              </div>
+            ) : null}
             <Header />
             <Routes>
               <Route path='/' element={<HomePage />} />
@@ -100,10 +112,14 @@ function App({ setCurrentUser, loadMonuments, loadStates }) {
   );
 }
 
+const mapStateToProps = state => ({
+  currentUser: state.user.currentUser
+});
+
 const mapDispatchToProps = dispatch => ({
   setCurrentUser: user => dispatch(setCurrentUser(user)),
   loadMonuments: monuments => dispatch(loadMonuments(monuments)),
   loadStates: statesData => dispatch(loadStates(statesData))
 });
 
-export default connect(null, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);
