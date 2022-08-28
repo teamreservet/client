@@ -1,6 +1,6 @@
 const NotFound = () => (
   <div>
-    <h1> !! PATH IS INVALID !!</h1>
+    <h1> Invalid Path </h1>
   </div>
 );
 
