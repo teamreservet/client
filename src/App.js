@@ -9,9 +9,10 @@ import { Routes, Route } from 'react-router-dom';
 import HomePage from './pages/homepage/homepage.component';
 import SignUpAndLogInPage from './pages/sign-up-log-in-page/sign-up-log-in-page.component';
 import TicketHouse from './pages/ticket-house/ticket-house.component';
-import Admin from './pages/admin/admin.component';
 import NewMonument from './pages/admin/new-monument/new-monument.component';
 import VerifyTicket from './pages/admin/verify-ticket/verify-ticket.component';
+import Admin from './pages/admin/admin.component';
+
 
 import Header from './components/header/header.component';
 import NotFound from './components/not-found/not-found.component';
