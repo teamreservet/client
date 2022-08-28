@@ -1,7 +1,10 @@
-import { useEffect, useState } from 'react';
-import { Routes, Route } from 'react-router-dom';
+
+
 import { connect } from 'react-redux';
+import { useEffect, useState } from 'react';
 import axios from 'axios';
+import { Routes, Route } from 'react-router-dom';
+
 
 import HomePage from './pages/homepage/homepage.component';
 import SignUpAndLogInPage from './pages/sign-up-log-in-page/sign-up-log-in-page.component';
@@ -12,6 +15,7 @@ import VerifyTicket from './pages/admin/verify-ticket/verify-ticket.component';
 
 import Header from './components/header/header.component';
 import NotFound from './components/not-found/not-found.component';
+
 import SignUp from './components/signup/signup.component';
 import SignIn from './components/signin/signin.component';
 import SignInPopup from './components/signin-popup/signin-popup.component';
