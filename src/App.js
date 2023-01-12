@@ -1,10 +1,7 @@
-
-
 import { connect } from 'react-redux';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Routes, Route } from 'react-router-dom';
-
 
 import HomePage from './pages/homepage/homepage.component';
 import SignUpAndLogInPage from './pages/sign-up-log-in-page/sign-up-log-in-page.component';
@@ -12,7 +9,6 @@ import TicketHouse from './pages/ticket-house/ticket-house.component';
 import NewMonument from './pages/admin/new-monument/new-monument.component';
 import VerifyTicket from './pages/admin/verify-ticket/verify-ticket.component';
 import Admin from './pages/admin/admin.component';
-
 
 import Header from './components/header/header.component';
 import NotFound from './components/not-found/not-found.component';
@@ -46,7 +42,7 @@ function App({ currentUser, setCurrentUser, loadMonuments, loadStates }) {
   const baseUrl =
     process.env.NODE_ENV !== 'production'
       ? 'http://localhost:8080'
-      : 'https://teamreservet.herokuapp.com';
+      : 'https://server-teamreservet.vercel.app';
 
   // Auth change listner
   useEffect(() => {
