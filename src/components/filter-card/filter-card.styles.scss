@@ -8,6 +8,7 @@
   margin: 10px 0px;
   overflow: hidden;
   cursor: pointer;
+  transition: transform 300ms;
 
   &.monuments-card {
     background: linear-gradient(#a2daff, #638cff);
@@ -30,7 +31,6 @@
       z-index: -1;
     }
     transform: scale(1.08);
-    transition: all 300ms;
   }
 
   .filter-img {

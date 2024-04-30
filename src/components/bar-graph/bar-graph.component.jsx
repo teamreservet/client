@@ -63,19 +63,19 @@ const BarGraph = ({ monument, height, width }) => {
           // Border color of each bar
           borderColor: 'black',
           borderWidth: 1
-        },
-        {
-          // Label for bars
-          label: 'Expected Crowd',
-          // Data or value of your each variable
-          // data: predicted,
-          data: label.map(() => Math.floor(Math.random() * 13) + 4),
-          // Color of each bar
-          backgroundColor: 'rgb(0, 255, 255)',
-          // Border color of each bar
-          borderColor: 'black',
-          borderWidth: 1
         }
+        // {
+        //   // Label for bars
+        //   label: 'Expected Crowd',
+        //   // Data or value of your each variable
+        //   // data: predicted,
+        //   data: label.map(() => Math.floor(Math.random() * 13) + 4),
+        //   // Color of each bar
+        //   backgroundColor: 'rgb(0, 255, 255)',
+        //   // Border color of each bar
+        //   borderColor: 'black',
+        //   borderWidth: 1
+        // }
       ]
     });
   }, [monument]);

@@ -282,7 +282,7 @@ const CheckoutBox = ({
                   </div>
                 </div>
                 <BarGraph monument={checkoutMonumentDetails} height={300} />
-                <p className='graph-tag'>Tickets booked vs Expected crowd</p>
+                <p className='graph-tag'>Tickets booked</p>
               </div>
               <div className='checkout-box-child checkout-box-right'>
                 <div className='images'>
@@ -326,7 +326,7 @@ const CheckoutBox = ({
               </div>
             </div>
           )}
-          <div
+          {/* <div
             className='graph-button-1'
             onClick={() => setShowDetailedGraph(!showDetailedGraph)}
           >
@@ -342,7 +342,7 @@ const CheckoutBox = ({
             onClick={() => setShowDetailedGraph(!showDetailedGraph)}
           >
             <img src={graphButton} alt='' />
-          </div>
+          </div> */}
         </div>
       )}
     </div>

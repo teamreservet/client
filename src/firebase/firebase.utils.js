@@ -47,7 +47,7 @@ const getUserProfile = async (baseUrl, user) => {
       'Error searching user from the server, and the error message is ',
       err.message
     );
-    return null;
+    return {};
   }
 };
 
